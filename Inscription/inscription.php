@@ -7,9 +7,9 @@
 	<meta name="author" content="Hadrien" />
 	
 	<link href='inscription.css' rel='stylesheet' />
-	<link href='../iconselect/css/lib/control/iconselect.css' rel='stylesheet' />
+	<link href='../plugins/iconselect/css/lib/control/iconselect.css' rel='stylesheet' />
 	
-	 <script src="../iconselect/lib/control/iconselect.js"></script>
+	 <script src="../plugins/iconselect/lib/control/iconselect.js"></script>
 	
 	<title>Inscription</title>
 </head>
@@ -18,38 +18,45 @@
 
 	<form method="post">
 	
-		<div class="infos">
-			<div class="nom">
-				<input type="text" name="nom" value="Nom" required />
+		<div class="infosClavier">
+			<div class="infos">
+				<div class="nom">
+					<input type="text" name="nom" value="Nom" />
+				</div>
+				
+				<div class="prenom">
+					<input type="text" name="prenom" value="Prénom" />
+				</div>
+				
+				<div class="login">
+					<input type="text" name="login" value="Nom d'utilisateur" />
+				</div>
+				
+				<div class="mail">
+					<input type="text" name="mail" value="Adresse mail" />
+				</div>
 			</div>
 			
-			<div class="prenom">
-				<input type="text" name="prenom" value="Prénom" required />
-			</div>
-			
-			<div class="login">
-				<input type="text" name="login" value="Nom d'utilisateur" required />
-			</div>
-			
-			<div class="mail">
-				<input type="text" name="mail" value="Adresse mail" required />
+			<div class="password">
+				<div class="pass">
+					<label>Mot de passe :</label> <br/>
+					<input type="password" name="mdp1" />
+				</div>
+				
+				<div class="passConfirm">
+					<label>Confirmer le mot de passe :</label> <br/>
+					<input type="password" name="mdp2" />
+				</div>
 			</div>
 		</div>
 		
-		<div class="password">
-			<div class="pass">
-			<label>Mot de passe :</label> <br/>
-				<input type="password" name="mdp1" value="Password" required />
-			</div>
-			
-			<div class="passConfirm">
-			<label>Confirmer le mot de passe :</label> <br/>
-				<input type="password" name="mdp2" value="drowssaP" required />
-			</div>
+		<div class="button">
+			<input type="submit" value="S'inscrire"/>
+			<input type="reset" value="Effacer"/>
 		</div>
 		
 		<div class="color">
-			<label> Couleur :</label>
+			<label id="color"> Couleur :</label>
 			<div id="my-icon-select">
 				<script type="text/javascript">
 					var iconSelect;
@@ -86,11 +93,6 @@
 				</script>
 			</div>
 		</div>		
-		
-		<div class="button">
-			<input type="submit" value="S'inscrire"/>
-			<input type="reset" value="Effacer"/>
-		</div>
 		
 	</form>
 	
