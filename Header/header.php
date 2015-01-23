@@ -93,15 +93,17 @@
 			<script src='../bootstrap/dist/js/bootstrap.min.js'></script>
 			<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 			<script src='../bootstrap/assets/js/ie10-viewport-bug-workaround.js'></script>
+
+
 		</header>
-			<!-- Pour le calendrier fullcalendar version 2.2.6 -->
+
+						<!-- Pour le calendrier fullcalendar version 2.2.6 -->
 		<link rel="stylesheet" href="fullcalendar/fullcalendar.css" />
 		<script src="fullcalendar/lib/jquery.min.js"></script> 
 		<script src="fullcalendar/lib/moment.min.js"></script>
 		<script src="fullcalendar/fullcalendar.js"></script>
 		<script src='fullcalendar/lang/fr.js'></script>
-
-						<script>
+								<script>
 $(document).ready(function() {
 
     // page is now ready, initialize the calendar...
@@ -113,6 +115,8 @@ $(document).ready(function() {
     });
 
 });		</script>
+
+
 				<div id="calendar"></div>
 	</body>
 </html>
