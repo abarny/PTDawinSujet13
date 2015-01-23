@@ -7,16 +7,7 @@
   margin-bottom: 20px;
 }
 
-.navbar-brand {
-	height:auto;
-}
-
 .logo {
 	height:50px;
 	width:auto;
-}
-
-li a {
-	text-align:center;
-	margin-top:15px;
 }

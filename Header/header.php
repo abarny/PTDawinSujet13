@@ -27,6 +27,8 @@
 		<header>
 	
 			<div class='container'>
+			
+			<img class ='logo' src='ressources/Logo.png' alt='Logo TeamShare'>
 	
 				<!-- Static navbar -->
 				<nav class='navbar navbar-default'>
@@ -38,7 +40,7 @@
 								<span class='icon-bar'></span>
 								<span class='icon-bar'></span>
 							</button>
-							<a class='navbar-brand' href='#'><img class ='logo' src='ressources/Logo.png' alt='Logo TeamShare'></a>
+							<!-- <a class='navbar-brand' href='#'></a>-->
 						</div>
 						<div id='navbar' class='navbar-collapse collapse'>
 							<ul class='nav navbar-nav'>
