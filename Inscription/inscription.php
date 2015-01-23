@@ -12,6 +12,7 @@
 	 <script src="../plugins/iconselect/lib/control/iconselect.js"></script>
 	
 	<title>Inscription</title>
+	
 </head>
 
 <body>
@@ -52,7 +53,7 @@
 		
 		<div class="button">
 			<input type="submit" value="S'inscrire"/>
-			<input type="reset" value="Effacer"/>
+			<input type="reset" value="Réinitialiser"/>
 		</div>
 		
 		<div class="color">
@@ -96,6 +97,10 @@
 		
 	</form>
 	
+	<?php
+		include('verifInscription.php');
+	?>
+
 </body>
 
 </html>

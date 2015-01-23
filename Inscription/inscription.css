@@ -5,7 +5,10 @@
 
 form {
 	/* top, right, bottom, left */
-	margin: 50px 20px 20px 500px;
+	/* margin: 50px 20px 20px 500px; */
+	
+	/* Temporaire, le temps de travailler avec 2 fenêtres */
+	margin-left:50px;
 }
 
 input[type=text] {
