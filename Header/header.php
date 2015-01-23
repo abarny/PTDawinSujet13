@@ -68,13 +68,13 @@
 							
 	<!--
 								<?php 
-								if(!(isset($_SESSION['utilisateur'])))
+				/*				if(!(isset($_SESSION['utilisateur'])))
 									echo "<li><a href=''>S'inscrire</a></li>";
 									echo "<li><a href=''>Se connecter</a></li>";
 								else
 									echo "<li><a href=''>Gestion du compte</a></li>";
 									echo "<li><a href=''>Se dÃ©connecter</a></li>";
-								?>
+						*/		?>
 	-->
 								<li><a href=''>Gestion du compte</a></li>
 								<li><a href=''>Se déconnecter</a></li>
