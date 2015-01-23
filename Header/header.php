@@ -15,6 +15,7 @@
 
 		<!-- Custom styles for this template -->
 		<link href='header.css' rel='stylesheet'>
+		<link href='calendar.css' rel='stylesheet'>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -24,6 +25,7 @@
 	</head>
 
 	<body>
+
 		<header>
 		
 			<div class='container'>
@@ -83,7 +85,7 @@
 	
 			</div> <!-- /container -->
 	
-	
+
 			<!-- Bootstrap core JavaScript
 			================================================== -->
 			<!-- Placed at the end of the document so the pages load faster -->
@@ -92,5 +94,25 @@
 			<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 			<script src='../bootstrap/assets/js/ie10-viewport-bug-workaround.js'></script>
 		</header>
+			<!-- Pour le calendrier fullcalendar version 2.2.6 -->
+		<link rel="stylesheet" href="fullcalendar/fullcalendar.css" />
+		<script src="fullcalendar/lib/jquery.min.js"></script> 
+		<script src="fullcalendar/lib/moment.min.js"></script>
+		<script src="fullcalendar/fullcalendar.js"></script>
+		<script src='fullcalendar/lang/fr.js'></script>
+
+						<script>
+$(document).ready(function() {
+
+    // page is now ready, initialize the calendar...
+
+    $("#calendar").fullCalendar({
+        // put your options and callbacks here
+        height: "auto",
+        fixedWeekCount: false
+    });
+
+});		</script>
+				<div id="calendar"></div>
 	</body>
 </html>
