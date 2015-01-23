@@ -39,12 +39,12 @@
 		<div class="password">
 			<div class="pass">
 			<label>Mot de passe :</label> <br/>
-				<input type="password" name="mdp1" value="Mot de passe" required />
+				<input type="password" name="mdp1" value="Password" required />
 			</div>
 			
 			<div class="passConfirm">
 			<label>Confirmer le mot de passe :</label> <br/>
-				<input type="password" name="mdp2" value="Confirmer le mot de passe" required />
+				<input type="password" name="mdp2" value="drowssaP" required />
 			</div>
 		</div>
 		
