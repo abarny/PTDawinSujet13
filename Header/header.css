@@ -8,6 +8,9 @@
 }
 
 .logo {
-	height:50px;
+	height:100px;
 	width:auto;
+	position:absolute;
+	margin-left:-110px;
+	margin-top:-15px;
 }
