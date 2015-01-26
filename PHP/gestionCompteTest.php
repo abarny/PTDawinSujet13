@@ -9,8 +9,12 @@
 	<link href='../css/gestionCompte.css' rel='stylesheet' />
 	<link href='../plugins/iconselect/css/lib/control/iconselect.css' rel='stylesheet' />
 	
-	 <script src="../plugins/iconselect/lib/control/iconselect.js"></script>
-	 <script src="../javascript/gestionCompte.js"></script>
+	 <script type="text/javascript" src="../plugins/iconselect/lib/control/iconselect.js"></script>
+	 <script type="text/javascript">
+		function displayPass(){
+			alert("PUTAIN TA MERE LA PUTE ENFOIRE DE MERDE !!!!!!!!!!!!!!!!");
+		}		
+	 </script>
 	
 	<title>Gestion du compte</title>
 	
@@ -40,7 +44,7 @@
 			</div>
 			
 			<div class="passwordButton">
-				<input type="button" class="displayPass" id="displayPass" name="displayPass" value="Modifier le mot de passe" />
+				<input type="button" onclick="displayPass()" name="displayPass" value="Modifier le mot de passe" />
 			</div>
 			
 			<div class="password">
@@ -49,7 +53,6 @@
 					<input type="password" name="mdp1" />
 				</div>
 
-			
 				<div class="pass">
 					<label>Nouveau mot de passe :</label> <br/>
 					<input type="password" name="mdp1" />
