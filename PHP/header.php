@@ -17,6 +17,7 @@
 		<link href='../css/header.css' rel='stylesheet'>
 		<link href='../css/calendar.css' rel='stylesheet'>
 		<link href='../css/inscription.css' rel='stylesheet' />
+		<link href='../css/gestionCompte.css' rel='stylesheet' />
 		<link href='../plugins/iconselect/css/lib/control/iconselect.css' rel='stylesheet' />
 	
 	 	<script src="../plugins/iconselect/lib/control/iconselect.js"></script>
@@ -33,6 +34,11 @@
 	 	<!-- datepicker, petit calendrier pour detail jour -->
  		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
  		<script src="http://jqueryui.com/resources/demos/datepicker/datepicker-fr.js"></script>
+ 		
+ 		<!-- JQuery pour la gestion de compte -->
+ 		<script type="text/javascript" src="../plugins/jquery.js"></script>
+		<script type="text/javascript" src="gestionCompte.js"></script>
+
  <script>
     $(function(){
         var options = {
@@ -81,12 +87,12 @@
 	<!--
 								<?php 
 								if(!(isset($_SESSION['utilisateur'])))
-									echo "<li><a href='#'>Gestion des tÃ¢ches</a></li>";
+									echo "<li><a href='#'>Gestion des tÃƒÂ¢ches</a></li>";
 									echo "<li><a href='#'>Gestion des utilisateurs</a></li>";
 								?>
 	-->
 	
-								<li><a href='#'>Gestion des tâches</a></li>
+								<li><a href='#'>Gestion des tÃ¢ches</a></li>
 								<li><a href='#'>Gestion des utilisateurs</a></li>
 								<li><a href='#'>Aide</a></li>
 							</ul>
@@ -99,13 +105,13 @@
 									echo "<li><a href=''>Se connecter</a></li>";
 								else
 									echo "<li><a href=''>Gestion du compte</a></li>";
-									echo "<li><a href=''>Se dÃ©connecter</a></li>";
+									echo "<li><a href=''>Se dÃƒÂ©connecter</a></li>";
 						*/		?>
 	-->							
 								<li><a href=''>Gestion du compte</a></li>
 								<li><a href='inscription.php'>S'inscrire</a></li>
 								<li><a href=''>Se connecter</a></li>
-						<!--		<li><a href=''>Se déconnecter</a></li> -->
+						<!--		<li><a href=''>Se dÃ©connecter</a></li> -->
 							</ul>
 						</div><!--/.nav-collapse -->
 					</div><!--/.container-fluid -->

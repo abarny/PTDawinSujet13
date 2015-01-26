@@ -10,7 +10,7 @@
 	<link href='../plugins/iconselect/css/lib/control/iconselect.css' rel='stylesheet' />
 	
 	<script type="text/javascript" src="../plugins/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/gestionCompte.js"></script>
+	<script type="text/javascript" src="gestionCompte.js"></script>
 	
 	<script type="text/javascript" src="../plugins/iconselect/lib/control/iconselect.js"></script>
 	
@@ -22,52 +22,6 @@
 
 	<form method="post">
 	
-		<div class="infosClavier">
-			<div class="infos">
-				<div class="nom">
-					<input type="text" name="nom" value="Nom" />
-				</div>
-				
-				<div class="prenom">
-					<input type="text" name="prenom" value="Prénom" />
-				</div>
-				
-				<div class="login">
-					<input type="text" name="login" value="Nom d'utilisateur" />
-				</div>
-				
-				<div class="mail">
-					<input type="text" name="mail" value="Adresse mail" />
-				</div>
-			</div>
-			
-			<div class="passwordButton">
-				<button>Modifier le mot de passe</button>
-			</div>
-			
-			<div class="password">
-				<div class="passOld">
-					<label>Ancien mot de passe :</label> <br/>
-					<input type="password" name="mdp1" />
-				</div>
-
-				<div class="pass">
-					<label>Nouveau mot de passe :</label> <br/>
-					<input type="password" name="mdp1" />
-				</div>
-				
-				<div class="passConfirm">
-					<label>Confirmer le nouveau mot de passe :</label> <br/>
-					<input type="password" name="mdp2" />
-				</div>
-			</div>
-		</div>
-		
-		<div class="button">
-			<input type="submit" value="S'inscrire"/>
-			<input type="reset" value="Réinitialiser"/>
-		</div>
-		
 		<div class="color">
 			<label id="color"> Couleur :</label>
 			<div id="my-icon-select">
@@ -105,13 +59,59 @@
 				    };
 				</script>
 			</div>
-		</div>		
+		</div>
+	
+		<div class="infosClavier">
+			<div class="infos">
+				<div class="nom">
+					<input type="text" name="nom" value="Nom" />
+				</div>
+				
+				<div class="prenom">
+					<input type="text" name="prenom" value="Prénom" />
+				</div>
+				
+				<div class="login">
+					<input type="text" name="login" value="Nom d'utilisateur" />
+				</div>
+				
+				<div class="mail">
+					<input type="text" name="mail" value="Adresse mail" />
+				</div>
+			</div>
+		</div>
+		
+		<div class="passwordButton">
+			<input type="button" name="passwordChange" value="Modifier le mot de passe" />
+		</div>
+				
+		<div class="password">
+			<div class="passOld">
+				<label>Ancien mot de passe :</label> <br/>
+				<input type="password" name="mdp1" />
+			</div>
+
+			<div class="pass">
+				<label>Nouveau mot de passe :</label> <br/>
+				<input type="password" name="mdp1" />
+			</div>
+			
+			<div class="passConfirm">
+				<label>Confirmer le nouveau mot de passe :</label> <br/>
+				<input type="password" name="mdp2" />
+			</div>
+			
+			<!-- TODO : mettre un bouton pour conserver l'ancien mot de passe (ràz des champs mdp et hide la div password) ? -->
+			
+		</div>
+		
+		
+		<div class="button">
+			<input type="submit" value="S'inscrire"/>
+			<input type="reset" value="Réinitialiser"/>
+		</div>	
 		
 	</form>
-	
-	<?php
-		include('sans_titre_1.phpverifInscription.php');
-	?>
 
 </body>
 

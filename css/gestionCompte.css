@@ -34,8 +34,8 @@ input[type=password] {
 }
 
 .color {
+	position:absolute;
 	margin-left:300px;
-	margin-top:-516px;
 }
 
 .button {

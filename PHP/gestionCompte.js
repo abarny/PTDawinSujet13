@@ -5,9 +5,10 @@
 			$(".password").hide();
 		});
 	
-		$("input[type=button]").click(function(){
+		$("input[name=passwordChange]").click(function(){
 			$(".password").show("slow");
 		});
+		
 	});
 
 });
