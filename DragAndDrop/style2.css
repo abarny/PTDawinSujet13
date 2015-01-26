@@ -1,29 +1,68 @@
 #tache1{
 	background: red;
-	width: 100px;
-	height: 100px;
+	width: 50px;
+	height: 50px;
+	margin: 3px;
 		z-index: 1;
 }
 #tache2{
 	background: yellow;
-	width: 100px;
-	height: 100px;
+	width: 50px;
+	height: 50px;
+		margin: 3px;
+
 		z-index: 1;
 
 }
 #tache3{
 	background: orange;
-	width: 100px;
-	height: 100px;
+	width: 50px;
+	height: 50px;
+		margin: 3px;
+
 	z-index: 1;
 }
 #groupe1{
+	position: absolute;
 	background: green;
-	width: 500px;
-	height: 500px;
+	width: 250px;
+	height: 250px;
 }
-#groupe2{
-	background: grey;
-	width: 300px;
-	height: 300px;
+
+#parking{
+	top: 100px;
+	background: #BABFC9;
+	border: 4px solid black;
+	width: 80%;
+	height: 70%;
+	position: absolute;
+	margin-left: 10%;
+
+}
+
+.myButton {
+	-moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	-webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	box-shadow:inset 0px -3px 7px 0px #29bbff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+	background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+	background-color:#2dabf9;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+	margin-left: 5%;
 }

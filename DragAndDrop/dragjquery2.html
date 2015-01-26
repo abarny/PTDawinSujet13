@@ -13,14 +13,13 @@
 		<script type"text/javascript">
 $(function(){
 
-    $('#tache1').draggable(); // appel du plugin
-    $('#tache2').draggable(); // appel du plugin
-    $('#tache3').draggable(); // appel du plugin
-    $('#groupe1').draggable(); // appel du plugin
-    $('#groupe2').draggable(); // appel du plugin
+
+
+    $('.groupe').draggable({ containment: 'parent' }); // appel du plugin
+    $('.tache').draggable({ containment: 'parent' }); // appel du plugin
 
     $('#groupe1').droppable({
-    accept: ".tache",
+
 		        drop: function( event, ui ) {   // Action effectuée lorsqu'on dépose un élément dans le groupe rouge
 		            // ui.draggable désigne l'élément déplacé, exemple : #task2 ou #task1
 		            ui.draggable.appendTo( $(this) )
@@ -37,6 +36,12 @@ $(function(){
 		</script>	
 	</head>
 	<body>
+
+		<a href="#" class="myButton" id="newtask">Nouvelle tâche</a>
+		<a href="#" class="myButton" id="changetask">Modifier tâche</a>
+		<a href="#" class="myButton" id="deletetask">Supprimer tâche</a>
+
+<div id="parking">
 <div id="tache1" class="tache">
 tache1
 </div>	
@@ -49,9 +54,9 @@ tache3
 <div id="groupe1" class="groupe">
 groupe1
 </div>
-<div id="groupe2" class="groupe">
-groupe2
+
 </div>
+
 
 	</body>
 </html>
