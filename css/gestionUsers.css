@@ -1,0 +1,24 @@
+﻿body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+table {
+	margin-top: 20px;
+	border-collapse: collapse;
+}
+
+td, th {
+	border: 1px black solid;
+	width:200px;
+	height:50px;
+}
+
+th {
+	background-color:silver;
+}
+
+td {
+	padding-left:10px;
+}
