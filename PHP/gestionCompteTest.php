@@ -1,5 +1,22 @@
-<?php include "header.php"; 
-?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta name="description" content="Formulaire d'inscription" />
+	<meta name="author" content="Hadrien" />
+	
+	<link href='../css/gestionCompte.css' rel='stylesheet' />
+	<link href='../plugins/iconselect/css/lib/control/iconselect.css' rel='stylesheet' />
+	
+	 <script src="../plugins/iconselect/lib/control/iconselect.js"></script>
+	 <script src="../javascript/gestionCompte.js"></script>
+	
+	<title>Gestion du compte</title>
+	
+</head>
+
+<body>
 
 	<form method="post">
 	
@@ -22,14 +39,24 @@
 				</div>
 			</div>
 			
+			<div class="passwordButton">
+				<input type="button" class="displayPass" id="displayPass" name="displayPass" value="Modifier le mot de passe" />
+			</div>
+			
 			<div class="password">
+				<div class="passOld">
+					<label>Ancien mot de passe :</label> <br/>
+					<input type="password" name="mdp1" />
+				</div>
+
+			
 				<div class="pass">
-					<label>Mot de passe :</label> <br/>
+					<label>Nouveau mot de passe :</label> <br/>
 					<input type="password" name="mdp1" />
 				</div>
 				
 				<div class="passConfirm">
-					<label>Confirmer le mot de passe :</label> <br/>
+					<label>Confirmer le nouveau mot de passe :</label> <br/>
 					<input type="password" name="mdp2" />
 				</div>
 			</div>
@@ -51,7 +78,7 @@
 				        iconSelect = new IconSelect("my-icon-select");
 				
 				        var icons = [];
-				        icons.push({'iconFilePath':'../img/Colors/Color01.png', 'iconValue':'1'});
+				         icons.push({'iconFilePath':'../img/Colors/Color01.png', 'iconValue':'1'});
 				        icons.push({'iconFilePath':'../img/Colors/Color02.png', 'iconValue':'2'});
 				        icons.push({'iconFilePath':'../img/Colors/Color03.png', 'iconValue':'3'});
 				        icons.push({'iconFilePath':'../img/Colors/Color04.png', 'iconValue':'4'});
@@ -82,48 +109,7 @@
 	</form>
 	
 	<?php
-
-		if(!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['login']) AND !empty($_POST['mail']) AND !empty($_POST['mdp1']) AND !empty($_POST['md2']))
-		
-		{
-			/*
-			CREATE TABLE `validation` (
-			`id` INT( 255 ) NOT NULL AUTO_INCREMENT ,
-			`prenom` VARCHAR( 255 ) NOT NULL ,
-			`nom` VARCHAR( 255 ) NOT NULL ,
-			`login ` VARCHAR( 255 ) NOT NULL ,
-			`mail` VARCHAR( 255 ) NOT NULL ,
-			`pass` VARCHAR( 255 ) NOT NULL ,
-			`color` INT( 255 ) NOT NULL ,	
-			INDEX ( `id` )
-			);
-			*/
-			
-			mysql_connect("localhost", "root", "");
-			mysql_select_db("nom_db");
-			
-			// sécurités
-			$mdp1 = mysql_real_escape_string(htmlspecialchars($_POST['mdp1']));
-			$mdp2 = mysql_real_escape_string(htmlspecialchars($_POST['mdp2']));
-			
-			if($mdp1 == $mdp2) {
-				$prenom = mysql_real_escape_string(htmlspecialchars($_POST['prenom']));
-				$nom = mysql_real_escape_string(htmlspecialchars($_POST['nom']));
-				$login = mysql_real_escape_string(htmlspecialchars($_POST['login']));
-				$mail = mysql_real_escape_string(htmlspecialchars($_POST['mail']));
-				$color = mysql_real_escape_string(htmlspecialchars($_POST['color']));
-				
-				// Cryptage mdp
-				$mdp1 = sha1($passe);
-				
-				mysql_query("INSERT INTO validation VALUES('', '$prenom', '$nom', '$login', '$mail', '$mdp1', '$color')");
-			}
-			
-			else {
-				echo 'Erreur : les deux mots de passe ne sont pas identiques.';
-			}
-		}
-
+		include('sans_titre_1.phpverifInscription.php');
 	?>
 
 </body>
