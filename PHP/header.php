@@ -54,7 +54,7 @@
 
 						<div id='navbar' class='navbar-collapse collapse'>
 							<ul class='nav navbar-nav'>
-								<li class='active'><a href='#'>Accueil</a></li>
+								<li class='active'><a href='calendar.php'>Accueil</a></li>
 								
 	<!--
 								<?php 
@@ -79,9 +79,11 @@
 									echo "<li><a href=''>Gestion du compte</a></li>";
 									echo "<li><a href=''>Se dÃ©connecter</a></li>";
 						*/		?>
-	-->
+	-->							
 								<li><a href=''>Gestion du compte</a></li>
-								<li><a href=''>Se déconnecter</a></li>
+								<li><a href='inscription.php'>S'inscrire</a></li>
+								<li><a href=''>Se connecter</a></li>
+						<!--		<li><a href=''>Se déconnecter</a></li> -->
 							</ul>
 						</div><!--/.nav-collapse -->
 					</div><!--/.container-fluid -->
