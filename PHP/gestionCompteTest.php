@@ -10,7 +10,7 @@
 	<link href='../plugins/iconselect/css/lib/control/iconselect.css' rel='stylesheet' />
 	
 	<script type="text/javascript" src="../plugins/jquery.js"></script>
-	<script type="text/javascript" src="gestionCompte.js"></script>
+	<script type="text/javascript" src="../javascript/gestionCompte.js"></script>
 	
 	<script type="text/javascript" src="../plugins/iconselect/lib/control/iconselect.js"></script>
 	
@@ -42,7 +42,7 @@
 			</div>
 			
 			<div class="passwordButton">
-				<button> Modifier le mot de passe </button>
+				<button>Modifier le mot de passe</button>
 			</div>
 			
 			<div class="password">
