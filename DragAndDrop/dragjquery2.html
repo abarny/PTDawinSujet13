@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang='fr'>
+	<head>
+
+		<meta charset='utf-8'>
+		<link href='style2.css' rel='stylesheet'>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Drag and drop 3</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css">
+
+		<script type"text/javascript">
+$(function(){
+
+    $('#tache1').draggable(); // appel du plugin
+    $('#tache2').draggable(); // appel du plugin
+    $('#tache3').draggable(); // appel du plugin
+    $('#groupe1').draggable(); // appel du plugin
+    $('#groupe2').draggable(); // appel du plugin
+
+    $('#groupe1').droppable({
+    accept: ".tache",
+		        drop: function( event, ui ) {   // Action effectuée lorsqu'on dépose un élément dans le groupe rouge
+		            // ui.draggable désigne l'élément déplacé, exemple : #task2 ou #task1
+		            ui.draggable.appendTo( $(this) )
+		            		.css({                       // Positionnement CSS du personnage au centre de la voiture
+                    			left: '5%',
+                    			top:  '5%'
+               				})
+		                        // On place le task dans la groupe (au niveau du DOM)
+		                //.draggable({ containment: 'parent' });  // Le task ne peut plus sortir de la groupe
+		        }    
+
+}); 
+});
+		</script>	
+	</head>
+	<body>
+<div id="tache1" class="tache">
+tache1
+</div>	
+<div id="tache2" class="tache">
+tache2
+</div>	
+<div id="tache3" class="tache">
+tache3
+</div>	
+<div id="groupe1" class="groupe">
+groupe1
+</div>
+<div id="groupe2" class="groupe">
+groupe2
+</div>
+
+	</body>
+</html>

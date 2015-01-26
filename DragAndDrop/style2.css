@@ -1,0 +1,29 @@
+#tache1{
+	background: red;
+	width: 100px;
+	height: 100px;
+		z-index: 1;
+}
+#tache2{
+	background: yellow;
+	width: 100px;
+	height: 100px;
+		z-index: 1;
+
+}
+#tache3{
+	background: orange;
+	width: 100px;
+	height: 100px;
+	z-index: 1;
+}
+#groupe1{
+	background: green;
+	width: 500px;
+	height: 500px;
+}
+#groupe2{
+	background: grey;
+	width: 300px;
+	height: 300px;
+}
