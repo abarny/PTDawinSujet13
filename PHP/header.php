@@ -14,8 +14,12 @@
 		<link href='../plugins/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet'>
 
 		<!-- Custom styles for this template -->
-		<link href='header.css' rel='stylesheet'>
-		<link href='calendar.css' rel='stylesheet'>
+		<link href='../css/header.css' rel='stylesheet'>
+		<link href='../css/calendar.css' rel='stylesheet'>
+		<link href='../css/inscription.css' rel='stylesheet' />
+		<link href='../plugins/iconselect/css/lib/control/iconselect.css' rel='stylesheet' />
+	
+	 	<script src="../plugins/iconselect/lib/control/iconselect.js"></script>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -30,7 +34,7 @@
 		
 			<div class='container'>
 			
-				<img class ='logo' src='ressources/Logo.png' alt='Logo TeamShare'>
+				<img class ='logo' src='../img/Logo.png' alt='Logo TeamShare'>
 	
 				<!-- Static navbar -->
 				<nav class='navbar navbar-default'>
@@ -97,4 +101,4 @@
 
 		</header>
 
-</html>
+
