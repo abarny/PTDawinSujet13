@@ -9,12 +9,10 @@
 	<link href='../css/gestionCompte.css' rel='stylesheet' />
 	<link href='../plugins/iconselect/css/lib/control/iconselect.css' rel='stylesheet' />
 	
-	 <script type="text/javascript" src="../plugins/iconselect/lib/control/iconselect.js"></script>
-	 <script type="text/javascript">
-		function displayPass(){
-			alert("PUTAIN TA MERE LA PUTE ENFOIRE DE MERDE !!!!!!!!!!!!!!!!");
-		}		
-	 </script>
+	<script type="text/javascript" src="../plugins/jquery.js"></script>
+	<script type="text/javascript" src="../javascript/gestionCompte.js"></script>
+	
+	<script type="text/javascript" src="../plugins/iconselect/lib/control/iconselect.js"></script>
 	
 	<title>Gestion du compte</title>
 	
@@ -44,7 +42,7 @@
 			</div>
 			
 			<div class="passwordButton">
-				<input type="button" onclick="displayPass()" name="displayPass" value="Modifier le mot de passe" />
+				<button>Modifier le mot de passe</button>
 			</div>
 			
 			<div class="password">
