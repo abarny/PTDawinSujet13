@@ -48,4 +48,7 @@ switch($mois){
 }
 
 
-echo '<h1>'. $jour . ' ' . $mois . ' ' . $annee . '</h1>'; ?>
+echo $jour . ' ' . $mois . ' ' . $annee; ?>
+<input type="text" id="datepicker" />
+</body>
+</html>
