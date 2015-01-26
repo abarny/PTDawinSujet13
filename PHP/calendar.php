@@ -17,7 +17,12 @@ $(document).ready(function() {
         // put your options and callbacks here
         height: "auto",
 //        buttonText: {today: "retour au mois en cours"},
-        fixedWeekCount: false
+        fixedWeekCount: false,
+
+        dayClick: function(date, jsEvent, view) {
+        var date = date.format();
+		$(location).attr('href',"detailjour.php?date="+date);
+    }
     });
 
 });		</script>
