@@ -15,28 +15,20 @@
 		    $( ".groupe" ).draggable({ containment: 'parent' });
 		    $( ".task" ).draggable({ containment: 'parent' });
 		     
-		    $( "#groupe2" ).droppable({
+		    $( ".groupe" ).droppable({
 		        //accept: "#task2",              // Seul le task #task2 peut monter dans la groupe rouge
 		        drop: function( event, ui ) {   // Action effectuée lorsqu'on dépose un élément dans le groupe rouge
 		            // ui.draggable désigne l'élément déplacé, exemple : #task2 ou #task1
 		            ui.draggable.appendTo( $(this) )
-		            		.css({                                  // Positionnement CSS du personnage au centre de la voiture
-                    			left: '65px',
-                    			top:  '15px'
+		            		.css({                       // Positionnement CSS du personnage au centre de la voiture
+                    			left: '5%',
+                    			top:  '5%'
                				})
 		                        // On place le task dans la groupe (au niveau du DOM)
 		                //.draggable({ containment: 'parent' });  // Le task ne peut plus sortir de la groupe
 		        }
 		    });
 		     
-		    // On fait pareil pour la groupe bleue
-		    $( "#groupe1" ).droppable({
-		        //accept: "#task2, #task1",
-		        drop: function( event, ui ) {
-		            ui.draggable.appendTo( $(this) )
-		                //.draggable({ containment: 'parent' });
-		        }
-		    });
 		});
 		</script>	
 	</head>
