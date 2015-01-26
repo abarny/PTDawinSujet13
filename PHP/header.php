@@ -37,7 +37,7 @@
  		
  		<!-- JQuery pour la gestion de compte -->
  		<script type="text/javascript" src="../plugins/jquery.js"></script>
-		<script type="text/javascript" src="gestionCompte.js"></script>
+		<script type="text/javascript" src="../javascript/gestionCompte.js"></script>
 
  <script>
     $(function(){
