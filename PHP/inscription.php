@@ -95,6 +95,7 @@
 			`mail` VARCHAR( 255 ) NOT NULL ,
 			`pass` VARCHAR( 255 ) NOT NULL ,
 			`color` INT( 255 ) NOT NULL ,	
+			`droits` VARCHAR( 255 ) NOT NULL ,
 			INDEX ( `id` )
 			);
 			*/
@@ -116,7 +117,7 @@
 				// Cryptage mdp
 				$mdp1 = sha1($passe);
 				
-				mysql_query("INSERT INTO validation VALUES('', '$prenom', '$nom', '$login', '$mail', '$mdp1', '$color')");
+				mysql_query("INSERT INTO validation VALUES('', '$prenom', '$nom', '$login', '$mail', '$mdp1', '$color', 1)");
 			}
 			
 			else {
