@@ -100,6 +100,20 @@
 					
 						// Données à afficher dans la cellule
 						// A FAIRE
+						if ($j%$NbrCol == 1)
+							echo $val['nom'];
+						elseif ($j%$NbrCol == 2)
+							echo $val['prenom'];
+						elseif ($j%$NbrCol == 3)
+							echo $val['mail'];
+						elseif ($j%$NbrCol == 4)
+							echo $val['login'];
+						elseif ($j%$NbrCol == 5)
+							echo "Nb Tâches";
+						elseif ($j%$NbrCol == 6)
+							echo "Nb Heures";
+						elseif ($j%$NbrCol == 7)
+							echo $val['droits'];
 					
 					?>
 	
