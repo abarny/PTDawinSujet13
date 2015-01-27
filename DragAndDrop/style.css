@@ -62,16 +62,19 @@ img{border:0;}
 #task1{
 	background: yellow;
 	top: 10px;
+		z-index: 1;
 }
 
 #task2{
 	background: green;
-	top: 100px;	
+	top: 100px;
+		z-index: 1;	
 }
 
 #task3{
 	background: brown;
 	top: 200px;	
+		z-index: 1;
 }
 
 .myButton {

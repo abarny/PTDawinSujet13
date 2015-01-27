@@ -11,11 +11,9 @@
 		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css">
 
 		<script type"text/javascript">
-$(function(){
+	$(function(){
 
-
-
-    $('.groupe').draggable({ containment: 'parent' }); // appel du plugin
+    $('.groupe').draggable({ containment: 'parent', hoverClass:'border' }); // appel du plugin
     $('.tache').draggable({ containment: 'parent' }); // appel du plugin
 
     $('#groupe1').droppable({

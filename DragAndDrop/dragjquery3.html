@@ -5,34 +5,32 @@
 		<meta charset='utf-8'>
 		<link href='style.css' rel='stylesheet'>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Drag and drop 3</title>
+		<title>Drag and drop 4</title>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css">
 
 		<script type"text/javascript">
-			jQuery(document).ready(function($){
-		    $( ".groupe" ).draggable({ containment: 'parent' });
-		    $( ".task" ).draggable({ containment: 'parent' });
-		     
-		    $( ".groupe" ).droppable({
+
+		$(function(){
+
+    $('.groupe').draggable({containment : 'parent'}); // appel du plugin
+    $('.task').draggable({containment : 'parent'}); // appel du plugin
+
+    $('.groupe').droppable({
+    accept: ".task",
 		        drop: function( event, ui ) {   // Action effectuée lorsqu'on dépose un élément dans le groupe rouge
 		            // ui.draggable désigne l'élément déplacé, exemple : #task2 ou #task1
-		            ui.draggable.appendTo( $(this))
+		            ui.draggable.appendTo( $(this) )
 		            		.css({                       // Positionnement CSS du personnage au centre de la voiture
                     			left: '5%',
-                    			top:  '5%',
-
+                    			top:  '5%'
                				})
-               				alert(containement);
-		         	
 		                        // On place le task dans la groupe (au niveau du DOM)
 		                //.draggable({ containment: 'parent' });  // Le task ne peut plus sortir de la groupe
 		        }
-		    });
-		   
-		     
-		});
+}); 
+});
 		</script>	
 	</head>
 	<body>
@@ -63,4 +61,4 @@
 		</div>
 
 	</body>
-</html>
+</html>    
