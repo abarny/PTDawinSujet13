@@ -26,3 +26,9 @@ th {
 td {
 	padding-left:10px;
 }
+
+.check{
+	width:100px;
+	text-align:center;
+	padding-left:0px;
+}

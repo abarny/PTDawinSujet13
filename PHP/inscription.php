@@ -10,11 +10,11 @@
 				</div>
 				
 				<div class="prenom">
-					<input type="text" name="prenom" value="Prénom" />
+					<input type="text" name="prenom" value="PrÃ©nom" />
 				</div>
 				
-				<div class="login">
-					<input type="text" name="login" value="Nom d'utilisateur" />
+				<div class="username">
+					<input type="text" name="username" value="Nom d'utilisateur" />
 				</div>
 				
 				<div class="mail">
@@ -37,7 +37,7 @@
 		
 		<div class="button">
 			<input type="submit" value="S'inscrire"/>
-			<input type="reset" value="Réinitialiser"/>
+			<input type="reset" value="RÃ©initialiser"/>
 		</div>
 		
 		<div class="color">
@@ -83,7 +83,7 @@
 	
 	<?php
 
-		if(!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['login']) AND !empty($_POST['mail']) AND !empty($_POST['mdp1']) AND !empty($_POST['md2']))
+		if(!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['username']) AND !empty($_POST['mail']) AND !empty($_POST['mdp1']) AND !empty($_POST['md2']))
 		
 		{
 			/*
@@ -91,7 +91,7 @@
 			`id` INT( 255 ) NOT NULL AUTO_INCREMENT ,
 			`prenom` VARCHAR( 255 ) NOT NULL ,
 			`nom` VARCHAR( 255 ) NOT NULL ,
-			`login ` VARCHAR( 255 ) NOT NULL ,
+			`username` VARCHAR( 255 ) NOT NULL ,
 			`mail` VARCHAR( 255 ) NOT NULL ,
 			`pass` VARCHAR( 255 ) NOT NULL ,
 			`color` INT( 255 ) NOT NULL ,	
@@ -103,21 +103,21 @@
 			mysql_connect("localhost", "root", "");
 			mysql_select_db("nom_db");
 			
-			// s�curit�s
+			// sécurités
 			$mdp1 = mysql_real_escape_string(htmlspecialchars($_POST['mdp1']));
 			$mdp2 = mysql_real_escape_string(htmlspecialchars($_POST['mdp2']));
 			
 			if($mdp1 == $mdp2) {
 				$prenom = mysql_real_escape_string(htmlspecialchars($_POST['prenom']));
 				$nom = mysql_real_escape_string(htmlspecialchars($_POST['nom']));
-				$login = mysql_real_escape_string(htmlspecialchars($_POST['login']));
+				$username = mysql_real_escape_string(htmlspecialchars($_POST['username']));
 				$mail = mysql_real_escape_string(htmlspecialchars($_POST['mail']));
 				$color = mysql_real_escape_string(htmlspecialchars($_POST['color']));
 				
 				// Cryptage mdp
 				$mdp1 = sha1($passe);
 				
-				mysql_query("INSERT INTO validation VALUES('', '$prenom', '$nom', '$login', '$mail', '$mdp1', '$color', 1)");
+				mysql_query("INSERT INTO validation VALUES('', '$prenom', '$nom', '$username', '$mail', '$mdp1', '$color', 1)");
 			}
 			
 			else {

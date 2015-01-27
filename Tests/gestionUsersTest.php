@@ -1,12 +1,12 @@
 <?php
 
-	// connexion a la BDD
-	$host = "localhost";
-	$user = "root";
-	$pass = "";
-	$bdd = "nom_bdd";
+	// Connexion a la BDD
+	$host = "info-arie";
+	$user = "hatran";
+	$pass = "9JyGX1PHZdAp";
+	$bdd = "info_hatran";
 
-	// connexion
+	// Connexion
 	@mysql_connect($host,$user,$pass) or die("Impossible de se connecter");
 	@mysql_select_db("$bdd") or die("Impossible de se connecter");
 
@@ -22,12 +22,6 @@
 	<meta name="author" content="Hadrien" />
 	
 	<link href='../css/gestionUsers.css' rel='stylesheet' />
-	<link href='../plugins/iconselect/css/lib/control/iconselect.css' rel='stylesheet' />
-	
-	<script type="text/javascript" src="../plugins/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/gestionUsers.js"></script>
-	
-	<script type="text/javascript" src="../plugins/iconselect/lib/control/iconselect.js"></script>
 	
 	<title>Gestion des utilisateurs</title>
 	
@@ -37,9 +31,9 @@
 
 	<div class="container">
 
-		<div class="deleteUser">
-			<input type="button" name="deleteUser" value="Supprimer un utilisateur" />
-		</div>
+			<div class="deleteUser">
+				<input type="button" name="deleteUser" onclick="alert('TODO : suppression utilisateur');" value="Supprimer utilisateur(s) sélectionné(s)" />
+			</div>
 		
 		<?php
 		
@@ -47,13 +41,13 @@
 			$NbrCol = 7;
 			
 			// Requête
-			$query = 'SELECT nom, prenom, mail, login, droits FROM user';
+			$query = 'SELECT nom, prenom, mail, username, droits FROM users';
 			$result = mysql_query($query);
 			
-			// nombre de cellules a remplir
+			// Nombre de cellules a remplir
 			$NbreData = mysql_num_rows($result);
 			
-			// affichage
+			// Affichage
 			$NbrLigne = 0;
 			if ($NbreData != 0) {
 				$j = 1;
@@ -64,6 +58,7 @@
 			<!-- Entête du tableau -->
 			<thead>
 				<tr>
+					<th class="check">Sélection</th>
 					<th>Nom</th>
 					<th>Prénom</th>
 					<th>Email</th>
@@ -80,7 +75,7 @@
 			
 				while ($val = mysql_fetch_array($result)) 
 				{
-					if ($j%$NbrCol == 1) {
+					if ($j % $NbrCol == 1) {
 						$NbrLigne++;
 						$fintr = 0;
 			
@@ -90,60 +85,42 @@
 				
 				<?php
 						
-					} // fermeture du if
+					} // Fermeture du if
 				
 				?>
 				
+				<td class="check"><input type="checkbox" name="<?php echo $j ?>" /></td>
+				<td> <?php echo utf8_encode($val['nom']); ?> </td>
+				<td> <?php echo utf8_encode($val['prenom']); ?> </td>
+				<td> <?php echo utf8_encode($val['mail']); ?> </td>
+				<td> <?php echo utf8_encode($val['username']); ?> </td>
+				<td> <?php echo ""; ?> </td>
+				<td> <?php echo ""; ?> </td>
 				<td>
-				
-					<?php
-					
-						// Données à afficher dans la cellule
-						// A FAIRE
-						if ($j%$NbrCol == 1)
-							echo $val['nom'];
-						elseif ($j%$NbrCol == 2)
-							echo $val['prenom'];
-						elseif ($j%$NbrCol == 3)
-							echo $val['mail'];
-						elseif ($j%$NbrCol == 4)
-							echo $val['login'];
-						elseif ($j%$NbrCol == 5)
-							echo "Nb Tâches";
-						elseif ($j%$NbrCol == 6)
-							echo "Nb Heures";
-						elseif ($j%$NbrCol == 7)
-							echo $val['droits'];
-					
-					?>
-	
+					<select name="droit">
+						<option> <?php echo utf8_encode($val['droits']); ?> </option>
+						<option>
+							<?php
+								if ($val['droits'] == "Admin") echo "Membre";
+								else echo "Admin";
+							?>
+						</option>
+					</select>
 				</td>
-				
+			</tr>
+
 				<?php
 						
-					if ($j%$NbrCol == 0) {
+					if ($j % $NbrCol == 0) {
 						$fintr = 1;
 				
 				?>
-				
-			</tr>
 			
 			<?php
 			
-					} // fermeture du if
+					} // Fermeture du if
 					$j++;
-				} // fermeture du while
-				
-				// fermeture derniere balise </tr>
-				if ($fintr!=1) {
-			
-			?>
-			
-			</tr>
-			
-			<?php
-			
-				} // fermeture du if
+				} // Fermeture du while
 				
 			?>
 			
