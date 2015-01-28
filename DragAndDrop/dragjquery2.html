@@ -11,26 +11,89 @@
 		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css">
 
 		<script type"text/javascript">
-	$(function(){
+$(function(){
 
-    $('.groupe').draggable({ containment: 'parent', hoverClass:'border' }); // appel du plugin
-    $('.tache').draggable({ containment: 'parent' }); // appel du plugin
+    $('.groupe').draggable({ containment: 'parent' }); // appel du plugin
+
+    $('.tache').draggable({ containment: 'parent', helper: "clone"}); 
+var compteur = 0;
+var nbtache = 0;
+var mintopgroup = 0;
+var minleftgroup = 0;
+var maxtopgroup = 0;
+var maxleftgroup = 0;
+var hauteurtacheplusdix = parseInt($('.tache').css('height')) + 10;
+var tailleInitiale = parseInt($('#groupe1').css('height'));
+
 
     $('#groupe1').droppable({
 
-		        drop: function( event, ui ) {   // Action effectuée lorsqu'on dépose un élément dans le groupe rouge
-		            // ui.draggable désigne l'élément déplacé, exemple : #task2 ou #task1
-		            ui.draggable.appendTo( $(this) )
-		            		.css({                       // Positionnement CSS du personnage au centre de la voiture
+		        drop: function( event, ui ) {   // Action effectuée lorsqu'on dépose un élément dans le groupe
+		            // ui.draggable désigne l'élément déplacé		                  
+		            ui.draggable.appendTo( $(this) ) // on le met à l'intérieur du groupe
+		            		.css({                     
                     			left: '5%',
                     			top:  '5%'
                				})
-		                        // On place le task dans la groupe (au niveau du DOM)
-		                //.draggable({ containment: 'parent' });  // Le task ne peut plus sortir de la groupe
-		        }    
+               				compteur = compteur + 1;
+               				alert(compteur);
+               		//récupération des positions de la derniere tache déposée
+               		var divlastposition = $('#groupe1 div:last-child').position();
+               		//hauteur du groupe pas mettre en globale sinon les mises à jour ne servent à rien
+					var hauteurgroupe = parseInt($('#groupe1').css('height'));
+
+               		// Si la tache va se déposer en dehors du groupe, on agrandit le groupe
+               //	   alert(divlastposition.top + 'hauteurgroupe ' + hauteurgroupe);
+					if(divlastposition.top+50 >  hauteurgroupe){ 
+						$("#groupe1").animate({height: '+='+hauteurtacheplusdix},500);
+						hauteurgroupe = parseInt($('#groupe1').css('height')); // mise à jour de hauteur groupe
+				//		alert(hauteurgroupe);
+					}
+					//probleme fonctionne mais pas au bon moment, quand on ajoute une nouvelle tache
+					if(hauteurgroupe > tailleInitiale && hauteurgroupe - (divlastposition.top+50) > hauteurtacheplusdix){ //150 
+						$("#groupe1").animate({height: '-='+hauteurtacheplusdix},500);
+						hauteurgroupe = parseInt($('#groupe1').css('height'));
+				//		alert('if du groupe');
+					}            	
+
+					}
+		        
 
 }); 
+
+    $('#parking').droppable({
+
+		        drop: function( event, ui ) {   // Action effectuée lorsqu'on dépose un élément dans le parking
+
+
+               			compteur = compteur -1 ;
+						alert(compteur);
+
+					if(compteur == 0){
+					   $( "#groupe1" ).remove();
+               			}
+          		var hauteurgroupe = parseInt($('#groupe1').css('height'));
+           		var divlastposition = $('#groupe1 div:nth-last-child(2)').position();
+           		var positionaulacher = ui.draggable.position();
+           		positionaulacherleft = positionaulacher.left;
+           		positionaulachertop = positionaulacher.top;
+
+           		alert('left : ' + ui.position.left + 'top : ' + ui.position.top);
+           //		alert('hauteurgroupe : ' + hauteurgroupe + ' tailleInitiale : ' + tailleInitiale + 'divavantlast top : ' + divlastposition.top + 'hauteurtacheplusdix : ' + hauteurtacheplusdix)
+					if(hauteurgroupe > tailleInitiale && hauteurgroupe - (divlastposition.top+50) > hauteurtacheplusdix){ //150 
+						$("#groupe1").animate({height: '-='+hauteurtacheplusdix},500);
+						hauteurgroupe = parseInt($('#groupe1').css('height'));
+					}
+
+					//fusion => creation d'un groupe
+					// comparaison des coordonnées de l'élément actuellement draggé  
+							}
+		            	});
+
 });
+
+
+
 		</script>	
 	</head>
 	<body>
@@ -49,11 +112,30 @@ tache2
 <div id="tache3" class="tache">
 tache3
 </div>	
+<div id="tache4" class="tache">
+tache4
+</div>	
+<div id="tache5" class="tache">
+tache5
+</div>	
+<div id="tache6" class="tache">
+tache6
+</div>	
+<div id="tache7" class="tache">
+tache7
+</div>	
+<div id="tache8" class="tache">
+tache8
+</div>	
+<div id="tache9" class="tache">
+tache9
+</div>	
 <div id="groupe1" class="groupe">
-groupe1
+<p>groupe1</p>
 </div>
 
 </div>
+
 
 
 	</body>
