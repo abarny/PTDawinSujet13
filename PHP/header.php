@@ -27,9 +27,9 @@
 			================================================== -->
 			<!-- Placed at the end of the document so the pages load faster -->
 			<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js'></script>
-			<script src='../bootstrap/dist/js/bootstrap.min.js'></script>
+			<script src='../plugins/bootstrap/dist/js/bootstrap.min.js'></script>
 			<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-			<script src='../bootstrap/assets/js/ie10-viewport-bug-workaround.js'></script>
+			<script src='../plugins/bootstrap/assets/js/ie10-viewport-bug-workaround.js'></script>
 
 	 	<!-- datepicker, petit calendrier pour detail jour -->
  		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -68,7 +68,7 @@
 				<nav class='navbar navbar-default'>
 					<div class='container-fluid'>
 						
-<!--
+
 						<div class='navbar-header'>
 							<button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar' aria-expanded='false' aria-controls='navbar'>
 								<span class='sr-only'>Toggle navigation</span>
@@ -78,7 +78,7 @@
 							</button>
 							<a class='navbar-brand' href='#'></a>
 						</div>
--->
+
 
 						<div id='navbar' class='navbar-collapse collapse'>
 							<ul class='nav navbar-nav'>
@@ -87,12 +87,12 @@
 	<!--
 								<?php 
 								if(!(isset($_SESSION['utilisateur'])))
-									echo "<li><a href='#'>Gestion des tÃƒÂ¢ches</a></li>";
+									echo "<li><a href='#'>Gestion des tÃƒÆ’Ã‚Â¢ches</a></li>";
 									echo "<li><a href='#'>Gestion des utilisateurs</a></li>";
 								?>
 	-->
 	
-								<li><a href='#'>Gestion des tÃ¢ches</a></li>
+								<li><a href='#'>Gestion des tÃƒÂ¢ches</a></li>
 								<li><a href='#'>Gestion des utilisateurs</a></li>
 								<li><a href='#'>Aide</a></li>
 							</ul>
@@ -105,13 +105,13 @@
 									echo "<li><a href=''>Se connecter</a></li>";
 								else
 									echo "<li><a href=''>Gestion du compte</a></li>";
-									echo "<li><a href=''>Se dÃƒÂ©connecter</a></li>";
+									echo "<li><a href=''>Se dÃƒÆ’Ã‚Â©connecter</a></li>";
 						*/		?>
 	-->							
 								<li><a href=''>Gestion du compte</a></li>
 								<li><a href='inscription.php'>S'inscrire</a></li>
 								<li><a href=''>Se connecter</a></li>
-						<!--		<li><a href=''>Se dÃ©connecter</a></li> -->
+						<!--		<li><a href=''>Se dÃƒÂ©connecter</a></li> -->
 							</ul>
 						</div><!--/.nav-collapse -->
 					</div><!--/.container-fluid -->

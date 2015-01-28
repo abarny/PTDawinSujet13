@@ -12,6 +12,24 @@
 
 ?>
 
+<!--
+<?php
+
+	$nbUsers= 0;
+	
+	function deleteUsers(){
+		for ($i = 0; $i < $nbUsers; $i++)
+		{
+			if (isset($_POST[$i])){
+				$deleteQuery = 'DELETE FROM `users` where id = ?';
+				$deleteQuery->execute(array($i));
+			}
+		}
+	}
+
+?>
+-->
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -32,7 +50,7 @@
 	<div class="container">
 
 			<div class="deleteUser">
-				<input type="button" name="deleteUser" onclick="alert('TODO : suppression utilisateur');" value="Supprimer utilisateur(s) sélectionné(s)" />
+				<input type="button" name="deleteUser" onclick=" <?php deleteUsers() ?>" value="Supprimer utilisateur(s) sélectionné(s)" />
 			</div>
 		
 		<?php
@@ -107,6 +125,13 @@
 						</option>
 					</select>
 				</td>
+				
+				<?
+				
+					$nbUsers++;
+				
+				?>
+				
 			</tr>
 
 				<?php
@@ -153,4 +178,3 @@
 	mysql_close(); // Déconnexion de la base
 
 ?>
-
