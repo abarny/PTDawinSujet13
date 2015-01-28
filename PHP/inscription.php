@@ -37,7 +37,7 @@
 		
 		<div class="button">
 			<input type="submit" value="S'inscrire"/>
-			<input type="reset" value="RÃ©initialiser"/>
+			<input type="reset" value="Réinitialiser"/>
 		</div>
 		
 		<div class="color">

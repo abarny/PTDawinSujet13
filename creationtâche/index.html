@@ -1,6 +1,3 @@
-<?php include "header.php"; 
-?>
-
 <!DOCTYPE html>
 <html lang="fr" class="no-js">
 	<head>
@@ -32,6 +29,7 @@
 
 		<link rel= "stylesheet " href= "/css/custom-theme/jquery-ui-1.8.16.custom.css " type= "text/css " />
 
+
 	</head>
 	<body>
 
@@ -41,8 +39,8 @@
 			<div class="popup-content">
 				<p class="titre">Création d'une nouvelle tâche</p>
 					<form>
-					<input type="text" id="intitule" class="placement" placeholder="Intitulé" />
-					<select id="responsable" class="placement">
+					<input type="text" id="intitule" class="placement" placeholder="Intitulé" name="intitule"/>
+					<select id="responsable" class="placement" name="responsable">
 							<option selected>Responsable
 							<option>Jacky
 							<option>Michel
@@ -50,20 +48,21 @@
 							<option>Pierre
 							<option>Paul
 					</select>
-					<textarea rows="3" id="description" placeholder="Description"></textarea>
-						<select id="groupe" class="placement">
+					<textarea rows="3" id="description" placeholder="Description" name="description"></textarea>
+						<select id="groupe" class="placement" name="groupe">
 							<option selected>Groupe
 							<option>Groupe 1
 							<option>Groupe 2
 							<option>Groupe 3
 						</select>
-						<select id="couleur" class="placement">
+						<select id="couleur" class="placement" name="couleur">
 							<option selected>Couleur
 							<option>Jaune
 							<option>Bleu
 							<option>Rouge
 						</select>
-						<select class="adjoint placement">
+						<div id="adj">
+						<select class="adjoint placement" name="ajoint1">
 							<option selected>Adjoint1
 							<option>Jacky
 							<option>Michel
@@ -71,7 +70,7 @@
 							<option>Pierre
 							<option>Paul
 						</select>
-						<select class="adjoint placement">
+						<select class="adjoint placement" name="adjoint2">
 							<option selected>Adjoint2
 							<option>Jacky
 							<option>Michel
@@ -79,15 +78,52 @@
 							<option>Pierre
 							<option>Paul
 						</select>
+						<input type="button" class="placement addadj"/>
+					</div>
 					
-					<input type="text" id="debut" class="datepicker placement" placeholder="debut">
-					<input type= "text" id="fin" class="datepicker placement" placeholder="fin">
-					<input type="text" id="heure" class="placement" placeholder="nb d'heures" />
+					<input type="text" id="debut" class="datepicker placement" placeholder="debut" name="datedebut"/>
+					<input type= "text" id="fin" class="datepicker placement" placeholder="fin" name="datefin"/>
+					<input type="text" id="heure" placeholder="nb d'heures estimée" name="nbheures"/>
 					<input type="submit" class="submit" value="Valider" />
 					<div class="close"></div>
 					</form>
 			</div>
 		</div>
+
+
+		<?php
+
+		if(!empty($_POST['intitule']) AND !empty($_POST['datedebut']) AND !empty($_POST['datefin'])
+		
+		{
+			/*
+			CREATE TABLE `validation` (
+			`id` INT( 255 ) NOT NULL AUTO_INCREMENT ,
+			`intitule` VARCHAR( 255 ) NOT NULL,
+			`responsable` VARCHAR( 255 ),
+			`description` VARCHAR( 255 ),
+			`groupe` VARCHAR( 255 ),
+			`couleur` VARCHAR( 255 ),
+			`adjoint1` VARCHAR( 255 ),	
+			`adjoint2` VARCHAR( 255 ),
+			`datedebut` VARCHAR( 255 ),
+			`datefin` VARCHAR( 255 ),
+			`nbheures` FLOAT( 255 ),
+			INDEX ( `id` )
+			);
+			*/
+			
+			mysql_connect("localhost", "root", "");
+			mysql_select_db("nom_db");
+			
+			
+				
+			mysql_query("INSERT INTO listetaches VALUES('', '$intitule', '$responsable', '$description', '$groupe', '$couleur', '$ajoint1', '$ajoint', '$datedebut', '$datefin', '$nbheures',1)");
+			
+			}
+		}
+
+	?>
 
 		<!-- FIN DE LA POPUP -->
 		

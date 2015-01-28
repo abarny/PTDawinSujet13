@@ -116,11 +116,11 @@ p.intro {
 }
 
 #intitule{
-	width: 59%;
+	width: 49%;
 }
 
 #responsable{
-	width:40%;
+	width:49%;
 }
 
 #description{
@@ -130,12 +130,13 @@ p.intro {
 	padding: 6px;
 	display: block;
 	margin: 0 auto 10px;
-	width: 100%;
+	width: 99%;
 	border:none;
 	font-family: 'Lato', sans-serif;
 	font-size: 14px;
 	color: #73556b;
 	resize: none;
+	margin-left: 0;
 }
 
 #groupe{
@@ -143,11 +144,11 @@ p.intro {
 }
 
 #couleur{
-	width:50%;
+	width:49%;
 }
 
 .adjoint{
-	width:49%;
+	width:43%;
 }
 
 #debut{
@@ -155,11 +156,11 @@ p.intro {
 }
 
 #fin{
-	width:50%;
+	width:49%;
 }
 
 #heure{
-	width:50%;
+	width:40%;
 }
 
 img {
@@ -170,7 +171,7 @@ img {
 	position: fixed;
 	top: 40%;
 	left: 50%;
-	width: 40%;
+	width: 60%;
 	max-width: 630px;
 	min-width: 250px;
 	height: auto;
@@ -292,6 +293,24 @@ img {
 	opacity: 0.2;
 }
 
+.addadj{
+	background: url(../img/Bouton-Plus.png) no-repeat center;
+	color: white;
+	font-family: 'Lato', sans-serif;
+	font-size: 18px;
+	width: 8%;
+	opacity: 1;
+	cursor: pointer;
+	-webkit-transition: all ease-in-out 0.3s;
+	-o-transition: all ease-in-out 0.3s;
+	transition: all ease-in-out 0.3s;
+	padding: 6px;
+}
+
+.addadj:hover {
+	opacity: 0.5;
+}
+
 .submit {
 	background: #e74c3c no-repeat 90% center;
 	color: white;
@@ -303,6 +322,7 @@ img {
 	-webkit-transition: all ease-in-out 0.3s;
 	-o-transition: all ease-in-out 0.3s;
 	transition: all ease-in-out 0.3s;
+	margin-top: 20px;
 }
 
 .submit:hover {
