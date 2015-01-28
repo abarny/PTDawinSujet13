@@ -10,7 +10,7 @@
 				</div>
 				
 				<div class="prenom">
-					<input type="text" name="prenom" value="PrÃ©nom" />
+					<input type="text" name="prenom" value="Prénom" />
 				</div>
 				
 				<div class="username">
@@ -37,7 +37,7 @@
 		
 		<div class="button">
 			<input type="submit" value="S'inscrire"/>
-			<input type="reset" value="Réinitialiser"/>
+			<input type="reset" value="Rénitialiser"/>
 		</div>
 		
 		<div class="color">
@@ -86,24 +86,18 @@
 		if(!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['username']) AND !empty($_POST['mail']) AND !empty($_POST['mdp1']) AND !empty($_POST['md2']))
 		
 		{
-			/*
-			CREATE TABLE `validation` (
-			`id` INT( 255 ) NOT NULL AUTO_INCREMENT ,
-			`prenom` VARCHAR( 255 ) NOT NULL ,
-			`nom` VARCHAR( 255 ) NOT NULL ,
-			`username` VARCHAR( 255 ) NOT NULL ,
-			`mail` VARCHAR( 255 ) NOT NULL ,
-			`pass` VARCHAR( 255 ) NOT NULL ,
-			`color` INT( 255 ) NOT NULL ,	
-			`droits` VARCHAR( 255 ) NOT NULL ,
-			INDEX ( `id` )
-			);
-			*/
 			
-			mysql_connect("localhost", "root", "");
-			mysql_select_db("nom_db");
+			// Connexion a la BDD
+			$host = "info-arie";
+			$user = "hatran";
+			$pass = "9JyGX1PHZdAp";
+			$bdd = "info_hatran";
+		
+			// Connexion
+			@mysql_connect($host,$user,$pass) or die("Impossible de se connecter");
+			@mysql_select_db("$bdd") or die("Impossible de se connecter");
 			
-			// sécurités
+			// S�curit�s
 			$mdp1 = mysql_real_escape_string(htmlspecialchars($_POST['mdp1']));
 			$mdp2 = mysql_real_escape_string(htmlspecialchars($_POST['mdp2']));
 			
@@ -117,7 +111,7 @@
 				// Cryptage mdp
 				$mdp1 = sha1($passe);
 				
-				mysql_query("INSERT INTO validation VALUES('', '$prenom', '$nom', '$username', '$mail', '$mdp1', '$color', 1)");
+				mysql_query("INSERT INTO users VALUES('', '$prenom', '$nom', '$username', '$mail', '$mdp1', '$color', 'Membre')");
 			}
 			
 			else {
