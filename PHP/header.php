@@ -36,9 +36,7 @@
  		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
  		<script src="http://jqueryui.com/resources/demos/datepicker/datepicker-fr.js"></script>
  		
- 		<!-- JQuery pour la gestion de compte -->
- 		<script type="text/javascript" src="../plugins/jquery.js"></script>
-		<script type="text/javascript" src="../javascript/gestionCompte.js"></script>
+ 		
 
  <script>
     $(function(){
