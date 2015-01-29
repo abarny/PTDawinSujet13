@@ -1,3 +1,14 @@
+<!-- A FAIRE ENCORE
+SUPPRESSION GROUPE : ne pas compter comme une tache en moins quand une tache arrivant dans parking
+					 en provient.
+FUSION : Afficher les tâches concernées par la fusion dans le popup.
+		Gérer pour ne pas mettre la tâche initiatrice de la fusion dans la boucle each
+		pour que même si elle se superpose il y ai fusion
+Bouger les groupes, est-ce nécessaire ?
+que l'on puisse poser les tâches n'importe ou ?
+DU CSS, plein de CSS
+
+-->
 <!DOCTYPE html>
 <html lang='fr'>
 	<head>
@@ -86,7 +97,21 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 					}
 
 					//fusion => creation d'un groupe
-					// comparaison des coordonnées de l'élément actuellement draggé  
+					// comparaison des coordonnées de l'élément actuellement draggé avec toutes les tâches
+					// si difference de top et left inférieure à 25 création, sinon non, 
+					$('#parking > div.tache').each(function(){
+						var left = $(this).position().left;
+						var top = $(this).position().top;
+						if(left != ui.position.left && top != ui.position.top && Math.abs(left - ui.position.left) <25 && Math.abs(left - ui.position.left) <25){
+var objet_drop = $(ui.draggable); // L'élément drop
+            var id_objet = objet_drop.attr('id'); // ID de l'élément drop 
+            alert('objet_drop' + objet_drop);
+            alert('id_objet' + id_objet);
+
+            						alert('creation groupe');
+            	$('#popup').css('display', 'block');
+            					}
+					});
 							}
 		            	});
 
@@ -95,6 +120,14 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 
 
 		</script>	
+		<script type"text/javascript">
+
+		        function fermepopup(){
+            		$('#popup').css('display', 'none');
+
+            	};
+		            			</script>	
+
 	</head>
 	<body>
 
@@ -130,13 +163,17 @@ tache8
 <div id="tache9" class="tache">
 tache9
 </div>	
+<div id="popup">
+	<img id="fermeture" onclick="fermepopup()"src="../img/fermeture.png" alt="icone fermeture popup" />
+<h1>Fusion de tâches </h1>
+<input type="text" placeholder="Nom du groupe" />
+
+</div>
 <div id="groupe1" class="groupe">
 <p>groupe1</p>
 </div>
 
 </div>
-
-
 
 	</body>
 </html>

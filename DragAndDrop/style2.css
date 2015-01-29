@@ -1,3 +1,11 @@
+#popup{
+	background: DarkTurquoise;
+	z-index: 4;
+	width: 20%;
+	margin: auto;
+	display: none;
+}
+
 .tache{
 	display: inline-block;
 		width: 50px;
