@@ -12,13 +12,11 @@
 
 ?>
 
-<!--
+
 <?php
 
-	$nbUsers= 0;
-	
 	function deleteUsers(){
-		for ($i = 0; $i < $nbUsers; $i++)
+		for ($i = 1; $i < 200; $i++)
 		{
 			if (isset($_POST[$i])){
 				$deleteQuery = 'DELETE FROM `users` where id = ?';
@@ -28,24 +26,11 @@
 	}
 
 ?>
--->
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
 
-<head>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-	<meta name="description" content="Formulaire d'inscription" />
-	<meta name="author" content="Hadrien" />
-	
-	<link href='../css/gestionUsers.css' rel='stylesheet' />
-	
-	<title>Gestion des utilisateurs</title>
-	
-</head>
-
-<body>
+<?php include "header.php"; 
+?>
 
 	<div class="container">
 
@@ -59,7 +44,7 @@
 			$NbrCol = 7;
 			
 			// Requête
-			$query = 'SELECT nom, prenom, mail, username, droits FROM users';
+			$query = 'SELECT nom, prenom, mail, username, droits FROM users ORDER BY id';
 			$result = mysql_query($query);
 			
 			// Nombre de cellules a remplir
@@ -125,12 +110,6 @@
 						</option>
 					</select>
 				</td>
-				
-				<?
-				
-					$nbUsers++;
-				
-				?>
 				
 			</tr>
 
