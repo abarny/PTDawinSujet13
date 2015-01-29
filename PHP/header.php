@@ -18,6 +18,7 @@
 		<link href='../css/calendar.css' rel='stylesheet'>
 		<link href='../css/inscription.css' rel='stylesheet' />
 		<link href='../css/gestionCompte.css' rel='stylesheet' />
+		<link href='../css/gestionUsers.css' rel='stylesheet' />
 		<link href='../plugins/iconselect/css/lib/control/iconselect.css' rel='stylesheet' />
 	
 	 	<script src="../plugins/iconselect/lib/control/iconselect.js"></script>
@@ -87,13 +88,13 @@
 	<!--
 								<?php 
 								if(!(isset($_SESSION['utilisateur'])))
-									echo "<li><a href='#'>Gestion des tâches</a></li>";
+									echo "<li><a href='#'>Gestion des tÃ¢ches</a></li>";
 									echo "<li><a href='#'>Gestion des utilisateurs</a></li>";
 								?>
 	-->
 	
-								<li><a href='#'>Gestion des tâches</a></li>
-								<li><a href='#'>Gestion des utilisateurs</a></li>
+								<li><a href='#'>Gestion des tÃ¢ches</a></li>
+								<li><a href='gestionUsers.php'>Gestion des utilisateurs</a></li>
 								<li><a href='#'>Aide</a></li>
 							</ul>
 							<ul class='nav navbar-nav navbar-right'>
@@ -105,13 +106,13 @@
 									echo "<li><a href=''>Se connecter</a></li>";
 								else
 									echo "<li><a href=''>Gestion du compte</a></li>";
-									echo "<li><a href=''>Se déconnecter</a></li>";
+									echo "<li><a href=''>Se dÃ©connecter</a></li>";
 						*/		?>
 	-->							
-								<li><a href=''>Gestion du compte</a></li>
+								<li><a href='gestionCompte.php'>Gestion du compte</a></li>
 								<li><a href='inscription.php'>S'inscrire</a></li>
 								<li><a href=''>Se connecter</a></li>
-						<!--		<li><a href=''>Se déconnecter</a></li> -->
+						<!--		<li><a href=''>Se dÃ©connecter</a></li> -->
 							</ul>
 						</div><!--/.nav-collapse -->
 					</div><!--/.container-fluid -->

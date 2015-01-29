@@ -45,19 +45,19 @@
 		<div class="infosClavier">
 			<div class="infos">
 				<div class="nom">
-					<input type="text" name="nom" value="Nom" />
+					<input type="text" name="nom" placeholder="Nom" />
 				</div>
 				
 				<div class="prenom">
-					<input type="text" name="prenom" value="Prénom" />
+					<input type="text" name="prenom" placeholder="Prénom" />
 				</div>
 				
 				<div class="login">
-					<input type="text" name="login" value="Nom d'utilisateur" />
+					<input type="text" name="login" placeholder="Nom d'utilisateur" />
 				</div>
 				
 				<div class="mail">
-					<input type="text" name="mail" value="Adresse mail" />
+					<input type="text" name="mail" placeholder="Adresse mail" />
 				</div>
 			</div>
 		</div>

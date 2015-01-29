@@ -32,7 +32,7 @@
 <?php include "header.php"; 
 ?>
 
-	<div class="container">
+	<div class="userContainer">
 
 			<div class="deleteUser">
 				<input type="button" name="deleteUser" onclick="<?php deleteUsers() ?>" value="Supprimer utilisateur(s) sélectionné(s)" />
