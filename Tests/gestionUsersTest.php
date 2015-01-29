@@ -172,3 +172,9 @@
 </body>
 
 </html>
+
+<?php
+
+	mysql_close(); // Déconnexion de la base
+
+?>
