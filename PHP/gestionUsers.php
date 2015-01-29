@@ -35,7 +35,7 @@
 	<div class="container">
 
 			<div class="deleteUser">
-				<input type="button" name="deleteUser" onclick=" <?php deleteUsers() ?>" value="Supprimer utilisateur(s) sélectionné(s)" />
+				<input type="button" name="deleteUser" onclick="<?php deleteUsers() ?>" value="Supprimer utilisateur(s) sélectionné(s)" />
 			</div>
 		
 		<?php
