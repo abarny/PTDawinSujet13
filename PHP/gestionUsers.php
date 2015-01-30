@@ -31,6 +31,7 @@
 
 <?php include "header.php"; 
 ?>
+<link href='../css/gestionUsers.css' rel='stylesheet' />
 
 	<div class="userContainer">
 
