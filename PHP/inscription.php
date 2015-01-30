@@ -37,7 +37,7 @@
 		
 		<div class="button">
 			<input type="submit" value="S'inscrire"/>
-			<input type="reset" value="RÃ©nitialiser"/>
+			<input type="reset" value="Rénitialiser"/>
 		</div>
 		
 		<div class="color">
@@ -111,7 +111,7 @@
 				// Cryptage mdp
 				$mdp1 = sha1($passe);
 				
-				mysql_query("INSERT INTO users VALUES('', '$prenom', '$nom', '$username', '$mail', '$mdp1', '$color', 'Membre')");
+				mysql_query("INSERT INTO users VALUES('', '$prenom', '$nom', '$username', '$mail', '$mdp1', '$color', '0')");
 			}
 			
 			else {

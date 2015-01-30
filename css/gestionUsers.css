@@ -8,22 +8,22 @@
 }
 
 
-table {
+.userContainer table {
 	margin-top: 20px;
 	border-collapse: collapse;
 }
 
-td, th {
+.userContainer td, .userContainer th {
 	border: 1px black solid;
 	width:200px;
 	height:50px;
 }
 
-th {
+.userContainer th {
 	background-color:silver;
 }
 
-td {
+.userContainer td {
 	padding-left:10px;
 }
 

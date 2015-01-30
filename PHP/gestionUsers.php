@@ -31,7 +31,6 @@
 
 <?php include "header.php"; 
 ?>
-<link href='../css/gestionUsers.css' rel='stylesheet' />
 
 	<div class="userContainer">
 
@@ -45,7 +44,7 @@
 			$NbrCol = 7;
 			
 			// Requête
-			$query = 'SELECT nom, prenom, mail, username, droits FROM users ORDER BY id';
+			$query = 'SELECT nom_user, prenom, mail, username, droits FROM users ORDER BY id_user';
 			$result = mysql_query($query);
 			
 			// Nombre de cellules a remplir
@@ -94,7 +93,7 @@
 				?>
 				
 				<td class="check"><input type="checkbox" name="<?php echo $j ?>" /></td>
-				<td> <?php echo utf8_encode($val['nom']); ?> </td>
+				<td> <?php echo utf8_encode($val['nom_user']); ?> </td>
 				<td> <?php echo utf8_encode($val['prenom']); ?> </td>
 				<td> <?php echo utf8_encode($val['mail']); ?> </td>
 				<td> <?php echo utf8_encode($val['username']); ?> </td>
@@ -102,11 +101,16 @@
 				<td> <?php echo ""; ?> </td>
 				<td>
 					<select name="droit">
-						<option> <?php echo utf8_encode($val['droits']); ?> </option>
 						<option>
 							<?php
-								if ($val['droits'] == "Admin") echo "Membre";
+								if ($val['droits'] == "0") echo "Membre";
 								else echo "Admin";
+							?>
+						</option>
+						<option>
+							<?php
+								if ($val['droits'] == "0") echo "Admin";
+								else echo "Membre";
 							?>
 						</option>
 					</select>

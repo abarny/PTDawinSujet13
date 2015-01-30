@@ -18,7 +18,8 @@
 		<link href='../css/calendar.css' rel='stylesheet'>
 		<link href='../css/inscription.css' rel='stylesheet' />
 		<link href='../css/gestionCompte.css' rel='stylesheet' />
-		
+		<link href='../css/gestionUsers.css' rel='stylesheet' />
+
 		<link href='../plugins/iconselect/css/lib/control/iconselect.css' rel='stylesheet' />
 	
 	 	<script src="../plugins/iconselect/lib/control/iconselect.js"></script>

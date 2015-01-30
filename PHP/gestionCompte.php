@@ -1,6 +1,8 @@
 <?php include "header.php"; 
 ?>
 
+
+
 <!-- JQuery -->
 <script src="../plugins/jquery.js"></script>
 <script src="../javascript/gestionCompte.js"></script>
