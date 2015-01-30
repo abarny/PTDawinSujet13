@@ -39,16 +39,17 @@
  		
  		
 
- <script>
-    $(function(){
-        var options = {
-            showOn: "button",
-            firstDay: 1
-        };  
-        $("#datepicker").datepicker(options);
-    });
-
-</script>
+		 <script>
+		    $(function(){
+		        var options = {
+		            showOn: "button",
+		            firstDay: 1
+		        };  
+		        $("#datepicker").datepicker(options);
+		    });
+		
+		</script>
+				
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 			<script src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js'></script>
@@ -80,9 +81,9 @@
 						</div>
 
 
-						<div id='navbar' class='navbar-collapse collapse'>
+						<div id='navbar' class='navbar-collapse collapse' ng-controller="HeaderController">
 							<ul class='nav navbar-nav'>
-								<li class='active'><a href='calendar.php'>Accueil</a></li>
+								<li class="active"><a href='calendar.php'>Accueil</a></li>
 								
 	<!--
 								<?php 
