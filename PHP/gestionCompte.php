@@ -8,6 +8,7 @@
 <script src="../javascript/gestionCompte.js"></script>
 
 
+<div class="gestionCompte">
 	<form method="post">
 	
 		<div class="color">
@@ -101,6 +102,7 @@
 		
 	</form>
 
+</div>
 </body>
 
 </html>

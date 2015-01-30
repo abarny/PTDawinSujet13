@@ -3,7 +3,7 @@
   padding-bottom: 20px;
 }
 
-form {
+.gestionCompte form {
 	/* top, right, bottom, left */
 	margin: 50px 20px 20px 500px;
 	
@@ -11,34 +11,33 @@ form {
 	/* margin-left:50px; */
 }
 
-input[type=text] {
+.gestionCompte input[type=text] {
 	margin-top:10px;
 	margin-bottom:10px;
 	width:200px;
 }
 
-input[type=password] {
+.gestionCompte input[type=password] {
 	margin-top:10px;
 	margin-bottom:10px;
 	width:200px;
 }
 
-.infos{
+.gestionCompte .infos{
 	margin-top:20px;
 	margin-bottom:30px;
 }
 
-.password{
+.gestionCompte .password{
 	margin-top:30px;
 	margin-bottom:30px;
 }
 
-.color {
+.gestionCompte .color {
 	position:absolute;
-	margin-top:100px;
 	margin-left:300px;
 }
 
-.button {
+.gestionCompte .button {
 	margin-top:50px;
 }

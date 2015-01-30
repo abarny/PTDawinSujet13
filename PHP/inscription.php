@@ -11,7 +11,7 @@
 					</div>
 					
 					<div class="prenom">
-						<input type="text" name="prenom" placeholder="PrÃ©nom" />
+						<input type="text" name="prenom" placeholder="Prénom" />
 					</div>
 					
 					<div class="username">
@@ -116,12 +116,12 @@
 			}
 			
 			else {
-				echo 'Erreur : les deux mots de passe ne sont pas identiques.';
+				echo '<script>alert("Erreur : les deux mots de passe ne sont pas identiques.")</script>';
 			}
 		}
 		
 		else {
-			echo 'Erreur : un ou plusieurs champ(s) est ou sont incomplet(s).';
+			echo '<script>alert("Erreur : un ou plusieurs champ(s) est ou sont incomplet(s).")</script>'; 
 		}
 
 	?>
