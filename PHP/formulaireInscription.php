@@ -1,12 +1,3 @@
-
-<head>
-<style type="text/css">
-.auto-style1 {
-	text-align: center;
-}
-</style>
-</head>
-
 <?php
 
 	// session_start();
