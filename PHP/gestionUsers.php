@@ -44,7 +44,7 @@
 			$NbrCol = 7;
 			
 			// Requête
-			$query = 'SELECT nom_user, prenom, mail, username, droits FROM users ORDER BY id_user';
+			$query = 'SELECT nom_user, prenom, mail, username, droits_admin FROM users ORDER BY id_user';
 			$result = mysql_query($query);
 			
 			// Nombre de cellules a remplir
@@ -103,13 +103,13 @@
 					<select name="droit">
 						<option>
 							<?php
-								if ($val['droits'] == "0") echo "Membre";
+								if ($val['droits_admin'] == "0") echo "Membre";
 								else echo "Admin";
 							?>
 						</option>
 						<option>
 							<?php
-								if ($val['droits'] == "0") echo "Admin";
+								if ($val['droits_admin'] == "0") echo "Admin";
 								else echo "Membre";
 							?>
 						</option>
