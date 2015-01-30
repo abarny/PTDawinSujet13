@@ -54,7 +54,7 @@
 				</div>
 				
 				<div class="prenom">
-					<input type="text" name="prenom" placeholder="Prénom" />
+					<input type="text" name="prenom" placeholder="PrÃ©nom" />
 				</div>
 				
 				<div class="login">
@@ -87,13 +87,13 @@
 				<input type="password" name="mdp2" />
 			</div>
 			
-			<!-- TODO : mettre un bouton pour conserver l'ancien mot de passe (ràz des champs mdp et hide la div password) ? -->
+			<!-- TODO : mettre un bouton pour conserver l'ancien mot de passe (rÃ z des champs mdp et hide la div password) ? -->
 			
 		</div>
 		
 		
 		<div class="button">
-			<input type="submit" value="S'inscrire"/>
+			<input type="submit" value="Enregistrer les modifications"/>
 			<input type="reset" value="Réinitialiser"/>
 		</div>	
 		

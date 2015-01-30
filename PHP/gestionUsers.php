@@ -36,7 +36,7 @@
 	<div class="userContainer">
 
 			<div class="deleteUser">
-				<input type="button" name="deleteUser" onclick="<?php deleteUsers() ?>" value="Supprimer utilisateur(s) s√©lectionn√©(s)" />
+				<input type="button" name="deleteUser" onclick="<?php deleteUsers() ?>" value="Supprimer utilisateur(s) sÈlectionnÈ(s)" />
 			</div>
 		
 		<?php
@@ -62,12 +62,12 @@
 			<!-- Ent√™te du tableau -->
 			<thead>
 				<tr>
-					<th class="check">S√©lection</th>
+					<th class="check">SÈlection</th>
 					<th>Nom</th>
-					<th>Pr√©nom</th>
+					<th>PrÈnom</th>
 					<th>Email</th>
 					<th>Login</th>
-					<th>Nombre t√¢ches semaine courante</th>
+					<th>Nombre t‚ches semaine courante</th>
 					<th>Nombre heures semaine courante</th>
 					<th>Droits</th>
 				</tr>
@@ -135,12 +135,12 @@
 		<?php
 		
 			} // fermeture du grand if
-			// si il n'y a aucune donn√©es √† afficher
+			// si il n'y a aucune donnÈes √† afficher
 			else {
 		
 		?>
 		
-		pas de donn√©es √† afficher
+		pas de donnÈes ‡ afficher
 		<?php
 		
 			} // fermeture du else
