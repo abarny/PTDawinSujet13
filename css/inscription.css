@@ -1,43 +1,40 @@
-﻿body {
+﻿body .inscription {
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-form {
+.inscription form {
 	/* top, right, bottom, left */
-	/* margin: 50px 20px 20px 500px; */
-	
-	/* Temporaire, le temps de travailler avec 2 fenêtres */
-	margin-left:50px;
+	margin: 50px 20px 20px 500px;
 }
 
-input[type=text] {
+.inscription input[type=text] {
 	margin-top:10px;
 	margin-bottom:10px;
 	width:200px;
 }
 
-input[type=password] {
+.inscription input[type=password] {
 	margin-top:10px;
 	margin-bottom:10px;
 	width:200px;
 }
 
-.infos{
+.inscription .infos{
 	margin-top:20px;
 	margin-bottom:30px;
 }
 
-.password{
+.inscription .password{
 	margin-top:30px;
 	margin-bottom:30px;
 }
 
-.color {
+.inscription .color {
 	margin-left:300px;
 	margin-top:-400px;
 }
 
-.button {
+.inscription .button {
 	margin-top:50px;
 }
