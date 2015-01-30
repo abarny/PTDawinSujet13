@@ -87,12 +87,12 @@
 	<!--
 								<?php 
 								if(!(isset($_SESSION['utilisateur'])))
-									echo "<li><a href='#'>Gestion des t√¢ches</a></li>";
+									echo "<li><a href='#'>Gestion des t‚ches</a></li>";
 									echo "<li><a href='#'>Gestion des utilisateurs</a></li>";
 								?>
 	-->
 	
-								<li><a href='#'>Gestion des t√¢ches</a></li>
+								<li><a href='#'>Gestion des t‚ches</a></li>
 								<li><a href='gestionUsers.php'>Gestion des utilisateurs</a></li>
 								<li><a href='#'>Aide</a></li>
 							</ul>

@@ -1,3 +1,12 @@
+
+<head>
+<style type="text/css">
+.auto-style1 {
+	text-align: center;
+}
+</style>
+</head>
+
 <?php
 
 	// session_start();
@@ -59,7 +68,11 @@
 						if($_POST["username"] != $_POST["mdp1"]){
 				   
 						  // Si tout ce passe correctement, on peut maintenant l'inscrire dans la base de données :
-						  $sql = "INSERT INTO users (`nom_user`, `prenom`, `username`, `mail`, `pass`, `color`, `droits_admin`) VALUES ('".$_POST["nom"]."','".$_POST["prenom"]."','".$_POST["username"]."','".$_POST["mail"]."','".$_POST["mdp1"]."','1','0')";
+						  // On crypte d'abord le mot de passe
+						  $pass = $_POST["mdp1"];
+						  $passCrypt = md5($pass);
+						  
+						  $sql = "INSERT INTO users (`nom_user`, `prenom`, `username`, `mail`, `pass`, `color`, `droits_admin`) VALUES ('".$_POST["nom"]."', '".$_POST["prenom"]."', '".$_POST["username"]."', '".$_POST["mail"]."', '$passCrypt', '1', '0')";
 						  $sql = mysql_query($sql);
 						 
 						  // Si la requête s'est bien effectué :
@@ -70,12 +83,17 @@
 							  // On l'affiche un message pour le dire que l'inscription c'est bien déroulé :
 							  $registerMSG = "Inscription réussie ! Vous êtes maintenant membre du site.";
 							 
-							  // On le met des variables de session pour stocker le nom de compte et le mot de passe :
+							  // On met des variables de session pour stocker le nom de compte et le mot de passe :
+							  $_SESSION["nom_user"] = $_POST["nom"];
+							  $_SESSION["prenom"] = $_POST["prenom"];
 							  $_SESSION["username"] = $_POST["username"];
-							  $_SESSION["pass"] = $_POST["mdp1"];
+							  $_SESSION["mail"] = $_POST["mail"];
+							  $_SESSION["pass"] = $passCrypt;
+							  $_SESSION["color"] = 1;
+							  $_SESSION["droits_admin"] = 0;
 							 
 							  // Comme un utilisateur est différent, on crée des variables de sessions pour "varier" l'utilisateur comme ceci :
-							  // echo $_SESSION["login"]; (bien entendu avec les balises PHP, sinons cela ne marchera pas.
+							  // echo $_SESSION["username"]; (bien entendu avec les balises PHP, sinons cela ne marchera pas.
 						 
 						  }
 						 
@@ -148,20 +166,20 @@
 		}
 	 
 	  // Sinon si les deux mots de passes sont différents :	 
-	  elseif($_POST["pass"] != $_POST["pass2"]){
+	  elseif($_POST["mdp1"] != $_POST["mdp2"]){
 	 
 		$error = TRUE;
 	   
 		$errorMSG = "Les deux mots de passes sont différents !";
 	   
-		$login = $_POST["login"];
+		$login = $_POST["username"];
 	   
 		$pass = NULL;
 	 
 	  }
 	 
 	  // Sinon si le nom de compte et le mot de passe ont la même valeur :
-	  elseif($_POST["login"] == $_POST["pass"]){
+	  elseif($_POST["username"] == $_POST["mdp1"]){
 	 
 		$error = TRUE;
 	   
@@ -185,3 +203,4 @@
 <?php // Si l'inscription s'est bien déroulée on affiche le succès :
 	  if($registerOK == TRUE){ echo "<p align='center' style='color:green;'><strong>$registerMSG</strong></p>"; }
 ?>
+<p class="auto-style1">&nbsp;</p>
