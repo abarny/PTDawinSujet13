@@ -6,13 +6,13 @@
 }
 
 .note {
-  color: #333;
+  color: black;
   position: relative;
-  width: 300px;
+  width: 200px;
   margin: 0 auto;
   padding: 20px;
   font-family: Satisfy;
-  font-size: 30px;
+  font-size: 20px;
   box-shadow: 0 10px 10px 2px rgba(0,0,0,0.3);
 }
 
@@ -24,11 +24,38 @@
 
 .yellow {
   background: #eae672;
-  -webkit-transform: rotate(2deg);
-  -moz-transform: rotate(2deg);
-  -o-transform: rotate(2deg);
-  -ms-transform: rotate(2deg);
-  transform: rotate(2deg);
+  -webkit-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  -ms-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+}
+
+.blue {
+  background: #7276ea;
+  -webkit-transform: rotate(12deg);
+  -moz-transform: rotate(12deg);
+  -o-transform: rotate(12deg);
+  -ms-transform: rotate(12deg);
+  transform: rotate(12deg);
+}
+
+.red {
+  background: #ea7276;
+  -webkit-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
+  -o-transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+}
+
+.green {
+  background: #b2ea72;
+  -webkit-transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
+  -o-transform: rotate(8deg);
+  -ms-transform: rotate(8deg);
+  transform: rotate(8deg);
 }
 
 .pin {
