@@ -3,11 +3,11 @@ SUPPRESSION GROUPE : ne pas compter comme une tache en moins quand une tache arr
 					 en provient.
 FUSION : Afficher les tâches concernées par la fusion dans le popup.
 		Gérer pour ne pas mettre la tâche initiatrice de la fusion dans la boucle each
-		pour que même si elle se superpose il y ai fusion
+		pour que même si elle se superpose il y ai fusion !! FAIT !!
+Probleme de z-index : les taches draggés passant par en dessous c'est moche : => rectifié !
 Bouger les groupes, est-ce nécessaire ?
 que l'on puisse poser les tâches n'importe ou ?
 DU CSS, plein de CSS
-
 -->
 <!DOCTYPE html>
 <html lang='fr'>
@@ -25,8 +25,13 @@ DU CSS, plein de CSS
 $(function(){
 
     $('.groupe').draggable({ containment: 'parent' }); // appel du plugin
-
-    $('.tache').draggable({ containment: 'parent', helper: "clone"}); 
+    $('.tache').draggable({ containment: 'parent',/*, helper: "clone"*/
+				start: function( event, ui){
+					ui.helper.css("z-index", "5"); // les taches draggées ne passent plus en dessous des autres
+				},
+				stop: function(event, ui){
+					ui.helper.css("z-index", "2");
+				} }); 
 var compteur = 0;
 var nbtache = 0;
 var mintopgroup = 0;
@@ -46,15 +51,15 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
                     			left: '5%',
                     			top:  '5%'
                				})
+               		ui.draggable.addClass('ingroupe');
                				compteur = compteur + 1;
-               				alert(compteur);
+
                		//récupération des positions de la derniere tache déposée
                		var divlastposition = $('#groupe1 div:last-child').position();
                		//hauteur du groupe pas mettre en globale sinon les mises à jour ne servent à rien
 					var hauteurgroupe = parseInt($('#groupe1').css('height'));
 
                		// Si la tache va se déposer en dehors du groupe, on agrandit le groupe
-               //	   alert(divlastposition.top + 'hauteurgroupe ' + hauteurgroupe);
 					if(divlastposition.top+50 >  hauteurgroupe){ 
 						$("#groupe1").animate({height: '+='+hauteurtacheplusdix},500);
 						hauteurgroupe = parseInt($('#groupe1').css('height')); // mise à jour de hauteur groupe
@@ -64,7 +69,6 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 					if(hauteurgroupe > tailleInitiale && hauteurgroupe - (divlastposition.top+50) > hauteurtacheplusdix){ //150 
 						$("#groupe1").animate({height: '-='+hauteurtacheplusdix},500);
 						hauteurgroupe = parseInt($('#groupe1').css('height'));
-				//		alert('if du groupe');
 					}            	
 
 					}
@@ -73,60 +77,67 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 }); 
 
     $('#parking').droppable({
-
 		        drop: function( event, ui ) {   // Action effectuée lorsqu'on dépose un élément dans le parking
 
+		            ui.draggable.appendTo( $(this) ) // on le met à l'intérieur du groupe
+		            		.css({                     
+                    			left: '5%',
+                    			top:  '5%'
+               				})
 
+					var objet_drop = $(ui.draggable); // L'élément drop
+           			var id_objet = objet_drop.attr('id'); // ID de l'élément drop 
+           		//	alert(ui.draggable);
+            	//	alert(ui.helper);
+          			
+          			// si l'élément arrivant dans la zone drop parking provient du groupe 
+          			// on ote 1 au compteur du groupe
+           			if(ui.draggable.hasClass('ingroupe')){
                			compteur = compteur -1 ;
-						alert(compteur);
-
-					if(compteur == 0){
-					   $( "#groupe1" ).remove();
+               			if(compteur == 0){
+					   		$( "#groupe1" ).remove();
                			}
+               			ui.draggable.removeClass('ingroupe');
+               		}
+
           		var hauteurgroupe = parseInt($('#groupe1').css('height'));
            		var divlastposition = $('#groupe1 div:nth-last-child(2)').position();
-           		var positionaulacher = ui.draggable.position();
-           		positionaulacherleft = positionaulacher.left;
-           		positionaulachertop = positionaulacher.top;
+         // 		var positionaulacher = ui.draggable.position();
+         //  		positionaulacherleft = positionaulacher.left;
+         //  		positionaulachertop = positionaulacher.top;
+          // 		alert('left ' + positionaulacherleft + ' top ' + positionaulachertop);
 
-           		alert('left : ' + ui.position.left + 'top : ' + ui.position.top);
-           //		alert('hauteurgroupe : ' + hauteurgroupe + ' tailleInitiale : ' + tailleInitiale + 'divavantlast top : ' + divlastposition.top + 'hauteurtacheplusdix : ' + hauteurtacheplusdix)
 					if(hauteurgroupe > tailleInitiale && hauteurgroupe - (divlastposition.top+50) > hauteurtacheplusdix){ //150 
 						$("#groupe1").animate({height: '-='+hauteurtacheplusdix},500);
 						hauteurgroupe = parseInt($('#groupe1').css('height'));
 					}
-
 					//fusion => creation d'un groupe
 					// comparaison des coordonnées de l'élément actuellement draggé avec toutes les tâches
 					// si difference de top et left inférieure à 25 création, sinon non, 
-					$('#parking > div.tache').each(function(){
-						var left = $(this).position().left;
-						var top = $(this).position().top;
-						if(left != ui.position.left && top != ui.position.top && Math.abs(left - ui.position.left) <25 && Math.abs(left - ui.position.left) <25){
-var objet_drop = $(ui.draggable); // L'élément drop
-            var id_objet = objet_drop.attr('id'); // ID de l'élément drop 
-            alert('objet_drop' + objet_drop);
-            alert('id_objet' + id_objet);
-
-            						alert('creation groupe');
-            	$('#popup').css('display', 'block');
+					$('#parking > div.tache:not(#'+id_objet+')').each(function(){
+						var left = $(this).offset().left;
+						var top = $(this).offset().top;
+						var ecartLeft = left - ui.position.left;
+				//		alert('left tachedraggée : ' + ui.offset.left + 'top tachedraggée : ' + ui.offset.top + 'left boucletache : ' + left + 'top boucletache : ' + top);
+						var ecartTop = top - ui.position.top;
+					//	alert('ecart gauche : ' + Math.abs(left - ui.position.left) + 'ecartTop : ' + Math.abs(top - ui.position.top));
+						if(Math.abs(left - ui.offset.left) < 25 && Math.abs(top - ui.offset.top) < 25){
+				            	$('#popup').css('display', 'block');
             					}
 					});
 							}
 		            	});
 
+
+
 });
+		</script>
 
-
-
-		</script>	
-		<script type"text/javascript">
-
-		        function fermepopup(){
+		<script type="text/javascript">
+				        function fermepopup(){
             		$('#popup').css('display', 'none');
-
             	};
-		            			</script>	
+            	</script>	
 
 	</head>
 	<body>
