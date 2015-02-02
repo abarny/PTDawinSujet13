@@ -13,16 +13,30 @@
 ?>
 
 
-<?php
-
-	function deleteUsers(){
-		for ($i = 1; $i < 200; $i++)
-		{
-			if (isset($_POST[$i])){
-				$deleteQuery = 'DELETE FROM `users` where id = ?';
-				$deleteQuery->execute(array($i));
+<!--
+	<?php
+	/*
+		function deleteUsers(){
+			for ($i = 1; $i < 200; $i++)
+			{
+				if (isset($_POST[$i])){
+					$deleteQuery = 'DELETE FROM `users` where id = ?';
+					$deleteQuery->execute(array($i));
+				}
 			}
 		}
+	*/
+	?>
+-->
+
+
+<?php
+
+	if(isset($_POST[$i])) {
+	    foreach($_POST[$i] AS $id) {
+	    	$deleteQuery = 'DELETE FROM `users` where id = ?';
+				$deleteQuery->execute(array($i));
+	    }
 	}
 
 ?>
@@ -32,10 +46,15 @@
 <?php include "header.php"; 
 ?>
 
+<!-- JQuery -->
+<script src="../plugins/jquery.js"></script>
+<script src="../javascript/gestionUsers.js"></script>
+
+
 	<div class="userContainer">
 
 			<div class="deleteUser">
-				<input type="button" name="deleteUser" onclick="<?php deleteUsers() ?>" value="Supprimer utilisateur(s) s�lectionn�(s)" />
+				<input type="button" name="deleteUser" onclick="<?php deleteUsers() ?>" value="Supprimer utilisateur(s) sélectionné(s)" />
 			</div>
 		
 		<?php
@@ -43,7 +62,7 @@
 			// Nombre de colonnes
 			$NbrCol = 7;
 			
-			// Requête
+			// RequÃªte
 			$query = 'SELECT nom_user, prenom, mail, username, droits_admin FROM users ORDER BY id_user';
 			$result = mysql_query($query);
 			
@@ -58,15 +77,15 @@
 		?>
 		
 		<table id="usersList" name="usersList">
-			<!-- Entête du tableau -->
+			<!-- EntÃªte du tableau -->
 			<thead>
 				<tr>
-					<th class="check">S�lection</th>
+					<th class="check">Sélection</th>
 					<th>Nom</th>
-					<th>Pr�nom</th>
+					<th>Prénom</th>
 					<th>Email</th>
 					<th>Login</th>
-					<th>Nombre t�ches semaine courante</th>
+					<th>Nombre tâches semaine courante</th>
 					<th>Nombre heures semaine courante</th>
 					<th>Droits</th>
 				</tr>
@@ -139,12 +158,12 @@
 		<?php
 		
 			} // fermeture du grand if
-			// si il n'y a aucune donn�es à afficher
+			// si il n'y a aucune données Ã  afficher
 			else {
 		
 		?>
 		
-		pas de donn�es � afficher
+		pas de données à afficher
 		<?php
 		
 			} // fermeture du else
