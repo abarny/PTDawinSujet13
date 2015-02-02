@@ -1,6 +1,15 @@
+#fermeture{
+	margin-left: 90%;
+	width: 10%;
+}
+
+#titrefusion{
+	font-size: 1.5em;
+}
+
 #popup{
 	background: DarkTurquoise;
-	z-index: 4;
+	z-index: 12;
 	width: 20%;
 	margin: auto;
 	display: none;
@@ -10,60 +19,44 @@
 	display: inline-block;
 		width: 50px;
 	height: 50px;
+	margin: 3px;
+	z-index: 2;
 }
 #tache1{
 	background: red;
-	margin: 3px;
-		z-index: 2;
+
 }
 #tache2{
 	background: yellow;
-		margin: 3px;
 
-		z-index: 2;
 
 }
 #tache3{
 	background: orange;
-		margin: 3px;
 
-		z-index: 2;
 }
 #tache4{
 	background: grey;
-		margin: 3px;
 
-		z-index: 2;
 }
 #tache5{
 	background: purple;
-		margin: 3px;
 
-		z-index: 2;
 }
 #tache6{
 	background: blue;
-		margin: 3px;
 
-		z-index: 2;
 }
 #tache7{
 	background: steelblue;
-		margin: 3px;
 
-		z-index: 2;
 }
 #tache8{
 	background: pink;
-		margin: 3px;
 
-		z-index: 2;
 }
 #tache9{
 	background: brown;
-		margin: 3px;
-
-		z-index: 2;
 }
 #groupe1{
 	background: green;

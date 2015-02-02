@@ -5,6 +5,8 @@ FUSION : Afficher les tâches concernées par la fusion dans le popup.
 		Gérer pour ne pas mettre la tâche initiatrice de la fusion dans la boucle each
 		pour que même si elle se superpose il y ai fusion !! FAIT !!
 Probleme de z-index : les taches draggés passant par en dessous c'est moche : => rectifié !
+pour les fusions de gauche à droite : le drop d'une tache doit pas engendrer le déplacement des autres sinon comparaison
+des coordonnées impossible: Fait (position absolute) !
 Bouger les groupes, est-ce nécessaire ?
 que l'on puisse poser les tâches n'importe ou ?
 DU CSS, plein de CSS
@@ -81,12 +83,12 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 
 		            ui.draggable.appendTo( $(this) ) // on le met à l'intérieur du groupe
 		            		.css({                     
-                    			left: '5%',
-                    			top:  '5%'
-               				})
+                    			position: 'absolute'
+                    			
+               				});
 
-					var objet_drop = $(ui.draggable); // L'élément drop
-           			var id_objet = objet_drop.attr('id'); // ID de l'élément drop 
+		//			var objet_drop = $(ui.draggable); // L'élément drop
+           			var id_objet = ui.draggable.attr('id'); // ID de l'élément drop 
            		//	alert(ui.draggable);
             	//	alert(ui.helper);
           			
@@ -115,15 +117,35 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 					// comparaison des coordonnées de l'élément actuellement draggé avec toutes les tâches
 					// si difference de top et left inférieure à 25 création, sinon non, 
 					$('#parking > div.tache:not(#'+id_objet+')').each(function(){
+				//		var fusion = false;
 						var left = $(this).offset().left;
 						var top = $(this).offset().top;
-						var ecartLeft = left - ui.position.left;
+						var idtachefusion = $(this).attr('id');
+				//		alert(' 1 : ' +idtachefusion);
 				//		alert('left tachedraggée : ' + ui.offset.left + 'top tachedraggée : ' + ui.offset.top + 'left boucletache : ' + left + 'top boucletache : ' + top);
-						var ecartTop = top - ui.position.top;
 					//	alert('ecart gauche : ' + Math.abs(left - ui.position.left) + 'ecartTop : ' + Math.abs(top - ui.position.top));
-						if(Math.abs(left - ui.offset.left) < 25 && Math.abs(top - ui.offset.top) < 25){
+				//	alert($(this).attr('id') + ' left : ' + left + ' ui.offset.left ' + ui.offset.left + ' top : ' + top + '  ui.offset.top : ' + ui.offset.top)
+						if( Math.abs(left - ui.offset.left) < 25 && Math.abs(top - ui.offset.top) < 25){
 				            	$('#popup').css('display', 'block');
-            					}
+				           		ui.draggable.appendTo('#popup').css({                     
+                    			position: 'relative',
+                    			left: '5%',
+                    			top: '5%'
+               				});
+				      //     								alert(' 2 : ' + idtachefusion);
+ 
+				        //   		alert('#'+idtachefusion);
+				          		$('#'+idtachefusion).appendTo('#popup').css({                     
+                    			position: 'relative',
+                    			left: '5%',
+                    			top: '5%'
+               				});
+				          		return false;
+				           		}
+				          // 		var fusion = true;
+            					
+ //							           		$(this).appendTo('#popup');	
+
 					});
 							}
 		            	});
@@ -176,9 +198,9 @@ tache9
 </div>	
 <div id="popup">
 	<img id="fermeture" onclick="fermepopup()"src="../img/fermeture.png" alt="icone fermeture popup" />
-<h1>Fusion de tâches </h1>
+<h1 id="titrefusion">Fusion de tâches </h1>
 <input type="text" placeholder="Nom du groupe" />
-
+<input type="submit" value="valider"/>
 </div>
 <div id="groupe1" class="groupe">
 <p>groupe1</p>
