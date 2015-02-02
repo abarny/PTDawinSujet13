@@ -29,18 +29,18 @@
 	?>
 -->
 
-
+<!--
 <?php
 
-	if(isset($_POST[$i])) {
+	/*if(isset($_POST[$i])) {
 	    foreach($_POST[$i] AS $id) {
 	    	$deleteQuery = 'DELETE FROM `users` where id = ?';
 				$deleteQuery->execute(array($i));
 	    }
-	}
+	}*/
 
 ?>
-
+-->
 
 
 <?php include "header.php"; 
@@ -54,7 +54,7 @@
 	<div class="userContainer">
 
 			<div class="deleteUser">
-				<input type="button" name="deleteUser" onclick="<?php deleteUsers() ?>" value="Supprimer utilisateur(s) sélectionné(s)" />
+				<input type="button" name="deleteUser" onclick="" value="Supprimer utilisateur(s) sélectionné(s)" />
 			</div>
 		
 		<?php
@@ -62,7 +62,7 @@
 			// Nombre de colonnes
 			$NbrCol = 7;
 			
-			// RequÃªte
+			// RequÃƒÂªte
 			$query = 'SELECT nom_user, prenom, mail, username, droits_admin FROM users ORDER BY id_user';
 			$result = mysql_query($query);
 			
@@ -77,7 +77,7 @@
 		?>
 		
 		<table id="usersList" name="usersList">
-			<!-- EntÃªte du tableau -->
+			<!-- EntÃƒÂªte du tableau -->
 			<thead>
 				<tr>
 					<th class="check">Sélection</th>
@@ -85,7 +85,7 @@
 					<th>Prénom</th>
 					<th>Email</th>
 					<th>Login</th>
-					<th>Nombre tâches semaine courante</th>
+					<th>Nombre tÃ¢ches semaine courante</th>
 					<th>Nombre heures semaine courante</th>
 					<th>Droits</th>
 				</tr>
@@ -158,12 +158,12 @@
 		<?php
 		
 			} // fermeture du grand if
-			// si il n'y a aucune données Ã  afficher
+			// si il n'y a aucune données ÃƒÂ  afficher
 			else {
 		
 		?>
 		
-		pas de données à afficher
+		pas de données Ã  afficher
 		<?php
 		
 			} // fermeture du else
