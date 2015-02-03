@@ -1,8 +1,23 @@
-﻿#blocConnexion {
+﻿.blocConnexion {
+	display:block;
 	position:absolute;
-	width:150px;
+	width:20%;
+	height:20%;
 	margin-left:auto;
 	margin-top:auto;
 	z-index:999;
 	border:medium black solid;
+	background-color:silver;
+	padding-left:10px;
+}
+
+.blocConnexion h3 {
+	font-weight:bold;
+	font-size:x-large;
+	text-decoration:underline;
+	margin-bottom:15px;
+}
+
+.blocConnexion input {
+	margin:5px 5px 5px 5px;
 }

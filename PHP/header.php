@@ -19,6 +19,7 @@
 		<link href='../css/inscription.css' rel='stylesheet' />
 		<link href='../css/gestionCompte.css' rel='stylesheet' />
 		<link href='../css/gestionUsers.css' rel='stylesheet' />
+		<link href='../css/connexion.css' rel='stylesheet' />
 
 		<link href='../plugins/iconselect/css/lib/control/iconselect.css' rel='stylesheet' />
 	
@@ -38,11 +39,7 @@
  		<script src="http://jqueryui.com/resources/demos/datepicker/datepicker-fr.js"></script>
  		
  		<!-- Ouveture du popup de connexion -->
- 		<script>
-	 		function login() {
-				$('#blocConnexion').css('display', 'block');
-			}
-		</script>
+		<script src="../javascript/connexion.js"></script>
 
 		 <script>
 		    $(function(){
@@ -90,7 +87,7 @@
 								<li class="active"><a href='calendar.php'>Accueil</a></li>
 								
 	
-								<li><a href='#'>Gestion des t‚ches</a></li>
+								<li><a href='#'>Gestion des t√¢ches</a></li>
 								<li><a href='gestionUsers.php'>Gestion des utilisateurs</a></li>
 								<li><a href='#'>Aide</a></li>
 							</ul>
@@ -99,7 +96,7 @@
 
 								<li><a href='gestionCompte.php'>Gestion du compte</a></li>
 								<li><a href='inscription.php'>S'inscrire</a></li>
-								<li><a href='' onclick='login()'>Se connecter</a></li>
+								<li><input type="button" class="boutonConnexion" value="Se connecter"></li>
 							</ul>
 						</div><!--/.nav-collapse -->
 					</div><!--/.container-fluid -->
@@ -107,7 +104,9 @@
 				
 				<div class='blocConnexion'>
 				
-					<p>TEST</p>
+					<h3>Connexion</h3>
+					<label>Login : <input type="text" /></label>
+					<label>Mot de passe : <input type="password" /></label>
 				
 				</div>
 				
