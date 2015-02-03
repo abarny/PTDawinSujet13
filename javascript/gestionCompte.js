@@ -4,7 +4,7 @@
 		$(".password").hide();
 	});
 
-	$("input[name=passwordChange]").click(function(){
+	$("#connectButton").click(function(){
 		$(".password").show("slow");
 	});
 	

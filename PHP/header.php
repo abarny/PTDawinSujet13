@@ -37,7 +37,12 @@
  		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
  		<script src="http://jqueryui.com/resources/demos/datepicker/datepicker-fr.js"></script>
  		
- 		
+ 		<!-- Ouveture du popup de connexion -->
+ 		<script>
+	 		function login() {
+				$('#blocConnexion').css('display', 'block');
+			}
+		</script>
 
 		 <script>
 		    $(function(){
@@ -68,7 +73,6 @@
 				<!-- Static navbar -->
 				<nav class='navbar navbar-default'>
 					<div class='container-fluid'>
-						
 
 						<div class='navbar-header'>
 							<button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar' aria-expanded='false' aria-controls='navbar'>
@@ -85,39 +89,28 @@
 							<ul class='nav navbar-nav'>
 								<li class="active"><a href='calendar.php'>Accueil</a></li>
 								
-	<!--
-								<?php 
-								if(!(isset($_SESSION['utilisateur'])))
-									echo "<li><a href='#'>Gestion des tâches</a></li>";
-									echo "<li><a href='#'>Gestion des utilisateurs</a></li>";
-								?>
-	-->
 	
-								<li><a href='#'>Gestion des tâches</a></li>
+								<li><a href='#'>Gestion des t�ches</a></li>
 								<li><a href='gestionUsers.php'>Gestion des utilisateurs</a></li>
 								<li><a href='#'>Aide</a></li>
 							</ul>
 							<ul class='nav navbar-nav navbar-right'>
 							
-	<!--
-								<?php 
-				/*				if(!(isset($_SESSION['utilisateur'])))
-									echo "<li><a href=''>S'inscrire</a></li>";
-									echo "<li><a href=''>Se connecter</a></li>";
-								else
-									echo "<li><a href=''>Gestion du compte</a></li>";
-									echo "<li><a href=''>Se dÃ©connecter</a></li>";
-						*/		?>
-	-->							
+
 								<li><a href='gestionCompte.php'>Gestion du compte</a></li>
 								<li><a href='inscription.php'>S'inscrire</a></li>
-								<li><a href=''>Se connecter</a></li>
-						<!--		<li><a href=''>Se dÃ©connecter</a></li> -->
+								<li><a href='' onclick='login()'>Se connecter</a></li>
 							</ul>
 						</div><!--/.nav-collapse -->
 					</div><!--/.container-fluid -->
 				</nav>
-	
+				
+				<div class='blocConnexion'>
+				
+					<p>TEST</p>
+				
+				</div>
+				
 			</div> <!-- /container -->
 	
 

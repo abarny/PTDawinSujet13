@@ -1,0 +1,8 @@
+﻿#blocConnexion {
+	position:absolute;
+	width:150px;
+	margin-left:auto;
+	margin-top:auto;
+	z-index:999;
+	border:medium black solid;
+}

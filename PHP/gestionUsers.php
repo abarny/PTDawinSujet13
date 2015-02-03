@@ -62,7 +62,7 @@
 			// Nombre de colonnes
 			$NbrCol = 7;
 			
-			// RequÃƒÂªte
+			// Requète
 			$query = 'SELECT nom_user, prenom, mail, username, droits_admin FROM users ORDER BY id_user';
 			$result = mysql_query($query);
 			
@@ -77,7 +77,7 @@
 		?>
 		
 		<table id="usersList" name="usersList">
-			<!-- EntÃƒÂªte du tableau -->
+			<!-- EntÃƒÆ’Ã‚Âªte du tableau -->
 			<thead>
 				<tr>
 					<th class="check">Sélection</th>
@@ -85,7 +85,7 @@
 					<th>Prénom</th>
 					<th>Email</th>
 					<th>Login</th>
-					<th>Nombre tÃ¢ches semaine courante</th>
+					<th>Nombre tâches semaine courante</th>
 					<th>Nombre heures semaine courante</th>
 					<th>Droits</th>
 				</tr>
@@ -126,12 +126,11 @@
 								else echo "Admin";
 							?>
 						</option>
-						<option>
-							<?php
-								if ($val['droits_admin'] == "0") echo "Admin";
-								else echo "Membre";
-							?>
-						</option>
+						<?php
+						
+							if ($val['droits_admin'] == "0") echo "<option> Admin </option>";
+
+						?>
 					</select>
 				</td>
 				
@@ -158,12 +157,12 @@
 		<?php
 		
 			} // fermeture du grand if
-			// si il n'y a aucune données ÃƒÂ  afficher
+			// si il n'y a aucune données ÃƒÆ’Ã‚Â  afficher
 			else {
 		
 		?>
 		
-		pas de données Ã  afficher
+		pas de données ÃƒÂ  afficher
 		<?php
 		
 			} // fermeture du else
