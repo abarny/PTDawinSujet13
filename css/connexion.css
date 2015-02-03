@@ -1,8 +1,6 @@
 ﻿.blocConnexion {
 	display:block;
 	position:absolute;
-	max-height:20%;
-	max-width:20%;
 	margin-left:auto;
 	margin-top:auto;
 	z-index:999;
@@ -20,4 +18,10 @@
 
 .blocConnexion input {
 	margin:5px 5px 5px 5px;
+}
+
+.blocConnexion label {
+	display: block;
+	width: 150px;
+	float: left;
 }

@@ -115,8 +115,8 @@
 				<div class='blocConnexion'>
 				
 					<h3>Connexion</h3>
-					<label>Login : <input type="text" /></label>
-					<label>Mot de passe : <input type="password" /></label>
+					<label>Login :</label> <input type="text" /> <br/>
+					<label>Mot de passe :</label> <input type="password" /> <br/>
 					
 					<input type="submit" value="Connexion" />
 					<input type="button" value="Abandonner la connexion" onclick="fermerPopup()" />
