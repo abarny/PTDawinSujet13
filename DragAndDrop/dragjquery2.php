@@ -14,19 +14,13 @@ Bouger les groupes, est-ce nécessaire ?
 que l'on puisse poser les tâches n'importe ou ?
 DU CSS, plein de CSS
 -->
-<!DOCTYPE html>
-<html lang='fr'>
-	<head>
+<?php include '../PHP/header.php'; ?>
 
-		<meta charset='utf-8'>
-		<link href='style2.css' rel='stylesheet'>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Drag and drop 3</title>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/j query-ui.css">
-
-		<script type"text/javascript">
+		<link rel="stylesheet" type="text/css" href="style2.css">
+				<script type"text/javascript">
 $(function(){
 
     $('.groupe').draggable({ containment: 'parent' }); // appel du plugin
@@ -84,12 +78,12 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 
 						monleft = monleft + 'px';
 						montop = montop +'px';
-		            ui.draggable.appendTo($(this)) // on le met à l'intérieur du groupe
-		            		.css({  
-		            			position: "absolute",                   
+		            ui.draggable.appendTo($(this)); // on le met à l'intérieur du groupe
+		            		/*.css({  
+		            			position: "absolute"/*,                   
                     			left: monleft,
-                    			top: montop	
-               				});
+                    			top: montop	*/
+               			/*	});*/
 
            			var id_objet = ui.draggable.attr('id'); // ID de l'élément drop 
           			
@@ -149,15 +143,12 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 				        function fermepopup(){
             		$('#popup').css('display', 'none');
             	};
-            	</script>	
-
-	</head>
-	<body>
-
+            	</script>
+<div id="sousmenu">
 		<a href="#" class="myButton" id="newtask">Nouvelle tâche</a>
 		<a href="#" class="myButton" id="changetask">Modifier tâche</a>
 		<a href="#" class="myButton" id="deletetask">Supprimer tâche</a>
-
+</div>
 <div id="parking">
 <div id="zonetacheseule">
 <div id="tache1" class="tache">
