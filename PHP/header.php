@@ -40,6 +40,16 @@
  		
  		<!-- Ouveture du popup de connexion -->
 		<script src="../javascript/connexion.js"></script>
+		<script>
+			function ouvrirPopup(){
+				$(".blocConnexion").show("slow");
+				
+			}
+			
+			function fermerPopup(){
+				$(".blocConnexion").hide("slow");
+			}
+		</script>
 
 		 <script>
 		    $(function(){
@@ -96,7 +106,7 @@
 
 								<li><a href='gestionCompte.php'>Gestion du compte</a></li>
 								<li><a href='inscription.php'>S'inscrire</a></li>
-								<li><input type="button" class="boutonConnexion" value="Se connecter"></li>
+								<li><a href='javascript:ouvrirPopup()'>Se connecter</a></li>
 							</ul>
 						</div><!--/.nav-collapse -->
 					</div><!--/.container-fluid -->
@@ -107,6 +117,9 @@
 					<h3>Connexion</h3>
 					<label>Login : <input type="text" /></label>
 					<label>Mot de passe : <input type="password" /></label>
+					
+					<input type="submit" value="Connexion" />
+					<input type="button" value="Abandonner la connexion" onclick="fermerPopup()" />
 				
 				</div>
 				

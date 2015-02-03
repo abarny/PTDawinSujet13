@@ -1,8 +1,8 @@
 ﻿.blocConnexion {
 	display:block;
 	position:absolute;
-	width:20%;
-	height:20%;
+	max-height:20%;
+	max-width:20%;
 	margin-left:auto;
 	margin-top:auto;
 	z-index:999;
