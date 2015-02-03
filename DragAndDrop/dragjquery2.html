@@ -1,12 +1,15 @@
 <!-- A FAIRE ENCORE
 SUPPRESSION GROUPE : ne pas compter comme une tache en moins quand une tache arrivant dans parking
-					 en provient.
-FUSION : Afficher les tâches concernées par la fusion dans le popup.
+					 en provient. OK !
+FUSION : Afficher les tâches concernées par la fusion dans le popup. OK
 		Gérer pour ne pas mettre la tâche initiatrice de la fusion dans la boucle each
 		pour que même si elle se superpose il y ai fusion !! FAIT !!
 Probleme de z-index : les taches draggés passant par en dessous c'est moche : => rectifié !
 pour les fusions de gauche à droite : le drop d'une tache doit pas engendrer le déplacement des autres sinon comparaison
 des coordonnées impossible: Fait (position absolute) !
+
+
+
 Bouger les groupes, est-ce nécessaire ?
 que l'on puisse poser les tâches n'importe ou ?
 DU CSS, plein de CSS
@@ -21,15 +24,17 @@ DU CSS, plein de CSS
 		<title>Drag and drop 3</title>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/j query-ui.css">
 
 		<script type"text/javascript">
 $(function(){
 
     $('.groupe').draggable({ containment: 'parent' }); // appel du plugin
-    $('.tache').draggable({ containment: 'parent',/*, helper: "clone"*/
+
+    $('.tache').draggable({ containment: '#parking',/*, helper: "clone"*/
 				start: function( event, ui){
 					ui.helper.css("z-index", "5"); // les taches draggées ne passent plus en dessous des autres
+
 				},
 				stop: function(event, ui){
 					ui.helper.css("z-index", "2");
@@ -49,7 +54,8 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 		        drop: function( event, ui ) {   // Action effectuée lorsqu'on dépose un élément dans le groupe
 		            // ui.draggable désigne l'élément déplacé		                  
 		            ui.draggable.appendTo( $(this) ) // on le met à l'intérieur du groupe
-		            		.css({                     
+		            		.css({   
+		            			position: 'relative',                  
                     			left: '5%',
                     			top:  '5%'
                				})
@@ -60,42 +66,39 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
                		var divlastposition = $('#groupe1 div:last-child').position();
                		//hauteur du groupe pas mettre en globale sinon les mises à jour ne servent à rien
 					var hauteurgroupe = parseInt($('#groupe1').css('height'));
-
                		// Si la tache va se déposer en dehors du groupe, on agrandit le groupe
 					if(divlastposition.top+50 >  hauteurgroupe){ 
-						$("#groupe1").animate({height: '+='+hauteurtacheplusdix},500);
+						$("#groupe1").animate({height: '+=' + hauteurtacheplusdix},500);
 						hauteurgroupe = parseInt($('#groupe1').css('height')); // mise à jour de hauteur groupe
-				//		alert(hauteurgroupe);
-					}
-					//probleme fonctionne mais pas au bon moment, quand on ajoute une nouvelle tache
-					if(hauteurgroupe > tailleInitiale && hauteurgroupe - (divlastposition.top+50) > hauteurtacheplusdix){ //150 
-						$("#groupe1").animate({height: '-='+hauteurtacheplusdix},500);
-						hauteurgroupe = parseInt($('#groupe1').css('height'));
 					}            	
-
 					}
 		        
 
 }); 
 
-    $('#parking').droppable({
-		        drop: function( event, ui ) {   // Action effectuée lorsqu'on dépose un élément dans le parking
+    $('#zonetacheseule').droppable({
 
-		            ui.draggable.appendTo( $(this) ) // on le met à l'intérieur du groupe
-		            		.css({                     
-                    			position: 'absolute'
-                    			
+		        drop: function( event, ui ) {   // Action effectuée lorsqu'on dépose un élément dans le parking
+						var monleft = ui.offset.left;
+						var montop = ui.offset.top;
+
+						monleft = monleft + 'px';
+						montop = montop +'px';
+		            ui.draggable.appendTo($(this)) // on le met à l'intérieur du groupe
+		            		.css({  
+		            			position: "absolute",                   
+                    			left: monleft,
+                    			top: montop	
                				});
 
-		//			var objet_drop = $(ui.draggable); // L'élément drop
            			var id_objet = ui.draggable.attr('id'); // ID de l'élément drop 
-           		//	alert(ui.draggable);
-            	//	alert(ui.helper);
           			
           			// si l'élément arrivant dans la zone drop parking provient du groupe 
           			// on ote 1 au compteur du groupe
            			if(ui.draggable.hasClass('ingroupe')){
                			compteur = compteur -1 ;
+
+
                			if(compteur == 0){
 					   		$( "#groupe1" ).remove();
                			}
@@ -103,11 +106,7 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
                		}
 
           		var hauteurgroupe = parseInt($('#groupe1').css('height'));
-           		var divlastposition = $('#groupe1 div:nth-last-child(2)').position();
-         // 		var positionaulacher = ui.draggable.position();
-         //  		positionaulacherleft = positionaulacher.left;
-         //  		positionaulachertop = positionaulacher.top;
-          // 		alert('left ' + positionaulacherleft + ' top ' + positionaulachertop);
+           		var divlastposition = $('#groupe1 div:nth-last-child(1)').position();
 
 					if(hauteurgroupe > tailleInitiale && hauteurgroupe - (divlastposition.top+50) > hauteurtacheplusdix){ //150 
 						$("#groupe1").animate({height: '-='+hauteurtacheplusdix},500);
@@ -116,25 +115,20 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 					//fusion => creation d'un groupe
 					// comparaison des coordonnées de l'élément actuellement draggé avec toutes les tâches
 					// si difference de top et left inférieure à 25 création, sinon non, 
-					$('#parking > div.tache:not(#'+id_objet+')').each(function(){
-				//		var fusion = false;
+					$('#zonetacheseule > div.tache:not(#'+id_objet+')').each(function(){
 						var left = $(this).offset().left;
 						var top = $(this).offset().top;
 						var idtachefusion = $(this).attr('id');
-				//		alert(' 1 : ' +idtachefusion);
-				//		alert('left tachedraggée : ' + ui.offset.left + 'top tachedraggée : ' + ui.offset.top + 'left boucletache : ' + left + 'top boucletache : ' + top);
-					//	alert('ecart gauche : ' + Math.abs(left - ui.position.left) + 'ecartTop : ' + Math.abs(top - ui.position.top));
-				//	alert($(this).attr('id') + ' left : ' + left + ' ui.offset.left ' + ui.offset.left + ' top : ' + top + '  ui.offset.top : ' + ui.offset.top)
-						if( Math.abs(left - ui.offset.left) < 25 && Math.abs(top - ui.offset.top) < 25){
-				            	$('#popup').css('display', 'block');
+
+				//		alert('left : ' + left + 'top : ' + top + 'ui.left : ' + ui.offset.left + 'ui.top' + ui.offset.top );
+
+						if(Math.abs(left - ui.offset.left) < 25 && Math.abs(top - ui.offset.top) < 25){
+				            	$('#popup').css('display', 'inline-block');
 				           		ui.draggable.appendTo('#popup').css({                     
                     			position: 'relative',
                     			left: '5%',
                     			top: '5%'
                				});
-				      //     								alert(' 2 : ' + idtachefusion);
- 
-				        //   		alert('#'+idtachefusion);
 				          		$('#'+idtachefusion).appendTo('#popup').css({                     
                     			position: 'relative',
                     			left: '5%',
@@ -142,10 +136,6 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
                				});
 				          		return false;
 				           		}
-				          // 		var fusion = true;
-            					
- //							           		$(this).appendTo('#popup');	
-
 					});
 							}
 		            	});
@@ -169,6 +159,7 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 		<a href="#" class="myButton" id="deletetask">Supprimer tâche</a>
 
 <div id="parking">
+<div id="zonetacheseule">
 <div id="tache1" class="tache">
 tache1
 </div>	
@@ -195,18 +186,19 @@ tache8
 </div>	
 <div id="tache9" class="tache">
 tache9
-</div>	
-<div id="popup">
-	<img id="fermeture" onclick="fermepopup()"src="../img/fermeture.png" alt="icone fermeture popup" />
-<h1 id="titrefusion">Fusion de tâches </h1>
-<input type="text" placeholder="Nom du groupe" />
-<input type="submit" value="valider"/>
 </div>
+</div>	
 <div id="groupe1" class="groupe">
 <p>groupe1</p>
 </div>
 
 </div>
 
+<div id="popup">
+	<img id="fermeture" onclick="fermepopup()"src="../img/fermeture.png" alt="icone fermeture popup" />
+<h1 id="titrefusion">Fusion de tâches </h1>
+<input type="text" placeholder="Nom du groupe" />
+<input type="submit" value="valider"/>
+</div>
 	</body>
 </html>
