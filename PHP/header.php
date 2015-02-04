@@ -98,7 +98,7 @@
 								<li class="active"><a href='calendar.php'>Accueil</a></li>
 								
 	
-								<li><a href='dragjquery2.php'>Gestion des t‚ches</a></li>
+								<li><a href='dragjquery2.php'>Gestion des t√¢ches</a></li>
 								<li><a href='gestionUsers.php'>Gestion des utilisateurs</a></li>
 								<li><a href='#'>Aide</a></li>
 							</ul>

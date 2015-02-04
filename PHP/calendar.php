@@ -8,7 +8,7 @@
 		<script src="fullcalendar/fullcalendar.js"></script>
 		<script src='fullcalendar/lang/fr.js'></script>
 
-						<script>
+<script>
 $(document).ready(function() {
 
     // page is now ready, initialize the calendar...
@@ -18,6 +18,7 @@ $(document).ready(function() {
         height: "auto",
 //        buttonText: {today: "retour au mois en cours"},
         fixedWeekCount: false,
+		events: "http://localhost:8080/PHP/events.php",
 
         dayClick: function(date, jsEvent, view) {
         var date = date.format();
