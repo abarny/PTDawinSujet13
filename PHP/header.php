@@ -120,7 +120,7 @@
 					<label>Mot de passe :</label> <input type="password" /> <br/>
 					
 					<input type="submit" value="Connexion" />
-					<input type="button" value="Abandonner la connexion" onclick="fermerPopup()" />
+					<img alt="Fermeture popup" src="../img/fermeture.png" onclick="fermerPopup()" />
 				
 				</div>
 				
