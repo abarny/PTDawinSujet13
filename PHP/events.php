@@ -4,7 +4,7 @@
  // requête qui récupère les événements
  /*$requete = "SELECT ('id_tache', 'nom_tache', 'date_debut', 'date_fin') FROM taches ORDER BY id_tache";*/
  
-$requete = "SELECT nom,start,end FROM taches ORDER BY id";
+$requete = "SELECT title,start,end FROM taches ORDER BY id";
 
  // connexion à la base de données
  try {

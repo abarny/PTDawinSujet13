@@ -9695,7 +9695,7 @@ fcViews.agenda = View.extend({ // AgendaView
 		var i;
 
 		// separate the events into all-day and timed
-		for (i = 0; i < events.length; i++) {
+		for (i = 0; i <events.length; i++) {
 			if (events[i].allDay) {
 				dayEvents.push(events[i]);
 			}
