@@ -161,9 +161,9 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
             	};
             	</script>
 <div id="sousmenu">
-		<a href="#" class="myButton" id="newtask">Nouvelle tâche</a>
-		<a href="#" class="myButton" id="changetask">Modifier tâche</a>
-		<a href="#" class="myButton" id="deletetask">Supprimer tâche</a>
+		<a href="#" class="myButton btn btn-primary btn-responsive" id="newtask">Nouvelle tâche</a>
+		<a href="#" class="myButton btn btn-primary btn-responsive" id="changetask">Modifier tâche</a>
+		<a href="#" class="myButton btn btn-primary btn-responsive" id="deletetask">Supprimer tâche</a>
 </div>
 <div id="parking">
 <div id="zonetacheseule">
