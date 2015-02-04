@@ -98,7 +98,11 @@
 								<li class="active"><a href='calendar.php'>Accueil</a></li>
 								
 	
+<<<<<<< HEAD
 								<li><a href='#'>Gestion des tÃ¢ches</a></li>
+=======
+								<li><a href='dragjquery2.php'>Gestion des tâches</a></li>
+>>>>>>> origin/master
 								<li><a href='gestionUsers.php'>Gestion des utilisateurs</a></li>
 								<li><a href='#'>Aide</a></li>
 							</ul>

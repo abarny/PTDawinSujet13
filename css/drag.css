@@ -22,7 +22,7 @@
 	z-index: 12;
 	height: 35%;
 	width: 18%;
-	margin-left: -80px;
+	margin-left: 40%;
 	margin-top: 10%;
 	display: none;
 	position: absolute;
@@ -34,6 +34,7 @@
 	height: 50px;
 	position: absolute;
 	z-index: 2;
+	margin-bottom: 20px;
 }
 
 #groupe1 .tache{
@@ -81,6 +82,7 @@
 	height: 160px;
 	margin-top: 10px;
 	z-index: 1;
+	display: inline-block;
 
 }
 

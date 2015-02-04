@@ -19,7 +19,7 @@ DU CSS, plein de CSS
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/j query-ui.css">
-		<link rel="stylesheet" type="text/css" href="style2.css">
+		<link rel="stylesheet" type="text/css" href="../css/drag.css"> 
 				<script type"text/javascript">
 $(function(){
 
@@ -43,7 +43,7 @@ var hauteurtacheplusdix = parseInt($('.tache').css('height')) + 10;
 var tailleInitiale = parseInt($('#groupe1').css('height'));
 
 
-    $('#groupe1').droppable({
+    $('.groupe').droppable({
 
 		        drop: function( event, ui ) {   // Action effectuée lorsqu'on dépose un élément dans le groupe
 		            // ui.draggable désigne l'élément déplacé		                  
@@ -78,12 +78,15 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 
 						monleft = monleft + 'px';
 						montop = montop +'px';
-		            ui.draggable.appendTo($(this)); // on le met à l'intérieur du groupe
-		            		/*.css({  
+				//		alert(monleft + montop);
+		            ui.draggable.appendTo($(this)) // on le met à l'intérieur du groupe
+		            		.css({  
 		            			position: "absolute"/*,                   
                     			left: monleft,
                     			top: montop	*/
-               			/*	});*/
+               				});
+
+
 
            			var id_objet = ui.draggable.attr('id'); // ID de l'élément drop 
           			
@@ -143,6 +146,19 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 				        function fermepopup(){
             		$('#popup').css('display', 'none');
             	};
+            			function creationGroupe(){
+            				var nomgroupe = $('input[type="text"]').val();
+            				$('#parking').append('<div id="groupe2" class="groupe"> <p>'+ nomgroupe + '</p> </div>');
+            				$('#groupe2').css({
+            					background : 'tomato',
+            					width : '150px',
+            					height : '160px',
+            					display : 'inline-block',
+            					marginleft : '50px'
+                   				});
+            				$('input[type="text"]').val('');
+            				fermepopup();
+            	};
             	</script>
 <div id="sousmenu">
 		<a href="#" class="myButton" id="newtask">Nouvelle tâche</a>
@@ -162,7 +178,7 @@ tache3
 </div>	
 <div id="tache4" class="tache">
 tache4
-</div>	
+</div>
 <div id="tache5" class="tache">
 tache5
 </div>	
@@ -189,7 +205,7 @@ tache9
 	<img id="fermeture" onclick="fermepopup()"src="../img/fermeture.png" alt="icone fermeture popup" />
 <h1 id="titrefusion">Fusion de tâches </h1>
 <input type="text" placeholder="Nom du groupe" />
-<input type="submit" value="valider"/>
+<input type="submit" onclick="creationGroupe()" value="valider"/>
 </div>
 	</body>
 </html>
