@@ -126,10 +126,7 @@
 				
 			</div> <!-- /container -->
 	
-
-
-
-
 		</header>
 
+<!-- Filtre semi-transparent noir pour assombrissement lors de la connexion -->
 <div class="shadow"></div>
