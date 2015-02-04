@@ -50,7 +50,6 @@
 <script src="../plugins/jquery.js"></script>
 <script src="../javascript/gestionUsers.js"></script>
 
-
 	<div class="userContainer">
 
 			<div class="deleteUser">
@@ -169,7 +168,7 @@
 			
 		?>
 
-	</div>	
+	</div>
 
 </body>
 

@@ -43,11 +43,12 @@
 		<script>
 			function ouvrirPopup(){
 				$(".blocConnexion").show("slow");
-				
+				$(".shadow").show();
 			}
 			
 			function fermerPopup(){
 				$(".blocConnexion").hide("slow");
+				$(".shadow").hide();
 			}
 		</script>
 
@@ -97,7 +98,7 @@
 								<li class="active"><a href='calendar.php'>Accueil</a></li>
 								
 	
-								<li><a href='#'>Gestion des tâches</a></li>
+								<li><a href='#'>Gestion des tÃ¢ches</a></li>
 								<li><a href='gestionUsers.php'>Gestion des utilisateurs</a></li>
 								<li><a href='#'>Aide</a></li>
 							</ul>
@@ -131,4 +132,4 @@
 
 		</header>
 
-
+<div class="shadow"></div>
