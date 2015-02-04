@@ -30,6 +30,13 @@
 	float: left;
 }
 
+.blocConnexion img {
+	position:absolute;
+	top:1%;
+	right:1%;
+	cursor:pointer;
+}
+
 .shadow
 {
 	display: none;
