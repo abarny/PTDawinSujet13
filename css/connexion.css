@@ -24,6 +24,11 @@
 	margin:5px 5px 5px 5px;
 }
 
+.blocConnexion input[type=submit] {
+	position:relative;
+	left:30%;
+}
+
 .blocConnexion label {
 	display: block;
 	width: 150px;

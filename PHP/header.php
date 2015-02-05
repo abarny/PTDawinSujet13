@@ -116,11 +116,13 @@
 				<div class='blocConnexion'>
 				
 					<h3>Connexion</h3>
-					<label>Login :</label> <input type="text" /> <br/>
-					<label>Mot de passe :</label> <input type="password" /> <br/>
+					<label>Login :</label> <input type="text" name="username" /> <br/>
+					<label>Mot de passe :</label> <input type="password" name="password" /> <br/>
 					
-					<input type="submit" value="Connexion" />
+					<input type="submit" name="connect" value="Connexion" />
 					<img alt="Fermeture popup" src="../img/fermeture.png" onclick="fermerPopup()" />
+					
+					<?php include('formulaireConnexion.php'); ?>
 				
 				</div>
 				
