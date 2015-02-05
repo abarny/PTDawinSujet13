@@ -1,17 +1,3 @@
-<?php
-
-	// Connexion a la BDD
-	$host = "info-arie";
-	$user = "hatran";
-	$pass = "9JyGX1PHZdAp";
-	$bdd = "info_hatran";
-
-	// Connexion
-	@mysql_connect($host,$user,$pass) or die("Impossible de se connecter");
-	@mysql_select_db("$bdd") or die("Impossible de se connecter");
-
-?>
-
 
 <!--
 	<?php
@@ -43,7 +29,9 @@
 -->
 
 
-<?php include "header.php"; 
+<?php 
+include "header.php";
+include"connect.php"; 
 ?>
 
 <!-- JQuery -->
