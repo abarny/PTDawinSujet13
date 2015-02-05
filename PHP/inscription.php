@@ -1,6 +1,10 @@
 <?php include "header.php"; 
 ?>
-
+<script>
+    	$(document).ready(function () {
+        $('#register').addClass('active');
+    	});
+		</script> 
 	<div class="inscription">
 		<form method="post">
 		

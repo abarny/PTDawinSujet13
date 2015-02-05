@@ -19,8 +19,14 @@ DU CSS, plein de CSS
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/j query-ui.css">
-		<link rel="stylesheet" type="text/css" href="../css/drag.css"> 
+		<link rel="stylesheet" type="text/css" href="../css/drag.css">
+		<script>
+    	$(document).ready(function () {
+        $('#dragndrop').addClass('active');
+    	});
+		</script> 
 				<script type"text/javascript">
+
 $(function(){
 
     $('.groupe').draggable({ containment: 'parent' }); // appel du plugin

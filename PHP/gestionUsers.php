@@ -1,9 +1,3 @@
-<?php
-
-	include "connect.php"
-
-?>
-
 
 <!--
 	<?php
@@ -35,12 +29,19 @@
 -->
 
 
-<?php include "header.php"; 
+<?php 
+include "header.php";
+include "connect.php"; 
 ?>
 
 <!-- JQuery -->
 <script src="../plugins/jquery.js"></script>
 <script src="../javascript/gestionUsers.js"></script>
+<script>
+    	$(document).ready(function () {
+        $('#gestuser').addClass('active');
+    	});
+</script> 
 
 	<div class="userContainer">
 

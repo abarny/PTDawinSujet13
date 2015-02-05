@@ -6,6 +6,11 @@
 <!-- JQuery -->
 <script src="../plugins/jquery.js"></script>
 <script src="../javascript/gestionCompte.js"></script>
+<script>
+ $(document).ready(function () {
+ $('#gestcmpt').addClass('active');
+ });
+ </script> 
 
 
 <div class="gestionCompte">

@@ -95,18 +95,18 @@
 
 						<div id='navbar' class='navbar-collapse collapse' ng-controller="HeaderController">
 							<ul class='nav navbar-nav'>
-								<li class="active"><a href='calendar.php'>Accueil</a></li>
+								<li id='home'><a href='calendar.php'>Accueil</a></li>
 								
 	
-								<li><a href='dragjquery2.php'>Gestion des tâches</a></li>
-								<li><a href='gestionUsers.php'>Gestion des utilisateurs</a></li>
-								<li><a href='#'>Aide</a></li>
+								<li id='dragndrop'><a href='dragjquery2.php'>Gestion des tâches</a></li>
+								<li id='gestuser'><a href='gestionUsers.php'>Gestion des utilisateurs</a></li>
+								<li id='help'><a href='#'>Aide</a></li>
 							</ul>
 							<ul class='nav navbar-nav navbar-right'>
 							
 
-								<li><a href='gestionCompte.php'>Gestion du compte</a></li>
-								<li><a href='inscription.php'>S'inscrire</a></li>
+								<li id='gestcmpt'><a href='gestionCompte.php'>Gestion du compte</a></li>
+								<li id='register'><a href='inscription.php'>S'inscrire</a></li>
 								<li><a href='javascript:ouvrirPopup()'>Se connecter</a></li>
 							</ul>
 						</div><!--/.nav-collapse -->

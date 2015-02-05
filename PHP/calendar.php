@@ -7,6 +7,11 @@
 		<script src="fullcalendar/lib/moment.min.js"></script>
 		<script src="fullcalendar/fullcalendar.js"></script>
 		<script src='fullcalendar/lang/fr.js'></script>
+		<script>
+    	$(document).ready(function () {
+        $('#home').addClass('active');
+    	});
+		</script>
 
 <script>
 $(document).ready(function() {
