@@ -1,6 +1,4 @@
-<?php 
-include "header.php";
-include "connect.php"; 
+<?php include "header.php"; 
 ?>
 
 	<div class="inscription">
