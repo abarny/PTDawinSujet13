@@ -6,12 +6,12 @@
 
 <?php
 
-	// On met les variables utilisé dans le code PHP à FALSE (C'est-à-dire les désactiver pour le moment).
+	// On met les variables utilisÃ© dans le code PHP Ã  FALSE (C'est-Ã -dire les dÃ©sactiver pour le moment).
 	$errorVoid = FALSE;
 	$errorLogin = FALSE;
 	$errorMDP = FALSE;
 	
-	// On regarde si l'utilisateur est bien passé par le module d'inscription
+	// On regarde si l'utilisateur est bien passÃ© par le module d'inscription
 	if(isset($_POST["connect"])){
 	
 		if (!empty($_POST['username']) && !empty($_POST['password'])) {
@@ -22,9 +22,9 @@
 			if ($query->rowCount()) {
 				$user = $query->fetch();
 				
-				if ($user['password'] == md5($_POST['password'])) {
+				if ($user['pass'] == md5($_POST['password'])) {
 					$currentUser = $user;
-					$_SESSION['user'] = $currentUser['id'];
+					$_SESSION['user'] = $currentUser['id_user'];
 				}
 				else $errorMDP = TRUE;
 			}
@@ -43,10 +43,17 @@
 
 <?php 
 	// Affichage erreur :
-	if($errorVoid == TRUE)
-		alert("Erreur : un ou plusieurs champ(s) est (sont) vide(s).");
-	elseif($errorLogin == TRUE)
-		alert("Erreur : cet utilisateur n'existe pas.");
-	elseif($errorMDP == TRUE)
-		alert("Erreur : mot de passe inconnu(s)");
+	if($errorVoid == TRUE) {
+		echo "Erreur : un ou plusieurs champ(s) est (sont) vide(s).";
+		echo "<p>Cliquez <a href='calendar.php'>ici</a> pour revenir à la page d accueil</p>";
+	}
+	elseif($errorLogin == TRUE) {
+		echo "Cet utilisateur n'existe pas.";
+		echo "<p>Cliquez <a href='calendar.php'>ici</a> pour revenir à la page d accueil</p>";
+	}
+	elseif($errorMDP == TRUE) {
+		echo "Mot de passe inconnu.";
+		echo "<p>Cliquez <a href='calendar.php'>ici</a> pour revenir à la page d accueil</p>";
+	}
+
 ?>

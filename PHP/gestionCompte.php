@@ -5,10 +5,12 @@
 
 <!-- JQuery -->
 <script src="../plugins/jquery.js"></script>
+
 <script src="../javascript/gestionCompte.js"></script>
+
 <script>
  $(document).ready(function () {
- $('#gestcmpt').addClass('active');
+ 	$('#gestcmpt').addClass('active');
  });
  </script> 
 
@@ -62,7 +64,7 @@
 				</div>
 				
 				<div class="prenom">
-					<input type="text" name="prenom" placeholder="PrÃ©nom" />
+					<input type="text" name="prenom" placeholder="Prénom" />
 				</div>
 				
 				<div class="login">
@@ -76,7 +78,7 @@
 		</div>
 		
 		<div class="passwordButton">
-			<input type="button" name="passwordChange" value="Modifier le mot de passe" />
+			<input type="button" class="passwordChange" value="Modifier le mot de passe" />
 		</div>
 				
 		<div class="password">
@@ -95,7 +97,7 @@
 				<input type="password" name="mdp2" />
 			</div>
 			
-			<!-- TODO : mettre un bouton pour conserver l'ancien mot de passe (rÃ z des champs mdp et hide la div password) ? -->
+			<!-- TODO : mettre un bouton pour conserver l'ancien mot de passe (rÃƒÂ z des champs mdp et hide la div password) ? -->
 			
 		</div>
 		

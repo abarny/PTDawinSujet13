@@ -7,7 +7,7 @@ $requete = "SELECT title,start,end FROM taches ORDER BY id";
 
  // connexion à la base de données
  try {
- $bdd = new PDO('mysql:host=127.0.0.1;dbname=teamshare', 'root', '');
+ $bdd = new PDO('mysql:host=info-arie;dbname=info_hatran', 'hatran', '9JyGX1PHZdAp');
  } catch(Exception $e) {
  	die('Erreur : ' . $e->getMessage());
  }
