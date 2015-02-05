@@ -3,7 +3,7 @@
 	// session_start();
 	
 	// Connexion a la BDD
-	$host = "127.0.0.1";
+	$host = "localhost";
 	$user = "root";
 	$pass = "";
 	$bdd = "teamshare";
