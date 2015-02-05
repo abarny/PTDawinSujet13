@@ -146,38 +146,22 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 				        function fermepopup(){
             		$('#popup').css('display', 'none');
             	};
-            	            	function creationTache(){
-				    $('#popupCreation').css('display', 'inline-block');
-
-            	};
             			function creationGroupe(){
-            				var nomgroupe = $('#nomgroupe').val();
+            				var nomgroupe = $('input[type="text"]').val();
             				$('#parking').append('<div id="groupe2" class="groupe"> <p>'+ nomgroupe + '</p> </div>');
             				$('#groupe2').css({
             					background : 'tomato',
             					width : '150px',
-            					color : 'black',
             					height : '160px',
             					display : 'inline-block',
             					marginleft : '50px'
                    				});
             				$('input[type="text"]').val('');
             				fermepopup();
-    function Tache(responsable, adjoints, dateDebut, dateFin, dureeEstimee, dureeReelle) {
-    this.responsable = responsable;
-    this.adjoints = adjoints;      //tableau
-    this.dateDebut  = dateDebut;
-    this.dateFin  = dateFin;
-    this.dureeEstimee = dureeEstimee;
-    this.dureeReelle = dureeReelle;
-}
-
-	var tache1 = new Tache('Pierre', ['personne1', 'personne2'], '15/01/2015', '15/02/2015', '1.25', '5');
-	alert(tache1.responsable + ' ' + tache1.adjoints[0] + ' ' + tache1.adjoints[1] + ' ' + dateDebut +' ' + dateFin + ' ' + dureeEstimee + ' ' + dureeReelle);
             	};
             	</script>
 <div id="sousmenu">
-		<a href="#" class="myButton btn btn-primary btn-responsive" id="newtask" onclick="creationTache()">Nouvelle tâche</a>
+		<a href="#" class="myButton btn btn-primary btn-responsive" id="newtask">Nouvelle tâche</a>
 		<a href="#" class="myButton btn btn-primary btn-responsive" id="changetask">Modifier tâche</a>
 		<a href="#" class="myButton btn btn-primary btn-responsive" id="deletetask">Supprimer tâche</a>
 </div>
@@ -222,32 +206,6 @@ tache9
 <h1 id="titrefusion">Fusion de tâches </h1>
 <input type="text" placeholder="Nom du groupe" />
 <input type="submit" onclick="creationGroupe()" value="valider"/>
-</div>
-<div id="popupCreation">
-	<h1> Création d'une nouvelle tâche </h1>
-	<input type="text" name="intitule" placeholder="Intitulé"/><br/>
-	<textarea cols="50"rows="5"name="description"placeholder="Description"></textarea><br/>
-	<input type="text" name="responsable" placeholder="Responsable"/>
-	<select name="groupe"> </select><br/>
-	<input type="text" class="adjoint" name="adjoint1" placeholder="adjoint1"/>
-	<input type="text" class="adjoint" name="adjoint2" placeholder="adjoint2"/>
-	<input type="text" class="adjoint" name="adjoint3" placeholder="adjoint3"/>
-	<img src="../img/plus.jpg" alt="ajouter plus d'adjoints" width="20px" height="20px"  />
-	<div>
-		<div class="ligne"><p>Date début </p>
-		<input type="text" size="8" class="datepicker" />	
-		</div>
-		<div class="ligne"><p>Date fin </p>
-		<input type="text"  size="8" class="datepicker" />	
-		</div>
-		<div class="ligne"><p>Durée estimée</p>	
-			<input type="text" />
-		</div>
-		<input type="submit" value="valider"/>
-	</div>
-
-
-
 </div>
 	</body>
 </html>
