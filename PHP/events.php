@@ -2,7 +2,6 @@
 // liste des événements
  $json = array();
  // requête qui récupère les événements
- /*$requete = "SELECT ('id_tache', 'nom_tache', 'date_debut', 'date_fin') FROM taches ORDER BY id_tache";*/
  
 $requete = "SELECT title,start,end FROM taches ORDER BY id";
 
