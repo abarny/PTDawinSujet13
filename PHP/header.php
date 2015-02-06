@@ -76,7 +76,7 @@
 		
 			<div class='container'>
 			
-				<img class ='logo' src='../img/Logo.png' alt='Logo TeamShare'>
+				<a href="calendar.php"><img class ='logo' src='../img/Logo.png' alt='Logo TeamShare'></a>
 	
 				<!-- Static navbar -->
 				<nav class='navbar navbar-default'>
@@ -124,14 +124,14 @@
 				</nav>
 				
 				<div class='blocConnexion'>
-				
-					<h3>Connexion</h3>
-					<label>Login :</label> <input type="text" name="username" /> <br/>
-					<label>Mot de passe :</label> <input type="password" name="password" /> <br/>
-					
-					<input type="submit" name="connect" value="Connexion" />
-					<img alt="Fermeture popup" src="../img/fermeture.png" onclick="fermerPopup()" />
-									
+					<form method="post" action="formulaireConnexion.php">
+						<h3>Connexion</h3>
+						<label>Login :</label> <input type="text" name="username" /> <br/>
+						<label>Mot de passe :</label> <input type="password" name="password" /> <br/>
+						
+						<input type="submit" name="connect" value="Connexion" />
+						<img alt="Fermeture popup" src="../img/fermeture.png" onclick="fermerPopup()" />
+					</form>
 				</div>
 				
 			</div> <!-- /container -->
