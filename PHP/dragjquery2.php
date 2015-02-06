@@ -14,11 +14,15 @@ Bouger les groupes, est-ce nécessaire ?
 que l'on puisse poser les tâches n'importe ou ?
 DU CSS, plein de CSS
 -->
-<?php include '../PHP/header.php'; ?>
+<?php include 'header.php'; 
+	  include 'connect.php';
+?>
 
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="../javascript/constructeurs.js"></script>
+		 		<script src="http://jqueryui.com/resources/demos/datepicker/datepicker-fr.js"></script>
+
 		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/j query-ui.css">
 		<link rel="stylesheet" type="text/css" href="../css/drag.css">
 		<script>
@@ -159,7 +163,7 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 
             	function creationTache(){
 				    $('#popupCreation').css('display', 'inline-block');
-				    $('#creationtache').submit(function(event){
+				 /*   $('#creationtache').submit(function(event){
 				    	var intitule = $('#intitule').val();
 				    	var description = $('#description').val();
 				    	var responsable = $('#responsable').val();
@@ -172,14 +176,10 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 
 				    	var tache = new Tache(intitule, description, responsable, [adjoint1, adjoint2, adjoint3], dateDebut, 
 				    		dateFin, dureeEstimee );
-				    	$('#zonetacheseule').append('<div id="'+tache.intitule+'"><p>'+tache.intitule+'</p><p>'+tache.responsable+'</p><p>'+tache.adjoints[0] + ' ' + tache.adjoints[1] + ' ' + tache.adjoints[2] +' </p><p>'+tache.dateDebut+'</p><p>'+ tache.dateFin +'</p></div>');
+				    	$('#zonetacheseule').append('<div id="'+tache.intitule+'" class="tache"><p>'+tache.intitule+'</p><p>'+tache.responsable+'</p><p>'+tache.adjoints[0] + ' ' + tache.adjoints[1] + ' ' + tache.adjoints[2] +' </p><p>'+tache.dateDebut+'</p><p>'+ tache.dateFin +'</p></div>');
 				//    	<p>'+tache.adjoint1 + ' ' + tache.adjoint2 + ' ' + tache.adjoint3 +' </p><p>'+tache.dateDebut+'</p>
 				 //   	<p>'+ tache.dateFin +'</p> </div>');
-				    	alert(tache.responsable);
-				    	
-				    });
-
-
+				    	alert(tache.responsable);*/
             	};
             			function creationGroupe(){
             				var nomgroupe = $('#nomgroupe').val();
@@ -200,6 +200,30 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 //	alert(tache1.responsable + ' ' + tache1.adjoints[0] + ' ' + tache1.adjoints[1] + ' ' + dateDebut +' ' + dateFin + ' ' + dureeEstimee + ' ' + dureeReelle);
             	};
             	</script>
+<?php 
+// connexion à la base de données
+ try {
+ $pdo = new PDO('mysql:host=localhost;dbname=teamshare', 'root', '');
+ } catch(Exception $e) {
+ 	die('Erreur : ' . $e->getMessage());
+ }
+
+$intitule = isset($_POST['intitule']) ? $_POST['intitule'] : '';
+$description = isset($_POST['description']) ? $_POST['description'] : '';
+$responsable = isset($_POST['responsable']) ? $_POST['responsable'] : '';
+$adjoint1 = isset($_POST['adjoint1']) ? $_POST['adjoint1'] : '';
+$adjoint2 = isset($_POST['adjoint2']) ? $_POST['adjoint2'] : '';
+$adjoint3 = isset($_POST['adjoint3']) ? $_POST['adjoint3'] : '';
+$dateDebut = isset($_POST['dateDebut']) ? $_POST['dateDebut'] : '';
+$dateFin = isset($_POST['dateFin']) ? $_POST['dateFin'] : '';
+$dureeEstimee = isset($_POST['dureeEstimee']) ? $_POST['dureeEstimee'] : '';
+
+
+ $insert = $pdo->prepare('INSERT INTO taches 
+    (title,start,end, description, heures_estim, responsable, id_groupe) VALUES (?,?,?,?,?,?,?)');
+ $insert->execute(array($intitule,$dateDebut,$dateFin, $description, $dureeEstimee,$responsable, 0));
+
+?>
 <div id="sousmenu">
 		<a href="#" class="myButton btn btn-primary btn-responsive" id="newtask" onclick="creationTache()">Nouvelle tâche</a>
 		<a href="#" class="myButton btn btn-primary btn-responsive" id="changetask">Modifier tâche</a>
@@ -249,7 +273,7 @@ tache9
 <input type="submit" onclick="creationGroupe()" value="valider"/>
 </div>
 <div id="popupCreation">
-<form id="creationtache">
+<form id="creationtache" method="POST" action="dragjquery2.php">
 	<h1> Création d'une nouvelle tâche </h1>
 	<input type="text" name="intitule" placeholder="Intitulé" id="intitule"/><br/>
 	<textarea cols="50"rows="5"name="description"placeholder="Description" id="description"></textarea><br/>
@@ -261,13 +285,13 @@ tache9
 	<img src="../img/plus.jpg" alt="ajouter plus d'adjoints" width="20px" height="20px"  />
 	<div>
 		<div class="ligne"><p>Date début </p>
-		<input type="text" size="8" class="datepicker" id="dateDebut"/>	
+		<input type="text" size="8" class="datepicker" name="dateDebut" id="dateDebut"/>	
 		</div>
 		<div class="ligne"><p>Date fin </p>
-		<input type="text"  size="8" class="datepicker" id="dateFin" />	
+		<input type="text"  size="8" class="datepicker" name="dateFin" id="dateFin" />	
 		</div>
 		<div class="ligne"><p>Durée estimée</p>	
-			<input type="text" id="dureeEstimee"/>
+			<input type="text" id="dureeEstimee" name="dureeEstimee"/>
 		</div>
 		<input type="submit" value="valider"/>
 	</div>

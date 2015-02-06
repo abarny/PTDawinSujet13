@@ -56,6 +56,7 @@
 		    $(function(){
 		        var options = {
 		         //   showOn: "button",
+		          dateFormat: "yy-mm-dd",
 		            firstDay: 1
 		        };  
 		        $(".datepicker").datepicker(options);
