@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html lang='fr'>
 	<head>
@@ -95,26 +99,25 @@
 							</a>
 						</div>
 
-
 						<div id='navbar' class='navbar-collapse collapse' ng-controller="HeaderController">
 							<ul class='nav navbar-nav'>
 								<li id='home'><a href='calendar.php'>Accueil</a></li>
 								
 								<?php
-									if (isset($_SESSION['username'])){
-										echo("<li id='dragndrop'><a href='dragjquery2.php'>Gestion des tâches</a></li>");
+									if (isset($_SESSION['user'])){
+										echo("<li id='dragndrop'><a href='dragjquery2.php'>Gestion des t�ches</a></li>");
 										echo("<li id='gestuser'><a href='gestionUsers.php'>Gestion des utilisateurs</a></li>");
 									}
 								?>
-								<li id='help'><a href='#'>Aide</a></li>
+								<li id='help'><a href='help.php'>Aide</a></li>
 							</ul>
 							<ul class='nav navbar-nav navbar-right'>
 							
 
 								<?php
-									if (isset($_SESSION['username'])){
+									if (isset($_SESSION['user'])){
 										echo("<li id='gestcmpt'><a href='gestionCompte.php'>Gestion du compte</a></li>");
-										echo("<li><a href=''>Se déconnecter</a></li>");
+										echo("<li><a href='deconnexion.php'>Se déconnecter</a></li>");
 									}
 									else {
 										echo("<li id='register'><a href='inscription.php'>S'inscrire</a></li>");

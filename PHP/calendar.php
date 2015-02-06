@@ -25,7 +25,11 @@ $(document).ready(function() {
         lang: 'fr',
 //        buttonText: {today: "retour au mois en cours"},
         fixedWeekCount: false,
+<<<<<<< HEAD
 		events: "http://localhost:8080/PHP/events.php",
+=======
+		events: "events.php",
+>>>>>>> origin/master
 
     eventClick: function(event) {
             var date = (event.start);
