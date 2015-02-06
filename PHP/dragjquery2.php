@@ -176,6 +176,7 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 				//    	<p>'+tache.adjoint1 + ' ' + tache.adjoint2 + ' ' + tache.adjoint3 +' </p><p>'+tache.dateDebut+'</p>
 				 //   	<p>'+ tache.dateFin +'</p> </div>');
 				    	alert(tache.responsable);
+				    	
 				    });
 
 
