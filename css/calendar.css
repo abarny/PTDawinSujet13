@@ -2,3 +2,7 @@
 	width: 80%;
 	margin: 50px auto auto auto;
 }
+
+.fc-widget-content{
+	cursor:pointer;
+}
