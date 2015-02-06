@@ -104,7 +104,7 @@
 										echo("<li id='gestuser'><a href='gestionUsers.php'>Gestion des utilisateurs</a></li>");
 									}
 								?>
-								<li id='help'><a href='#'>Aide</a></li>
+								<li id='help'><a href='help.php'>Aide</a></li>
 							</ul>
 							<ul class='nav navbar-nav navbar-right'>
 							
