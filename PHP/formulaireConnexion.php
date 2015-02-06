@@ -29,7 +29,7 @@
 					$_SESSION['user'] = $currentUser['id_user'];
 					?>
 						<script type="text/javascript">
-							alert("F\351licitations, vous \352tes d\351sormais connect\351. Vous allez maintenant être redirig\351 vers la page d'accueil...");
+							alert("F\351licitations, vous \352tes d\351sormais connect\351. Vous allez maintenant \352tre redirig\351 vers la page d'accueil...");
 							window.location.replace("calendar.php");
 						</script>
 					<?php
