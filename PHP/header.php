@@ -55,10 +55,10 @@
 		 <script>
 		    $(function(){
 		        var options = {
-		            showOn: "button",
+		         //   showOn: "button",
 		            firstDay: 1
 		        };  
-		        $("#datepicker").datepicker(options);
+		        $(".datepicker").datepicker(options);
 		    });
 		
 		</script>
@@ -76,7 +76,7 @@
 		
 			<div class='container'>
 			
-				<a href='calendar.php'><img class ='logo' src='../img/Logo.png' alt='Logo TeamShare'></a>
+				<img class ='logo' src='../img/Logo.png' alt='Logo TeamShare'>
 	
 				<!-- Static navbar -->
 				<nav class='navbar navbar-default'>
@@ -115,14 +115,14 @@
 				
 				<div class='blocConnexion'>
 				
-					<form method="post" action="formulaireConnexion.php">
-						<h3>Connexion</h3>
-						<label>Login :</label> <input type="text" name="username" /> <br/>
-						<label>Mot de passe :</label> <input type="password" name="password" /> <br/>
-						
-						<input type="submit" name="connect" value="Connexion" />
-						<img alt="Fermeture popup" src="../img/fermeture.png" onclick="fermerPopup()" />
-					</form>
+					<h3>Connexion</h3>
+					<label>Login :</label> <input type="text" name="username" /> <br/>
+					<label>Mot de passe :</label> <input type="password" name="password" /> <br/>
+					
+					<input type="submit" name="connect" value="Connexion" />
+					<img alt="Fermeture popup" src="../img/fermeture.png" onclick="fermerPopup()" />
+					
+					<?php include('formulaireConnexion.php'); ?>
 				
 				</div>
 				

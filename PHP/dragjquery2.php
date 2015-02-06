@@ -18,9 +18,16 @@ DU CSS, plein de CSS
 
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="../javascript/constructeurs.js"></script>
 		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/j query-ui.css">
-		<link rel="stylesheet" type="text/css" href="../css/drag.css"> 
+		<link rel="stylesheet" type="text/css" href="../css/drag.css">
+		<script>
+    	$(document).ready(function () {
+        $('#dragndrop').addClass('active');
+    	});
+		</script> 
 				<script type"text/javascript">
+
 $(function(){
 
     $('.groupe').draggable({ containment: 'parent' }); // appel du plugin
@@ -32,7 +39,6 @@ $(function(){
 				},
 				stop: function(event, ui){
 					ui.helper.css("z-index", "2");
-				//	alert(ui.offset.left + ' ' + ui.offset.top);
 				} }); 
 var compteur = 0;
 var nbtache = 0;
@@ -65,7 +71,7 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 					if(divlastposition.top+50 >  hauteurgroupe){ 
 						$("#groupe1").animate({height: '+=' + hauteurtacheplusdix},500);
 						hauteurgroupe = parseInt($('#groupe1').css('height')); // mise à jour de hauteur groupe
-					}           	
+					}            	
 					}
 		        
 
@@ -91,13 +97,14 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
                				});
 
 
-
            			var id_objet = ui.draggable.attr('id'); // ID de l'élément drop 
           			
           			// si l'élément arrivant dans la zone drop parking provient du groupe 
           			// on ote 1 au compteur du groupe
            			if(ui.draggable.hasClass('ingroupe')){
                			compteur = compteur -1 ;
+
+
                			if(compteur == 0){
 					   		$( "#groupe1" ).remove();
                			}
@@ -149,8 +156,28 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
             		$('#popup').css('display', 'none');
             	};
 
+
             	function creationTache(){
 				    $('#popupCreation').css('display', 'inline-block');
+				    $('#creationtache').submit(function(event){
+				    	var intitule = $('#intitule').val();
+				    	var description = $('#description').val();
+				    	var responsable = $('#responsable').val();
+				    	var adjoint1 = $('#adjoint1').val();
+				    	var adjoint2 = $('#adjoint2').val();
+				    	var adjoint3 = $('#adjoint3').val();
+				    	var dateDebut = $('#dateDebut').val();
+				    	var dateFin = $('#dateFin').val();
+				    	var dureeEstimee = $('#dureeEstimee').val();
+
+				    	var tache = new Tache(intitule, description, responsable, [adjoint1, adjoint2, adjoint3], dateDebut, 
+				    		dateFin, dureeEstimee );
+				    	$('#zonetacheseule').append('<div id="'+tache.intitule+'"><p>'+tache.intitule+'</p><p>'+tache.responsable+'</p><p>'+tache.adjoints[0] + ' ' + tache.adjoints[1] + ' ' + tache.adjoints[2] +' </p><p>'+tache.dateDebut+'</p><p>'+ tache.dateFin +'</p></div>');
+				//    	<p>'+tache.adjoint1 + ' ' + tache.adjoint2 + ' ' + tache.adjoint3 +' </p><p>'+tache.dateDebut+'</p>
+				 //   	<p>'+ tache.dateFin +'</p> </div>');
+				    	alert(tache.responsable);
+				    });
+
 
             	};
             			function creationGroupe(){
@@ -164,29 +191,22 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
             					display : 'inline-block',
             					marginleft : '50px'
                    				});
-            				$('input[type="text"]').val('');
+            				$('#nomgroupe').val('');
             				fermepopup();
-    function Tache(responsable, adjoints, dateDebut, dateFin, dureeEstimee, dureeReelle) {
-    this.responsable = responsable;
-    this.adjoints = adjoints;      //tableau
-    this.dateDebut  = dateDebut;
-    this.dateFin  = dateFin;
-    this.dureeEstimee = dureeEstimee;
-    this.dureeReelle = dureeReelle;
-}
+    
 
-	var tache1 = new Tache('Pierre', ['personne1', 'personne2'], '15/01/2015', '15/02/2015', '1.25', '5');
-	alert(tache1.responsable + ' ' + tache1.adjoints[0] + ' ' + tache1.adjoints[1] + ' ' + dateDebut +' ' + dateFin + ' ' + dureeEstimee + ' ' + dureeReelle);
+//	var tache1 = new Tache('Pierre', ['personne1', 'personne2'], '15/01/2015', '15/02/2015', '1.25', '5');
+//	alert(tache1.responsable + ' ' + tache1.adjoints[0] + ' ' + tache1.adjoints[1] + ' ' + dateDebut +' ' + dateFin + ' ' + dureeEstimee + ' ' + dureeReelle);
             	};
-
             	</script>
 <div id="sousmenu">
-		<a href="#" class="myButton" id="newtask" onclick="creationTache()">Nouvelle tâche</a>
-		<a href="#" class="myButton" id="changetask">Modifier tâche</a>
-		<a href="#" class="myButton" id="deletetask">Supprimer tâche</a>
+		<a href="#" class="myButton btn btn-primary btn-responsive" id="newtask" onclick="creationTache()">Nouvelle tâche</a>
+		<a href="#" class="myButton btn btn-primary btn-responsive" id="changetask">Modifier tâche</a>
+		<a href="#" class="myButton btn btn-primary btn-responsive" id="deletetask">Supprimer tâche</a>
 </div>
 <div id="parking">
 <div id="zonetacheseule">
+<!--	
 <div id="tache1" class="tache">
 tache1
 </div>	
@@ -217,38 +237,40 @@ tache9
 </div>	
 <div id="groupe1" class="groupe">
 <p>groupe1</p>
+</div>-->
 </div>
-
 </div>
-
+<!-- popup => popup de fusion -->
 <div id="popup">
 	<img id="fermeture" onclick="fermepopup()"src="../img/fermeture.png" alt="icone fermeture popup" />
 <h1 id="titrefusion">Fusion de tâches </h1>
-<input type="text" id="nomgroupe" placeholder="Nom du groupe" />
+<input type="text" placeholder="Nom du groupe" id="nomgroupe" />
 <input type="submit" onclick="creationGroupe()" value="valider"/>
 </div>
 <div id="popupCreation">
+<form id="creationtache">
 	<h1> Création d'une nouvelle tâche </h1>
-	<input type="text" name="intitule" placeholder="Intitulé"/><br/>
-	<textarea cols="50"rows="5"name="description"placeholder="Description"></textarea><br/>
-	<input type="text" name="responsable" placeholder="Responsable"/>
+	<input type="text" name="intitule" placeholder="Intitulé" id="intitule"/><br/>
+	<textarea cols="50"rows="5"name="description"placeholder="Description" id="description"></textarea><br/>
+	<input type="text" name="responsable" placeholder="Responsable" id="responsable"/>
 	<select name="groupe"> </select><br/>
-	<input type="text" class="adjoint" name="adjoint1" placeholder="adjoint1"/>
-	<input type="text" class="adjoint" name="adjoint2" placeholder="adjoint2"/>
-	<input type="text" class="adjoint" name="adjoint3" placeholder="adjoint3"/>
+	<input type="text" class="adjoint" name="adjoint1" placeholder="adjoint1" id="adjoint1"/>
+	<input type="text" class="adjoint" name="adjoint2" placeholder="adjoint2" id="adjoint2"/>
+	<input type="text" class="adjoint" name="adjoint3" placeholder="adjoint3" id="adjoint3"/>
 	<img src="../img/plus.jpg" alt="ajouter plus d'adjoints" width="20px" height="20px"  />
 	<div>
 		<div class="ligne"><p>Date début </p>
-		<input type="text" size="8" class="datepicker" />	
+		<input type="text" size="8" class="datepicker" id="dateDebut"/>	
 		</div>
 		<div class="ligne"><p>Date fin </p>
-		<input type="text"  size="8" class="datepicker" />	
+		<input type="text"  size="8" class="datepicker" id="dateFin" />	
 		</div>
 		<div class="ligne"><p>Durée estimée</p>	
-			<input type="text" />
+			<input type="text" id="dureeEstimee"/>
 		</div>
 		<input type="submit" value="valider"/>
 	</div>
+</form>
 
 
 
