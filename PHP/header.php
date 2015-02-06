@@ -96,18 +96,34 @@
 						<div id='navbar' class='navbar-collapse collapse' ng-controller="HeaderController">
 							<ul class='nav navbar-nav'>
 								<li id='home'><a href='calendar.php'>Accueil</a></li>
+
+
+								<?php
+									/* A afficher si l'utilisateur est connecté */
+									if (isset($_SESSION['username'])){
+										echo("<li id='dragndrop'><a href='dragjquery2.php'>Gestion des tÃ¢ches</a></li>");
+										/* A afficher si l'utilisateur est Admin */
+										if ($_SESSION['droits_admin'] == 1)
+											echo("<li id='gestuser'><a href='gestionUsers.php'>Gestion des utilisateurs</a></li>);
+									}
+								?>
 								
-	
-								<li id='dragndrop'><a href='dragjquery2.php'>Gestion des tÃ¢ches</a></li>
-								<li id='gestuser'><a href='gestionUsers.php'>Gestion des utilisateurs</a></li>
 								<li id='help'><a href='#'>Aide</a></li>
 							</ul>
 							<ul class='nav navbar-nav navbar-right'>
 							
-
-								<li id='gestcmpt'><a href='gestionCompte.php'>Gestion du compte</a></li>
-								<li id='register'><a href='inscription.php'>S'inscrire</a></li>
-								<li><a href='javascript:ouvrirPopup()'>Se connecter</a></li>
+								<?php
+									/* A afficher si l'utilisateur est connecté */
+									if (isset($_SESSION['username'])){
+										echo("<li id='gestcmpt'><a href='gestionCompte.php'>Gestion du compte</a></li>");
+										echo("<li><a href=''>Se déconnecter</a></li>");
+									}
+									/* A afficher si l'utilisateur est déconnecté */
+									else {
+										echo("<li id='register'><a href='inscription.php'>S'inscrire</a></li>");
+										echo("<li><a href='javascript:ouvrirPopup()'>Se connecter</a></li>");
+									}
+								?>
 							</ul>
 						</div><!--/.nav-collapse -->
 					</div><!--/.container-fluid -->
