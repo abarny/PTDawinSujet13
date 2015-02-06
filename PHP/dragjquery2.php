@@ -19,14 +19,8 @@ DU CSS, plein de CSS
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/j query-ui.css">
-		<link rel="stylesheet" type="text/css" href="../css/drag.css">
-		<script>
-    	$(document).ready(function () {
-        $('#dragndrop').addClass('active');
-    	});
-		</script> 
+		<link rel="stylesheet" type="text/css" href="../css/drag.css"> 
 				<script type"text/javascript">
-
 $(function(){
 
     $('.groupe').draggable({ containment: 'parent' }); // appel du plugin
@@ -38,6 +32,7 @@ $(function(){
 				},
 				stop: function(event, ui){
 					ui.helper.css("z-index", "2");
+				//	alert(ui.offset.left + ' ' + ui.offset.top);
 				} }); 
 var compteur = 0;
 var nbtache = 0;
@@ -70,7 +65,7 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 					if(divlastposition.top+50 >  hauteurgroupe){ 
 						$("#groupe1").animate({height: '+=' + hauteurtacheplusdix},500);
 						hauteurgroupe = parseInt($('#groupe1').css('height')); // mise à jour de hauteur groupe
-					}            	
+					}           	
 					}
 		        
 
@@ -81,15 +76,18 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 		        drop: function( event, ui ) {   // Action effectuée lorsqu'on dépose un élément dans le parking
 						var monleft = ui.offset.left;
 						var montop = ui.offset.top;
+						var parking = document.getElementById('parking');
+				//		alert(parking.offsetLeft + ' ' + parking.offsetTop);
 
-						monleft = monleft + 'px';
-						montop = montop +'px';
-				//		alert(monleft + montop);
+						monleft = monleft - parking.offsetLeft;
+						montop = montop - parking.offsetTop;
+						monleft = monleft + 'px'; montop = montop + 'px';
+
 		            ui.draggable.appendTo($(this)) // on le met à l'intérieur du groupe
-		            		.css({  
-		            			position: "absolute"/*,                   
+		            	.css({  
+		            			position: "absolute",                  
                     			left: monleft,
-                    			top: montop	*/
+                    			top: montop	
                				});
 
 
@@ -100,8 +98,6 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
           			// on ote 1 au compteur du groupe
            			if(ui.draggable.hasClass('ingroupe')){
                			compteur = compteur -1 ;
-
-
                			if(compteur == 0){
 					   		$( "#groupe1" ).remove();
                			}
@@ -182,11 +178,12 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 	var tache1 = new Tache('Pierre', ['personne1', 'personne2'], '15/01/2015', '15/02/2015', '1.25', '5');
 	alert(tache1.responsable + ' ' + tache1.adjoints[0] + ' ' + tache1.adjoints[1] + ' ' + dateDebut +' ' + dateFin + ' ' + dureeEstimee + ' ' + dureeReelle);
             	};
+
             	</script>
 <div id="sousmenu">
-		<a href="#" class="myButton btn btn-primary btn-responsive" id="newtask" onclick="creationTache()">Nouvelle tâche</a>
-		<a href="#" class="myButton btn btn-primary btn-responsive" id="changetask">Modifier tâche</a>
-		<a href="#" class="myButton btn btn-primary btn-responsive" id="deletetask">Supprimer tâche</a>
+		<a href="#" class="myButton" id="newtask" onclick="creationTache()">Nouvelle tâche</a>
+		<a href="#" class="myButton" id="changetask">Modifier tâche</a>
+		<a href="#" class="myButton" id="deletetask">Supprimer tâche</a>
 </div>
 <div id="parking">
 <div id="zonetacheseule">
@@ -227,7 +224,7 @@ tache9
 <div id="popup">
 	<img id="fermeture" onclick="fermepopup()"src="../img/fermeture.png" alt="icone fermeture popup" />
 <h1 id="titrefusion">Fusion de tâches </h1>
-<input type="text" placeholder="Nom du groupe" />
+<input type="text" id="nomgroupe" placeholder="Nom du groupe" />
 <input type="submit" onclick="creationGroupe()" value="valider"/>
 </div>
 <div id="popupCreation">
