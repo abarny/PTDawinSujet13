@@ -27,16 +27,17 @@ $(document).ready(function() {
         fixedWeekCount: false,
 		events: "http://localhost:9292/PHP/events.php",
 
+    eventClick: function(event) {
+            var date = (event.start);
+            var date = date.format();
+            $(location).attr('href',"detailjour.php?date="+date);
+          
+    },
+
         dayClick: function(date, jsEvent, view) {
         var date = date.format();
 		$(location).attr('href',"detailjour.php?date="+date);
-    	},
-
-    	eventClick: function(date, event) {
-    	var date = date.format();
-        alert(event.date);
-            return false;
-        }
+    	}
     	
 
     });
