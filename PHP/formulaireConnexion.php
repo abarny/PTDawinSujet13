@@ -1,4 +1,8 @@
 <?php
+	session_start()
+?>
+
+<?php
 	include "connect.php";
 ?>
 
@@ -20,10 +24,15 @@
 				$user = $query->fetch();
 				
 				if ($user['pass'] == md5($_POST['password'])) {
+				
 					$currentUser = $user;
 					$_SESSION['user'] = $currentUser['id_user'];
-					echo "Connecté";
-					echo "<p>Cliquez <a href='calendar.php'>ici</a> pour revenir à la page d'accueil</p>";
+					header('location: calendar.php');
+					?>
+					
+						<script>alert('Vous êtes maintenant connecté.');</script>
+					
+					<?php
 				}
 				else $errorMDP = TRUE;
 			}
