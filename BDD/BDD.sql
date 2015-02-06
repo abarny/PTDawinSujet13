@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: info-arie.iut.bx1
--- Généré le: Jeu 05 Février 2015 à 09:06
+-- Généré le: Ven 06 Février 2015 à 16:37
 -- Version du serveur: 5.5.41
 -- Version de PHP: 5.4.36-0+deb7u3
 
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `mail` (`mail`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Contenu de la table `users`
@@ -106,7 +106,8 @@ INSERT INTO `users` (`id_user`, `prenom`, `nom_user`, `username`, `mail`, `pass`
 (5, 'Ilo', 'Capitale', 'Kaisether', 'Ilo@Etherval.fr', 'ether', 5, 0),
 (6, 'Tom', 'Veldyon', 'Chimera', 'Tom.Veldyon@Gaïa.fr', 'gunblade', 6, 0),
 (7, 'Naïl', 'Unknown', 'Smémancien', 'Naïl@Etherval.fr', 'rock', 7, 0),
-(8, 'Elise', 'Tesaross', 'ChainChimera', 'Elise.Tesaross@Gaïa.fr', 'Tom<3', 8, 0);
+(8, 'Elise', 'Tesaross', 'ChainChimera', 'Elise.Tesaross@Gaïa.fr', 'Tom<3', 8, 0),
+(9, 'Test', 'Test', 'Test', 'test.test@test.fr', '098f6bcd4621d373cade4e832627b4f6', 1, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
