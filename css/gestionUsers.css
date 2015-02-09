@@ -1,7 +1,8 @@
-﻿body {
+﻿.userContainer {
 	padding-top: 20px;
 	padding-bottom: 20px;
-	margin: 2% 0% 0% 5%;
+	margin-right: 2%;
+	margin-left: 2%;
 }
 
 
@@ -22,11 +23,35 @@
 }
 
 .userContainer td {
-	padding-left:10px;
+	padding-left:1%;
+	padding-right:1%;
 }
 
 .check{
 	width:100px;
 	text-align:center;
 	padding-left:0px;
+}
+
+/* RESPONSIVE : PROPRIETES TABLETTES (HORIZONTALE) */
+@media screen and (max-width: 1024px)
+{
+		
+}
+
+/* RESPONSIVE : PROPRIETES TABLETTES (VERTICALE) */
+@media screen and (max-width: 976px)
+{
+	.userContainer {
+		padding-top: 1%;
+	}
+
+	.userContainer table {
+		margin-top:1%;
+	}
+
+	.userContainer th, .userContainer td {
+		font-size: 9px;
+		height:100%;
+	}
 }
