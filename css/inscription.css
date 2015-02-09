@@ -4,37 +4,86 @@
 }
 
 .inscription form {
-	/* top, right, bottom, left */
-	margin: 50px 20px 20px 500px;
+	margin-left: 30%;
 }
 
-.inscription input[type=text] {
-	margin-top:10px;
-	margin-bottom:10px;
-	width:200px;
-}
-
-.inscription input[type=password] {
-	margin-top:10px;
-	margin-bottom:10px;
-	width:200px;
+.inscription input[type=text], .inscription input[type=password] {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 200px;
 }
 
 .inscription .infos{
-	margin-top:20px;
-	margin-bottom:30px;
+	margin-top: 20px;
+	margin-bottom: 30px;
 }
 
 .inscription .password{
-	margin-top:30px;
-	margin-bottom:30px;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 .inscription .color {
-	margin-left:300px;
-	margin-top:-400px;
+	margin-left: 20%;
+	margin-top: -32%;
 }
 
 .inscription .button {
-	margin-top:50px;
+	margin-top: 50px;
+}
+
+
+/* RESPONSIVE : PROPRIETES TABLETTES (HORIZONTALE) */
+@media screen and (max-width: 1024px)
+{
+
+	.inscription .color {
+		margin-left: 35%;
+		margin-top: -60%;
+	}
+		
+}
+
+/* RESPONSIVE : PROPRIETES TABLETTES (VERTICALE) */
+@media screen and (max-width: 976px)
+{
+	.blocConnexion {
+		left: 30%;
+	}
+
+	.inscription .color {
+		margin-left: 45%;
+		margin-top: -80%;
+	}
+}
+
+
+/* RESPONSIVE : PROPRIETES MOBILES (HORIZONTAL) */
+@media screen and (max-width: 625px)
+{
+	.inscription form {
+		margin-left: 20%;
+	}
+
+	.inscription .color {
+			margin-left: 0%;
+			margin-top: -35%;
+	}
+
+	.inscription .button {
+		margin-top: 30%;
+	}
+}
+
+/* RESPONSIVE : PROPRIETES MOBILES (VERTICALE) */
+@media screen and (max-width: 320px)
+{
+	.inscription .color {
+			margin-left: 0%;
+			margin-top: -55%;
+	}
+
+	.inscription .button {
+		margin-top: 50%;
+	}
 }
