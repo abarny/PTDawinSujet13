@@ -1,43 +1,75 @@
-﻿body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+﻿.gestionCompte {
+	padding-top: 2%;
+	padding-bottom: 2%;
+	margin-left: 40%;
 }
 
-.gestionCompte form {
-	/* top, right, bottom, left */
-	margin: 50px 20px 20px 500px;
-	
-	/* Temporaire, le temps de travailler avec 2 fenêtres */
-	/* margin-left:50px; */
-}
-
-.gestionCompte input[type=text] {
-	margin-top:10px;
-	margin-bottom:10px;
-	width:200px;
-}
-
-.gestionCompte input[type=password] {
-	margin-top:10px;
-	margin-bottom:10px;
-	width:200px;
+.gestionCompte input[type=text], .gestionCompte input[type=password] {
+	margin-top: 1%;
+	margin-bottom: 1%;
+	width: 225px;
 }
 
 .gestionCompte .infos{
-	margin-top:20px;
-	margin-bottom:30px;
+	margin-top: 2%;
+	margin-bottom: 3%;
 }
 
 .gestionCompte .password{
-	margin-top:30px;
-	margin-bottom:30px;
+	margin-top: 3%;
+	margin-bottom: 3%;
 }
 
 .gestionCompte .color {
 	position:absolute;
-	margin-left:300px;
+	margin-left: 30%;
 }
 
 .gestionCompte .button {
-	margin-top:50px;
+	margin-top: 5%;
+}
+
+.gestionCompte .button input[type=submit]{
+	margin-right: 1%;
+}
+
+/* RESPONSIVE : PROPRIETES TABLETTES (HORIZONTALE) */
+@media screen and (max-width: 1024px)
+{
+	.gestionCompte {
+		margin-left: 30%;
+	}
+}
+
+/* RESPONSIVE : PROPRIETES TABLETTES (VERTICALE) */
+@media screen and (max-width: 976px)
+{
+	.gestionCompte {
+		margin-left: 30%;
+	}
+}
+
+
+/* RESPONSIVE : PROPRIETES MOBILES (HORIZONTAL) */
+@media screen and (max-width: 625px)
+{
+	.gestionCompte {
+		margin-left: 20%;
+	}
+
+	.gestionCompte .button {
+		margin-top: 10%;
+	}
+}
+
+/* RESPONSIVE : PROPRIETES MOBILES (VERTICALE) */
+@media screen and (max-width: 320px)
+{
+	.gestionCompte .button {
+		margin-top: 15%;
+	}
+
+	.gestionCompte .button input[type=submit]{
+		margin-bottom:5%;
+	}
 }

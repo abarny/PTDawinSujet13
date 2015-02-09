@@ -1,16 +1,13 @@
-﻿body .inscription {
-  padding-top: 2%;
-  padding-bottom: 2%;
-}
-
-.inscription {
+﻿.inscription {
+	padding-top: 2%;
+	padding-bottom: 2%;
 	margin-left: 40%;
 }
 
 .inscription input[type=text], .inscription input[type=password] {
 	margin-top: 1%;
 	margin-bottom: 1%;
-	width: 200px;
+	width: 225px;
 }
 
 .inscription .infos{
@@ -27,6 +24,10 @@
 	margin-top: 5%;
 }
 
+.inscription .button input[type=submit]{
+	margin-right: 1%;
+}
+
 
 /* RESPONSIVE : PROPRIETES TABLETTES (HORIZONTALE) */
 @media screen and (max-width: 1024px)
@@ -38,7 +39,7 @@
 @media screen and (max-width: 976px)
 {
 	.inscription {
-		left: 30%;
+		margin-left: 30%;
 	}
 }
 
@@ -51,14 +52,6 @@
 	}
 
 	.inscription .button {
-		margin-top: 30%;
-	}
-}
-
-/* RESPONSIVE : PROPRIETES MOBILES (VERTICALE) */
-@media screen and (max-width: 32%)
-{
-	.inscription .button {
-		margin-top: 50%;
+		margin-top: 10%;
 	}
 }

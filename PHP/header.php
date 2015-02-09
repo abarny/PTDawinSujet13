@@ -25,11 +25,6 @@
 		<link href='../css/gestionUsers.css' rel='stylesheet' />
 		<link href='../css/connexion.css' rel='stylesheet' />
 
-		<link href='../plugins/iconselect/css/lib/control/iconselect.css' rel='stylesheet' />
-	
-	 	<script src="../plugins/iconselect/lib/control/iconselect.js"></script>
-	 	 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-
 			<!-- Bootstrap core JavaScript
 			================================================== -->
 			<!-- Placed at the end of the document so the pages load faster -->
