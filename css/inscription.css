@@ -23,11 +23,6 @@
 	margin-bottom: 30px;
 }
 
-.inscription .color {
-	margin-left: 20%;
-	margin-top: -32%;
-}
-
 .inscription .button {
 	margin-top: 50px;
 }
@@ -36,11 +31,6 @@
 /* RESPONSIVE : PROPRIETES TABLETTES (HORIZONTALE) */
 @media screen and (max-width: 1024px)
 {
-
-	.inscription .color {
-		margin-left: 35%;
-		margin-top: -60%;
-	}
 		
 }
 
@@ -49,11 +39,6 @@
 {
 	.blocConnexion {
 		left: 30%;
-	}
-
-	.inscription .color {
-		margin-left: 45%;
-		margin-top: -80%;
 	}
 }
 
@@ -65,11 +50,6 @@
 		margin-left: 20%;
 	}
 
-	.inscription .color {
-			margin-left: 0%;
-			margin-top: -35%;
-	}
-
 	.inscription .button {
 		margin-top: 30%;
 	}
@@ -78,11 +58,6 @@
 /* RESPONSIVE : PROPRIETES MOBILES (VERTICALE) */
 @media screen and (max-width: 320px)
 {
-	.inscription .color {
-			margin-left: 0%;
-			margin-top: -55%;
-	}
-
 	.inscription .button {
 		margin-top: 50%;
 	}

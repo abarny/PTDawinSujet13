@@ -53,7 +53,7 @@
 						  $pass = $_POST["mdp1"];
 						  $passCrypt = md5($pass);
 						  
-						  $sql = "INSERT INTO users (`nom_user`, `prenom`, `username`, `mail`, `pass`, `color`, `droits_admin`) VALUES ('".$_POST["nom"]."', '".$_POST["prenom"]."', '".$_POST["username"]."', '".$_POST["mail"]."', '$passCrypt', '1', '0')";
+						  $sql = "INSERT INTO users (`nom_user`, `prenom`, `username`, `mail`, `pass`, `droits_admin`) VALUES ('".$_POST["nom"]."', '".$_POST["prenom"]."', '".$_POST["username"]."', '".$_POST["mail"]."', '$passCrypt', '1', '0')";
 						  $sql = mysql_query($sql);
 						 
 						  // Si la requête s'est bien effectué :
@@ -70,7 +70,6 @@
 							  $_SESSION["username"] = $_POST["username"];
 							  $_SESSION["mail"] = $_POST["mail"];
 							  $_SESSION["pass"] = $passCrypt;
-							  $_SESSION["color"] = 1;
 							  $_SESSION["droits_admin"] = 0;
 							 
 							  // Comme un utilisateur est différent, on crée des variables de sessions pour "varier" l'utilisateur comme ceci :
