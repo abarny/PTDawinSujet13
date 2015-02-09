@@ -45,17 +45,17 @@
 		<div class="password">
 			<div class="passOld">
 				<label>Ancien mot de passe :</label> <br/>
-				<input type="password" name="mdp1" />
+				<input type="password" name="oldPass" />
 			</div>
 
 			<div class="pass">
 				<label>Nouveau mot de passe :</label> <br/>
-				<input type="password" name="mdp1" />
+				<input type="password" name="newPass1" />
 			</div>
 			
 			<div class="passConfirm">
 				<label>Confirmer le nouveau mot de passe :</label> <br/>
-				<input type="password" name="mdp2" />
+				<input type="password" name="newPass2" />
 			</div>
 			
 			<!-- TODO : mettre un bouton pour conserver l'ancien mot de passe (rÃƒÂ z des champs mdp et hide la div password) ? -->
@@ -64,13 +64,16 @@
 		
 		
 		<div class="button">
-			<input type="submit" value="Enregistrer les modifications"/>
+			<input type="submit" name="modify" value="Enregistrer les modifications"/>
 			<input type="reset" value="Réinitialiser"/>
 		</div>	
 		
 	</form>
 
 </div>
+
+<?php include "formulaireGestionCompte.php"; ?>
+
 </body>
 
 </html>

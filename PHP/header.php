@@ -9,10 +9,12 @@
 		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 		<meta name='viewport' content='width=device-width, initial-scale=1'>
 		<meta name='description' content='Header du site'>
-		<meta name='author' content='Hadrien'>
+		<meta name='author' content='LP Dawin Groupe 13'>
+		<meta name="viewport" content="width=device-width, user-scalable=yes" />
+
 		<link rel='icon' href=''>
 
-		<title>Header</title>
+		<title>Teamshare - Application de gestion de tâches</title>
 
 		<!-- Bootstrap core CSS -->
 		<link href='../plugins/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet'>

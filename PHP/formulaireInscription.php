@@ -30,17 +30,18 @@
 			// On regarde si le mot de passe et le nom de compte n'est pas le même
 			if($_POST["username"] != $_POST["mdp1"]){
 			   
-				// Si c'est bon on regarde dans la base de donnée si le nom de compte est déjà utilisé :
-				$sql = "SELECT username FROM users WHERE username = '".$_POST["username"]."' ";
-				$sql = mysql_query($sql);
+			// Si c'est bon on regarde dans la base de donnée si le nom de compte est déjà utilisé :
+			$sql = "SELECT username FROM users WHERE username = '".$_POST["username"]."' ";
+			$sql = mysql_query($sql);
+
 			// On compte combien de valeur à pour nom de compte celui tapé par l'utilisateur.
 			$sql = mysql_num_rows($sql);
 		   
-			  // Si $sql est égal à 0 (c'est-à-dire qu'il n'y a pas de nom de compte avec la valeur tapé par l'utilisateur
-			  if($sql == 0){
+			// Si $sql est égal à 0 (c'est-à-dire qu'il n'y a pas de nom de compte avec la valeur tapé par l'utilisateur
+			if($sql == 0){
 			 
-				  // Si tout va bien on regarde si le mot de passe n'exède pas 60 caractères.
-				  if(strlen($_POST["mdp1"] < 60)){
+				// Si tout va bien on regarde si le mot de passe n'exède pas 60 caractères.
+				if(strlen($_POST["mdp1"] < 60)){
 				 
 					// Si tout va bien on regarde si le nom de compte n'exède pas 60 caractères.
 					if(strlen($_POST["username"] < 60)){
@@ -53,7 +54,7 @@
 						  $pass = $_POST["mdp1"];
 						  $passCrypt = md5($pass);
 						  
-						  $sql = "INSERT INTO users (`nom_user`, `prenom`, `username`, `mail`, `pass`, `droits_admin`) VALUES ('".$_POST["nom"]."', '".$_POST["prenom"]."', '".$_POST["username"]."', '".$_POST["mail"]."', '$passCrypt', '1', '0')";
+						  $sql = "INSERT INTO users (`nom_user`, `prenom`, `username`, `mail`, `pass`, `droits_admin`) VALUES ('".$_POST["nom"]."', '".$_POST["prenom"]."', '".$_POST["username"]."', '".$_POST["mail"]."', '$passCrypt', '0')";
 						  $sql = mysql_query($sql);
 						 
 						  // Si la requête s'est bien effectué :
