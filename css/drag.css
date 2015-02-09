@@ -28,7 +28,7 @@
 }
 
 #zonetacheseule{
-	height: 25%;
+	height: 50%;
 	border: 1px dotted green;
 }
 #fermeture{
@@ -53,11 +53,12 @@
 
 .tache{
 	display: inline-block;
-		width: 50px;
-	height: 50px;
-	position: absolute;
+/*	width: 100px;
+	height: 150px;*/
+/*	position: absolute;*/
 	z-index: 2;
-	margin-bottom: 20px;
+	/*margin-bottom: 20px;
+	/*background: orange;*/
 }
 
 #groupe1 .tache{
@@ -96,9 +97,7 @@
 	background: pink;
 
 }
-#tache9{
-	background: brown;
-}
+
 #groupe1{
 	background: green;
 	width: 150px;
@@ -112,10 +111,10 @@
 #parking{
 	background: #BABFC9;
 	border: 4px solid black;
-	width: 80%;
+	width: 90%;
 	height: 70%;
 	position: absolute;
-	margin-left: 10%;
+	margin-left: 5%;
 	margin-top: 10px;
 }
 

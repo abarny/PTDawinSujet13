@@ -25,14 +25,84 @@ DU CSS, plein de CSS
 
 		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/j query-ui.css">
 		<link rel="stylesheet" type="text/css" href="../css/drag.css">
+		<link rel="stylesheet" type="text/css" href="../post-it_CSS/style.css">
 		<script>
     	$(document).ready(function () {
         $('#dragndrop').addClass('active');
     	});
 		</script> 
+<?php  try {
+ $pdo = new PDO('mysql:host=localhost;dbname=teamshare', 'root', '');
+ } catch(Exception $e) {
+ 	die('Erreur : ' . $e->getMessage());
+ }
+ ?>
 				<script type"text/javascript">
 
 $(function(){
+				    $('#creationtache').click(function(){
+				    	var intitule = $('#intitule').val();
+						var	description = $('#description').val();
+						var	responsable = $('#responsable').val();
+						var	adjoint1 = $('#adjoint1').val();
+						var	adjoint2 = $('#adjoint2').val();
+						var	adjoint3 = $('#adjoint3').val();
+						var	dateDebut = $('#dateDebut').val();
+						var	dateFin = $('#dateFin').val();
+						var	dureeEstimee = $('#dureeEstimee').val();
+
+				    	$.ajax({
+     						  url: 'creation_tache.php',
+     						  type: 'GET',
+     						  data: "intitule="+intitule+"&description="+description+
+     						  "&responsable="+responsable+"&dateDebut="+dateDebut+"&dateFin="+dateFin+"&dureeEstimee="
+     						  +dureeEstimee,
+     						  dataType: 'html',
+     						  success : function(data){
+     						  	//alert(data);
+     							$('#popupCreation').css('display', 'none');
+								$('#zonetacheseule').append('<div class="tache">'+ data + '</div>');    						  	
+     						  }
+     						});
+				    	 });
+
+				    $('#creationgroupe').click(function(){
+				    	var nomgroupe = $('#nomgroupe').val();
+
+				    	$.ajax({
+     						  url: 'creation_groupe.php',
+     						  type: 'GET',
+     						  data: "nomgroupe="+nomgroupe,//+"&id="+id,
+     						  dataType: 'html',
+     						  success : function(data){
+     							$('#popup').css('display', 'none');
+     							$('#zonegroupe').append('<div class="groupe">'+data+'</div>');    						  	
+     						  //	alert(data);
+
+     						  }
+     						});
+				    	 });
+     				/*	{
+     						nomrequete : nomrequete,
+							intitule : intitule,
+							description : description,
+							responsable : responsable,
+						//	adjoint1 : adjoint1,
+						//	adjoint2 : adjoint2,
+						//	adjoint3 : adjoint3,
+							dateDebut : dateDebut,
+							dateFin : dateFin,
+							dureeEstimee : dureeEstimee
+     					},
+     					function(data){
+     							alert('insertion effectuée');
+     							$('#popupCreation').css('display', 'none');
+     					},
+     					"html");
+
+    			});*/
+
+
 
     $('.groupe').draggable({ containment: 'parent' }); // appel du plugin
 
@@ -132,7 +202,7 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 
 				//		alert('left : ' + left + 'top : ' + top + 'ui.left : ' + ui.offset.left + 'ui.top' + ui.offset.top );
 
-						if(Math.abs(left - ui.offset.left) < 25 && Math.abs(top - ui.offset.top) < 25){
+						if(Math.abs(left - ui.offset.left) < 100 && Math.abs(top - ui.offset.top) < 25){
 				            	$('#popup').css('display', 'inline-block');
 				           		ui.draggable.appendTo('#popup').css({                     
                     			position: 'relative',
@@ -161,26 +231,15 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
             	};
 
 
-            	function creationTache(){
-				    $('#popupCreation').css('display', 'inline-block');
-				 /*   $('#creationtache').submit(function(event){
-				    	var intitule = $('#intitule').val();
-				    	var description = $('#description').val();
-				    	var responsable = $('#responsable').val();
-				    	var adjoint1 = $('#adjoint1').val();
-				    	var adjoint2 = $('#adjoint2').val();
-				    	var adjoint3 = $('#adjoint3').val();
-				    	var dateDebut = $('#dateDebut').val();
-				    	var dateFin = $('#dateFin').val();
-				    	var dureeEstimee = $('#dureeEstimee').val();
 
-				    	var tache = new Tache(intitule, description, responsable, [adjoint1, adjoint2, adjoint3], dateDebut, 
+
+				 /*   	var tache = new Tache(intitule, description, responsable, [adjoint1, adjoint2, adjoint3], dateDebut, 
 				    		dateFin, dureeEstimee );
 				    	$('#zonetacheseule').append('<div id="'+tache.intitule+'" class="tache"><p>'+tache.intitule+'</p><p>'+tache.responsable+'</p><p>'+tache.adjoints[0] + ' ' + tache.adjoints[1] + ' ' + tache.adjoints[2] +' </p><p>'+tache.dateDebut+'</p><p>'+ tache.dateFin +'</p></div>');
 				//    	<p>'+tache.adjoint1 + ' ' + tache.adjoint2 + ' ' + tache.adjoint3 +' </p><p>'+tache.dateDebut+'</p>
 				 //   	<p>'+ tache.dateFin +'</p> </div>');
-				    	alert(tache.responsable);*/
-            	};
+				    	alert(tache.responsable);	*/
+
             			function creationGroupe(){
             				var nomgroupe = $('#nomgroupe').val();
             				$('#parking').append('<div id="groupe2" class="groupe"> <p>'+ nomgroupe + '</p> </div>');
@@ -199,31 +258,13 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 //	var tache1 = new Tache('Pierre', ['personne1', 'personne2'], '15/01/2015', '15/02/2015', '1.25', '5');
 //	alert(tache1.responsable + ' ' + tache1.adjoints[0] + ' ' + tache1.adjoints[1] + ' ' + dateDebut +' ' + dateFin + ' ' + dureeEstimee + ' ' + dureeReelle);
             	};
+
+            	            	function creationTache(){
+				    $('#popupCreation').css('display', 'inline-block');
+     };
+
             	</script>
-<?php 
-// connexion à la base de données
- try {
- $pdo = new PDO('mysql:host=localhost;dbname=teamshare', 'root', '');
- } catch(Exception $e) {
- 	die('Erreur : ' . $e->getMessage());
- }
 
-$intitule = isset($_POST['intitule']) ? $_POST['intitule'] : '';
-$description = isset($_POST['description']) ? $_POST['description'] : '';
-$responsable = isset($_POST['responsable']) ? $_POST['responsable'] : '';
-$adjoint1 = isset($_POST['adjoint1']) ? $_POST['adjoint1'] : '';
-$adjoint2 = isset($_POST['adjoint2']) ? $_POST['adjoint2'] : '';
-$adjoint3 = isset($_POST['adjoint3']) ? $_POST['adjoint3'] : '';
-$dateDebut = isset($_POST['dateDebut']) ? $_POST['dateDebut'] : '';
-$dateFin = isset($_POST['dateFin']) ? $_POST['dateFin'] : '';
-$dureeEstimee = isset($_POST['dureeEstimee']) ? $_POST['dureeEstimee'] : '';
-
-
- $insert = $pdo->prepare('INSERT INTO taches 
-    (title,start,end, description, heures_estim, responsable, id_groupe) VALUES (?,?,?,?,?,?,?)');
- $insert->execute(array($intitule,$dateDebut,$dateFin, $description, $dureeEstimee,$responsable, 0));
-
-?>
 <div id="sousmenu">
 		<a href="#" class="myButton btn btn-primary btn-responsive" id="newtask" onclick="creationTache()">Nouvelle tâche</a>
 		<a href="#" class="myButton btn btn-primary btn-responsive" id="changetask">Modifier tâche</a>
@@ -231,6 +272,18 @@ $dureeEstimee = isset($_POST['dureeEstimee']) ? $_POST['dureeEstimee'] : '';
 </div>
 <div id="parking">
 <div id="zonetacheseule">
+
+<?php 
+$sql = 'SELECT *
+FROM taches
+INNER JOIN membres_taches ON membres_taches.id_tache = taches.id
+WHERE id_util =1';
+foreach ($pdo->query($sql) as $row) {
+	echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
+		'. $row['responsable'] .'<br/>' . $row['start'] . '<br/>'
+		. $row['end'] . '</p></div>';
+}
+?>
 <!--	
 <div id="tache1" class="tache">
 tache1
@@ -256,13 +309,22 @@ tache7
 <div id="tache8" class="tache">
 tache8
 </div>	
-<div id="tache9" class="tache">
-tache9
-</div>
+<div id="tache9" class="tache" class="quote-container">
+<i class="pin"></i>
+<p class="note yellow">
+Faire l'inventaire<br/>
+Michel Roin<br/>
+Viviane Bate<br/>
+15-02-2015<br/>
+56-03-2015
+  </p>
+</div> -->
 </div>	
 <div id="groupe1" class="groupe">
 <p>groupe1</p>
-</div>-->
+</div>
+</div>
+<div id="zonegroupe">
 </div>
 </div>
 <!-- popup => popup de fusion -->
@@ -270,10 +332,9 @@ tache9
 	<img id="fermeture" onclick="fermepopup()"src="../img/fermeture.png" alt="icone fermeture popup" />
 <h1 id="titrefusion">Fusion de tâches </h1>
 <input type="text" placeholder="Nom du groupe" id="nomgroupe" />
-<input type="submit" onclick="creationGroupe()" value="valider"/>
+<input type="submit" onclick="creationGroupe()" value="valider" id="creationgroupe"/>
 </div>
 <div id="popupCreation">
-<form id="creationtache" method="POST" action="dragjquery2.php">
 	<h1> Création d'une nouvelle tâche </h1>
 	<input type="text" name="intitule" placeholder="Intitulé" id="intitule"/><br/>
 	<textarea cols="50"rows="5"name="description"placeholder="Description" id="description"></textarea><br/>
@@ -293,9 +354,8 @@ tache9
 		<div class="ligne"><p>Durée estimée</p>	
 			<input type="text" id="dureeEstimee" name="dureeEstimee"/>
 		</div>
-		<input type="submit" value="valider"/>
+		<input type="submit" value="valider" id="creationtache"/>
 	</div>
-</form>
 
 
 
