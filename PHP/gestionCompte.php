@@ -1,4 +1,6 @@
-<?php include "header.php"; 
+<?php 
+	include "header.php"; 
+	include "formulaireGestionCompte.php";
 ?>
 
 
@@ -20,19 +22,19 @@
 	
 		<div class="infos">
 			<div class="nom">
-				<input type="text" name="nom" placeholder="Nom" />
+				<input type="text" name="nom" value= <?php echo getName(); ?> />
 			</div>
 			
 			<div class="prenom">
-				<input type="text" name="prenom" placeholder="Prénom" />
+				<input type="text" name="prenom" value= <?php echo getFirstname(); ?> />
 			</div>
 			
 			<div class="login">
-				<input type="text" name="login" placeholder="Nom d'utilisateur" />
+				<input type="text" name="login" value= <?php echo getLogin(); ?> />
 			</div>
 			
 			<div class="mail">
-				<input type="text" name="mail" placeholder="Adresse mail" />
+				<input type="text" name="mail" value= <?php echo getMail(); ?> />
 			</div>
 		</div>
 		
