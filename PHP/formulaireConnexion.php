@@ -1,12 +1,10 @@
 <?php
-	session_start()
-?>
+	session_start();
 
-<?php
 	include "connect.php";
-?>
 
-<?php
+
+
 	// On met les variables utilisÃƒÂ© dans le code PHP ÃƒÂ  FALSE (C'est-ÃƒÂ -dire les dÃƒÂ©sactiver pour le moment).
 	$errorVoid = FALSE;
 	$errorLogin = FALSE;

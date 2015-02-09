@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	include "isAdmin.php";
 ?>
 
 <!DOCTYPE html>
@@ -106,7 +106,8 @@
 								<?php
 									if (isset($_SESSION['user'])){
 										echo("<li id='dragndrop'><a href='dragjquery2.php'>Gestion des tâches</a></li>");
-										echo("<li id='gestuser'><a href='gestionUsers.php'>Gestion des utilisateurs</a></li>");
+										if (isAdmin() == 1)
+											echo("<li id='gestuser'><a href='gestionUsers.php'>Gestion des utilisateurs</a></li>");
 									}
 								?>
 								<li id='help'><a href='help.php'>Aide</a></li>
