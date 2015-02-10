@@ -21,7 +21,7 @@ $(document).ready(function() {
 
     $("#calendar").fullCalendar({
         // put your options and callbacks here
-        height: 450,
+        height: 500,
         lang: 'fr',
 //        buttonText: {today: "retour au mois en cours"},
         fixedWeekCount: false,
