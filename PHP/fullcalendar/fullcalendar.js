@@ -23,7 +23,7 @@ var defaults = {
 	defaultTimedEventDuration: '02:00:00',
 	defaultAllDayEventDuration: { days: 1 },
 	forceEventDuration: false,
-	nextDayThreshold: '09:00:00', // 9am
+	nextDayThreshold: '00:00:00', // 9am
 
 	// display
 	defaultView: 'month',
@@ -49,7 +49,7 @@ var defaults = {
 
 	timezone: false,
 
-	//allDayDefault: undefined,
+	allDayDefault: true,
 
 	// locale
 	isRTL: false,
@@ -8449,7 +8449,7 @@ function EventManager(options) { // assumed to be a calendar
 			allDay = input.allDay;
 			if (allDay === undefined) { // still undefined? fallback to default
 				allDay = firstDefined(
-					source ? source.allDayDefault : undefined,
+					source ? source.allDayDefault : true,
 					options.allDayDefault
 				);
 				// still undefined? normalizeEventDateProps will calculate it
