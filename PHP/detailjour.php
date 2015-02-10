@@ -1,6 +1,11 @@
 <?php include "header.php"; 
+	  include "connect.php";
+?>
+		<link rel="stylesheet" type="text/css" href="../css/drag.css">
+		<link rel="stylesheet" type="text/css" href="../post-it_CSS/style.css">
 
-
+<?php
+$daterequete = $_GET['date'];
 $date = explode("-", $_GET['date']);
 
 $annee = $date[0];
@@ -49,6 +54,22 @@ switch($mois){
 
 
 echo $jour . ' ' . $mois . ' ' . $annee; ?>
-<input type="text" id="datepicker" />
+<input type="text" class="datepicker" /><br/>
+<?php 
+
+$sql = 'SELECT *
+FROM taches
+WHERE start <= ?
+AND    end >= ?';
+
+$query = $pdo->prepare($sql);
+$query->execute(array($daterequete, $daterequete));
+foreach ($query->fetchAll() as $row) {
+	echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
+		'. $row['responsable'] .'<br/>' . $row['start'] . '<br/>'
+		. $row['end'] . '</p></div>';
+}
+
+?>
 </body>
 </html>

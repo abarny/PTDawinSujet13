@@ -1,10 +1,12 @@
+
+
 #popupCreation{
 	background: DarkTurquoise;
 	z-index: 12;
-	height: 60%;
+	height: 80%;
 	width: 30%;
 	margin-left: 35%;
-	margin-top: 0;
+	margin-top: -30%;
 	display: none;
 	position: absolute;
 }
@@ -28,7 +30,7 @@
 }
 
 #zonetacheseule{
-	height: 50%;
+	height: 100%;
 	border: 1px dotted green;
 }
 #fermeture{

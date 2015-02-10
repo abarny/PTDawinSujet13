@@ -22,10 +22,10 @@ DU CSS, plein de CSS
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="../javascript/constructeurs.js"></script>
 		 		<script src="http://jqueryui.com/resources/demos/datepicker/datepicker-fr.js"></script>
-
-		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/j query-ui.css">
 		<link rel="stylesheet" type="text/css" href="../css/drag.css">
 		<link rel="stylesheet" type="text/css" href="../post-it_CSS/style.css">
+		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css">
+
 		<script>
     	$(document).ready(function () {
         $('#dragndrop').addClass('active');
@@ -61,7 +61,8 @@ $(function(){
      						  success : function(data){
      						  	//alert(data);
      							$('#popupCreation').css('display', 'none');
-								$('#zonetacheseule').append('<div class="tache">'+ data + '</div>');    						  	
+								$('#zonetacheseule').append('<div class="tache">'+ data + '</div>');
+								//$('body').load('dragjquery2.php');    						  	
      						  }
      						});
 				    	 });
@@ -320,13 +321,13 @@ Viviane Bate<br/>
   </p>
 </div> -->
 </div>	
-<div id="groupe1" class="groupe">
+<!--<div id="groupe1" class="groupe">
 <p>groupe1</p>
 </div>
 </div>
 <div id="zonegroupe">
 </div>
-</div>
+</div>-->
 <!-- popup => popup de fusion -->
 <div id="popup">
 	<img id="fermeture" onclick="fermepopup()"src="../img/fermeture.png" alt="icone fermeture popup" />
@@ -352,7 +353,7 @@ Viviane Bate<br/>
 		<input type="text"  size="8" class="datepicker" name="dateFin" id="dateFin" />	
 		</div>
 		<div class="ligne"><p>Durée estimée</p>	
-			<input type="text" id="dureeEstimee" name="dureeEstimee"/>
+			<input type="text" id="dureeEstimee" name="dureeEstimee" size="4"/>
 		</div>
 		<input type="submit" value="valider" id="creationtache"/>
 	</div>
