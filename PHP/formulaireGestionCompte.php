@@ -60,6 +60,14 @@
 		return array_values($result)[0];
 	}
 
+	$error;
+	$errorMSG;
+
+	function setError($MSG) {
+		$error = TRUE;
+		$errorMSG = $MSG;
+	}
+
 ?>
 
 <?php
@@ -69,25 +77,36 @@
 	if(isset($_POST["modify"])){
 
 		// On regarde si tout les champs sont remplis, sinon, on affiche un message à l'utilisateur.
-		/*
 		if($_POST["nom"] == NULL OR $_POST["prenom"] == NULL OR $_POST["mail"] == NULL OR $_POST["login"] == NULL){
 		   
-			// On met la variable $error à TRUE pour que par la suite le navigateur sache qu'il y'a une erreur à afficher.
-			$error = TRUE;
-		   
-			// On écrit le message à afficher :
-			$errorMSG = "Tous les champs doivent être remplis !";
+			setError("Tous les champs doivent être remplis !");
 			   
 		}
 
 		else {
-
-			/*$req = "UPDATE users SET prenom = '".$_POST["prenom"]."', nom_user = '".$_POST["nom"]."', username = '".$_POST["login"]."', mail = '".$_POST["mail"]."' WHERE user_id = '".$_SESSION["user"]."'";
-			mysql_query($req);
-			echo "<script>alert(Vos modifications ont bien été prises en compte.)</script>";
-		*/
-
+			
 			session_start();
+			
+			if ($_POST["oldPass"] == NULL AND $_POST["newPass1"] == NULL AND $_POST["newPass2"] == NULL) {
+				if (md5($_POST["oldPass"]) == $_SESSION['pass']) {
+					if ($_POST["newPass1"] == $_POST["newPass2"]){
+						if ($_POST["newPass1"] != $_POST["login"]){
+
+						}
+
+						else
+							setError("Votre login et votre mot de passe doivent être différents !");
+					}
+
+					else
+						setError("Vous avez mal renseigné votrer ancien mot de passe !");
+				}
+				
+				else
+					setError("Vous avez mal renseigné votrer ancien mot de passe !");
+			}
+
+			
 			$req = "UPDATE `users` SET prenom = ?, nom_user = ?, username = ?, mail = ? WHERE id_user = ?";
 			$query = $pdo->prepare($req);
 			$query->execute(array($_POST["prenom"], $_POST["nom"], $_POST["login"], $_POST["mail"], $_SESSION['user']));
@@ -98,9 +117,7 @@
 				window.location.replace("gestionCompte.php");
 			</script>
 			<?php
-		/*
 		}
-		*/
 	}
 
 ?>
