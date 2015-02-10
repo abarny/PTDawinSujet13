@@ -79,7 +79,7 @@
 			<div class='container'>
 			
 				<!-- <a href="calendar.php"><img class ='logo' src='../img/Logo.png' alt='Logo TeamShare'></a> -->
-				<img alt="" src='../img/Logo3.png'>
+				<a href='calendar.php'><img alt="" src='../img/Logo3.png'></a>
 				<!-- Static navbar -->
 				<nav class='navbar navbar-default'>
 					<div class='container-fluid'>

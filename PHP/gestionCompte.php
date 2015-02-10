@@ -18,7 +18,7 @@
 
 
 <div class="gestionCompte">
-	<form method="post">
+	<form method="post" action="formulaireGestionCompte.php">
 	
 		<div class="infos">
 			<div class="nom">
