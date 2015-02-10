@@ -21,10 +21,11 @@ $(document).ready(function() {
 
     $("#calendar").fullCalendar({
         // put your options and callbacks here
-        height: "auto",
+        height: 450,
         lang: 'fr',
 //        buttonText: {today: "retour au mois en cours"},
         fixedWeekCount: false,
+        eventLimit: true,
 
 		events: "events.php",
 

@@ -1,7 +1,14 @@
-﻿#calendar{
-	width: 80%;
-	margin: 50px auto auto auto;
-}
+﻿body {
+        margin: 40px 10px;
+        padding: 0;
+        font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+        font-size: 14px;
+    }
+
+#calendar {
+        max-width: 80%;
+        margin: 0 auto;
+    }
 
 .fc-widget-content{
 	cursor:pointer;
