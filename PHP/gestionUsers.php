@@ -77,8 +77,8 @@ include "connect.php";
 					<th>Prénom</th>
 					<th>Email</th>
 					<th>Login</th>
-					<th>Nombre tâches semaine courante</th>
-					<th>Nombre heures semaine courante</th>
+					<!-- <th>Nombre tâches semaine courante</th>
+					<th>Nombre heures semaine courante</th> -->
 					<th>Droits</th>
 				</tr>
 			</thead>
@@ -108,8 +108,8 @@ include "connect.php";
 				<td> <?php echo utf8_encode($val['prenom']); ?> </td>
 				<td> <?php echo utf8_encode($val['mail']); ?> </td>
 				<td> <?php echo utf8_encode($val['username']); ?> </td>
-				<td> <?php echo ""; ?> </td>
-				<td> <?php echo ""; ?> </td>
+				<!-- <td> <?php /*echo ""; ?> </td>
+				<td> <?php echo ""*/; ?> </td> -->
 				<td>
 					<select name="droit">
 						<option>
