@@ -43,7 +43,8 @@ $(function(){
 				    $('#creationtache').click(function(){
 				    	var intitule = $('#intitule').val();
 						var	description = $('#description').val();
-						var	responsable = $('#responsable').val();
+						var	responsableId = $('#responsable option:selected').val();
+						var	responsableText = $('#responsable option:selected').text();
 						var	adjoint1 = $('#adjoint1 option:selected').val();
 						var	adjoint2 = $('#adjoint2 option:selected').val();
 						var	adjoint3 = $('#adjoint3 option:selected').val();
@@ -54,8 +55,8 @@ $(function(){
 				    	$.ajax({
      						  url: 'creation_tache.php',
      						  type: 'GET',
-     						  data: "intitule="+intitule+"&description="+description+
-     						  "&responsable="+responsable+"&dateDebut="+dateDebut+"&dateFin="+dateFin+"&dureeEstimee="
+     						  data: "intitule="+intitule+"&description="+description+"&responsableText="+responsableText+
+     						  "&responsableId="+responsableId+"&dateDebut="+dateDebut+"&dateFin="+dateFin+"&dureeEstimee="
      						  +dureeEstimee+"&adjoint1="+adjoint1+"&adjoint2="+adjoint2+"&adjoint3="+adjoint3,
      						  dataType: 'html',
      						  success : function(data){
@@ -266,8 +267,8 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 
 <div id="sousmenu">
 		<a href="#" class="myButton btn btn-primary btn-responsive" id="newtask" onclick="creationTache()">Nouvelle tâche</a>
-		<a href="#" class="myButton btn btn-primary btn-responsive" id="changetask">Modifier tâche</a>
-		<a href="#" class="myButton btn btn-primary btn-responsive" id="deletetask">Supprimer tâche</a>
+<!--		<a href="#" class="myButton btn btn-primary btn-responsive" id="changetask">Modifier tâche</a>
+		<a href="#" class="myButton btn btn-primary btn-responsive" id="deletetask">Supprimer tâche</a> -->
 </div>
 <div id="parking">
 <div id="zonetacheseule">
@@ -276,10 +277,10 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 $sql = 'SELECT *
 FROM taches
 INNER JOIN membres_taches ON membres_taches.id_tache = taches.id
-WHERE id_util =11';
+WHERE id_util ='.$_SESSION['user'];
 foreach ($pdo->query($sql) as $row) {
 	echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
-		' . '<br/>' . $row['start'] . '<br/>'
+		' . $row['responsable'] . '<br/>' . $row['start'] . '<br/>'
 		. $row['end'] . '</p></div>';
 }
 ?>
