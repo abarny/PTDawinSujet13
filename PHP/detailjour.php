@@ -57,10 +57,6 @@ echo $jour . ' ' . $mois . ' ' . $annee; ?>
 <input type="text" class="datepicker" /><br/>
 <?php 
 
-$query = $pdo->query(
-    'SELECT MAX(id) FROM taches');
-$donnees = $query->fetch();
-
 $sql = 'SELECT *
 FROM taches
 WHERE start <= ?
@@ -71,7 +67,7 @@ $query->execute(array($daterequete, $daterequete));
 foreach ($query->fetchAll() as $row) {
 	echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
 		'. $row['responsable'] .'<br/>' . $row['start'] . '<br/>'
-		. $row['end'] . $donnees . '</p></div>';
+		. $row['end'] . '</p></div>';
 }
 
 ?>
