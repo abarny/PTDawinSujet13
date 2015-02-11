@@ -73,9 +73,6 @@
 									$_SESSION["pass"] = $passCrypt;
 									$_SESSION["droits_admin"] = 0;
 									
-								  // Comme un utilisateur est différent, on crée des variables de sessions pour "varier" l'utilisateur comme ceci :
-								  // echo $_SESSION["username"]; (bien entendu avec les balises PHP, sinons cela ne marchera pas.
-									
 								}
 								
 							  // Sinon on l'affiche un message d'erreur (généralement pour vous quand vous testez vos scripts PHP)
