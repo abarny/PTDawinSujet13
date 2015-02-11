@@ -26,6 +26,7 @@
 		<link href='../css/gestionCompte.css' rel='stylesheet' />
 		<link href='../css/gestionUsers.css' rel='stylesheet' />
 		<link href='../css/connexion.css' rel='stylesheet' />
+		<link href='../css/help.css' rel='stylesheet' />
 
 			<!-- Bootstrap core JavaScript
 			================================================== -->
