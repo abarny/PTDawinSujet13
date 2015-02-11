@@ -69,7 +69,7 @@ include "connect.php";
 		?>
 		
 		<table id="usersList" name="usersList">
-			<!-- EntÃƒÆ’Ã‚Âªte du tableau -->
+			<!-- Entête du tableau -->
 			<thead>
 				<tr>
 					<th class="check">Sélection</th>
@@ -77,8 +77,6 @@ include "connect.php";
 					<th>Prénom</th>
 					<th>Email</th>
 					<th>Login</th>
-					<!-- <th>Nombre tâches semaine courante</th>
-					<th>Nombre heures semaine courante</th> -->
 					<th>Droits</th>
 				</tr>
 			</thead>
@@ -108,8 +106,6 @@ include "connect.php";
 				<td> <?php echo utf8_encode($val['prenom']); ?> </td>
 				<td> <?php echo utf8_encode($val['mail']); ?> </td>
 				<td> <?php echo utf8_encode($val['username']); ?> </td>
-				<!-- <td> <?php /*echo ""; ?> </td>
-				<td> <?php echo ""*/; ?> </td> -->
 				<td>
 					<select name="droit">
 						<option>
@@ -149,12 +145,12 @@ include "connect.php";
 		<?php
 		
 			} // fermeture du grand if
-			// si il n'y a aucune données ÃƒÆ’Ã‚Â  afficher
+			// si il n'y a aucune données à afficher
 			else {
 		
 		?>
 		
-		pas de données ÃƒÂ  afficher
+		<strong>Pas de données à afficher !</strong>
 		<?php
 		
 			} // fermeture du else

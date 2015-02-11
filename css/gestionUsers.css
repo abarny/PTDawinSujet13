@@ -1,8 +1,8 @@
 ﻿.userContainer {
 	padding-top: 20px;
 	padding-bottom: 20px;
-	margin-right: 2%;
-	margin-left: 2%;
+	margin-right: 20%;
+	margin-left: 20%;
 }
 
 
@@ -36,6 +36,9 @@
 /* RESPONSIVE : PROPRIETES TABLETTES (HORIZONTALE) */
 @media screen and (max-width: 1024px)
 {
+	.userContainer {
+	margin-right: 2%;
+	margin-left: 2%;
 		
 }
 
