@@ -61,9 +61,8 @@ $(function(){
      						  success : function(data){
      						  	//alert(data);
      							$('#popupCreation').css('display', 'none');
-								$('#zonetacheseule').append('<div class="tache">'+ data + '</div>');
-								//$('body').load('dragjquery2.php');    						  	
-     						  }
+								//$('#zonetacheseule').append('<div class="tache">'+ data + '</div>');
+								location.reload(true);     						  }
      						});
 				    	 });
 
@@ -83,27 +82,6 @@ $(function(){
      						  }
      						});
 				    	 });
-     				/*	{
-     						nomrequete : nomrequete,
-							intitule : intitule,
-							description : description,
-							responsable : responsable,
-						//	adjoint1 : adjoint1,
-						//	adjoint2 : adjoint2,
-						//	adjoint3 : adjoint3,
-							dateDebut : dateDebut,
-							dateFin : dateFin,
-							dureeEstimee : dureeEstimee
-     					},
-     					function(data){
-     							alert('insertion effectuée');
-     							$('#popupCreation').css('display', 'none');
-     					},
-     					"html");
-
-    			});*/
-
-
 
     $('.groupe').draggable({ containment: 'parent' }); // appel du plugin
 
@@ -278,10 +256,14 @@ var tailleInitiale = parseInt($('#groupe1').css('height'));
 $sql = 'SELECT *
 FROM taches
 INNER JOIN membres_taches ON membres_taches.id_tache = taches.id
-WHERE id_util =1';
-foreach ($pdo->query($sql) as $row) {
+WHERE id_util = ?';
+$query = $pdo->prepare($sql);
+$query->execute(array(11));
+
+//$query->execute(array($_SESSION['user']));
+foreach ($query->fetchAll() as $row) {
 	echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
-		'. $row['responsable'] .'<br/>' . $row['start'] . '<br/>'
+		'.'<br/>' . $row['start'] . '<br/>'
 		. $row['end'] . '</p></div>';
 }
 ?>
@@ -329,6 +311,8 @@ Viviane Bate<br/>
 </div>
 </div>-->
 <!-- popup => popup de fusion -->
+	<?php 
+	$sql = 'SELECT id_user, username FROM users'; ?>
 <div id="popup">
 	<img id="fermeture" onclick="fermepopup()"src="../img/fermeture.png" alt="icone fermeture popup" />
 <h1 id="titrefusion">Fusion de tâches </h1>
@@ -339,12 +323,39 @@ Viviane Bate<br/>
 	<h1> Création d'une nouvelle tâche </h1>
 	<input type="text" name="intitule" placeholder="Intitulé" id="intitule"/><br/>
 	<textarea cols="50"rows="5"name="description"placeholder="Description" id="description"></textarea><br/>
-	<input type="text" name="responsable" placeholder="Responsable" id="responsable"/>
-	<select name="groupe"> </select><br/>
-	<input type="text" class="adjoint" name="adjoint1" placeholder="adjoint1" id="adjoint1"/>
-	<input type="text" class="adjoint" name="adjoint2" placeholder="adjoint2" id="adjoint2"/>
-	<input type="text" class="adjoint" name="adjoint3" placeholder="adjoint3" id="adjoint3"/>
-	<img src="../img/plus.jpg" alt="ajouter plus d'adjoints" width="20px" height="20px"  />
+	<label for="responsable" id="labelresponsable"> Responsable : </label>
+<select name="responsable" id="responsable" > <option></option>
+<?php
+	foreach ($pdo->query($sql) as $row) {
+		echo '<option value="' . $row['id_user'] .'">'. $row['username'] . '</option>';
+	}
+?>
+	 </select><br/>
+	
+	<label for="adjoints" id="labeladjoints"> Adjoints : </label>
+	 <div id="adjoints">
+	<select name="adjoint1" class="adjoint"> <option placeholder="adjoint"></option>
+<?php
+	foreach ($pdo->query($sql) as $row) {
+		echo '<option value="' . $row['id_user'] .'">'. $row['username'] . '</option>';
+	}
+?>
+	 </select>
+	 	<select name="adjoint2" class="adjoint"> <option></option>
+<?php
+	foreach ($pdo->query($sql) as $row) {
+		echo '<option value="' . $row['id_user'] .'">'. $row['username'] . '</option>';
+	}
+?>
+	 </select>
+	 	<select name="adjoint3" class="adjoint"> <option></option>
+<?php
+	foreach ($pdo->query($sql) as $row) {
+		echo '<option value="' . $row['id_user'] .'">'. $row['username'] . '</option>';
+	}
+?>
+	 </select>
+	</div>
 	<div>
 		<div class="ligne"><p>Date début </p>
 		<input type="text" size="8" class="datepicker" name="dateDebut" id="dateDebut"/>	
