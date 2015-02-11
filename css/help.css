@@ -1,0 +1,11 @@
+.helpContainer {
+	margin-left: 10%;
+	font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+
+}
+
+.helpContainer p{
+	font-size: 18px;
+	text-align:justify;
+	margin-right: 10%;
+}
