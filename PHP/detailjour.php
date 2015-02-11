@@ -65,9 +65,23 @@ AND    end >= ?';
 $query = $pdo->prepare($sql);
 $query->execute(array($daterequete, $daterequete));
 foreach ($query->fetchAll() as $row) {
+
+	$membres_taches = $pdo->prepare('SELECT * 
+	FROM membres_taches WHERE id_tache = ?');
+	$membres_taches->execute(array($row['id']));
+	foreach ($membres_taches->fetchAll() as $membrepartache) {
+		# code...
+	
+	if($membrepartache['id_util'] == $_SESSION['user']){
 	echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
 		'. $row['responsable'] .'<br/>' . $row['start'] . '<br/>'
-		. $row['end'] . '</p></div>';
+		. $row['end'] . '</p> <button id="desinscription_tache">se désinscrire</button></div>';
+	}else{
+	echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
+		'. $row['responsable'] .'<br/>' . $row['start'] . '<br/>'
+		. $row['end'] . '</p> <button id="inscription_tache">s\'inscrire</button></div>';
+	}
+}
 }
 
 ?>
