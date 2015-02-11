@@ -75,11 +75,11 @@ foreach ($query->fetchAll() as $row) {
 	if($membrepartache['id_util'] == $_SESSION['user']){
 	echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
 		'. $row['responsable'] .'<br/>' . $row['start'] . '<br/>'
-		. $row['end'] . '</p> <button id="desinscription_tache">se désinscrire</button></div>';
+		. $row['end'] . '<button id="desinscription_tache">se désinscrire</button></p> </div>';
 	}else{
 	echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
 		'. $row['responsable'] .'<br/>' . $row['start'] . '<br/>'
-		. $row['end'] . '</p> <button id="inscription_tache">s\'inscrire</button></div>';
+		. $row['end'] . '<button id="inscription_tache">s\'inscrire</button></p> </div>';
 	}
 }
 }
