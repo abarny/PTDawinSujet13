@@ -4,6 +4,48 @@
 		<link rel="stylesheet" type="text/css" href="../css/drag.css">
 		<link rel="stylesheet" type="text/css" href="../post-it_CSS/style.css">
 
+				<script type"text/javascript">
+
+$(function(){
+				    $('.inscription_tache').click(function(){
+				    	var id = $(this).attr('id');
+				    	var tab = id.split('-');
+				    	var id_tache = tab[0];
+				    	var id_util = tab[1];
+				    	$.ajax({
+     						  url: 'inscription_tache.php',
+     						  type: 'GET',
+     						  data: "id_tache="+id_tache+"&id_util="+id_util,
+     						  dataType: 'html',
+     						  success : function(data){
+								location.reload(true);
+								     						//  	$('body').append('<h1>'+data+'</h1>');
+     						     						  	
+     						  }
+     						});
+				    	 });
+
+				    $('.desinscription_tache').click(function(){
+				    	var id = $(this).attr('id');
+				    	var tab = id.split('-');
+				    	var id_tache = tab[0];
+				    	var id_util = tab[1];
+				    	$.ajax({
+     						  url: 'desinscription_tache.php',
+     						  type: 'GET',
+     						  data: "id_tache="+id_tache+"&id_util="+id_util,
+     						  dataType: 'html',
+     						  success : function(data){
+								location.reload(true);
+								     						//  	$('body').append('<h1>'+data+'</h1>');
+     						     						  	
+     						  }
+     						});
+				    	 });
+});
+
+</script>
+
 <?php
 $daterequete = $_GET['date'];
 $date = explode("-", $_GET['date']);
@@ -84,9 +126,9 @@ foreach ($query->fetchAll() as $row) {
 			AND id_util = ?');
 	$membrestaches->execute(array($row['id'], $_SESSION['user']));
 	foreach ($membrestaches->fetchAll() as $membreconnectepartache) {
-		echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
+		echo '<div class="tache quote-container" ><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
 		'. $row['responsable'] .'<br/>' . $row['start'] . '<br/>'
-		. $row['end'] . '<button id="desinscription_tache">se désinscrire</button></p> </div>';
+		. $row['end'] . '<button id="'.$row['id'].'-'.$_SESSION['user'].'" class="desinscription_tache">se désinscrire</button></p> </div>';
 		array_push($util_inscrit, $membreconnectepartache['id_tache']);
 }
 		$membrestaches = $pdo->prepare('SELECT id_tache, id_util
@@ -101,9 +143,9 @@ foreach ($query->fetchAll() as $row) {
 		}
 		}
 		if($already_display == false){
-		echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
+		echo '<div class="tache quote-container"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
 		'. $row['responsable'] .'<br/>' . $row['start'] . '<br/>'
-		. $row['end'] . '<button id="inscription_tache">s\'inscrire</button></p> </div>';
+		. $row['end'] . '<button  id="'.$row['id'].'-'.$_SESSION['user'].'" class="inscription_tache">s\'inscrire</button></p> </div>';
 		$already_display = true;
 		}
 
