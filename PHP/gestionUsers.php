@@ -40,13 +40,28 @@ include "connect.php";
 <script>
     	$(document).ready(function () {
         $('#gestuser').addClass('active');
+
+         $('#delete_user').click(function(){
+				    	var id_user = $('.checkbox:checked').attr('id');
+				    	$.ajax({
+     						  url: 'delete_user.php',
+     						  type: 'GET',
+     						  data: "id_user="+id_user,
+     						  dataType: 'html',
+     						  success : function(data){
+								location.reload(true);
+								     						//  	$('body').append('<h1>'+data+'</h1>');
+     						     						  	
+     						  }
+     						});
+				    	 });
     	});
 </script> 
 
 	<div class="userContainer">
 
 			<div class="deleteUser">
-				<input type="button" name="deleteUser" onclick="" value="Supprimer utilisateur(s) sélectionné(s)" />
+				<input type="button" id="delete_user" name="deleteUser" onclick="" value="Supprimer utilisateur(s) sélectionné(s)" />
 			</div>
 		
 		<?php
@@ -55,7 +70,7 @@ include "connect.php";
 			$NbrCol = 7;
 			
 			// Requète
-			$query = 'SELECT nom_user, prenom, mail, username, droits_admin FROM users ORDER BY id_user';
+			$query = 'SELECT id_user, nom_user, prenom, mail, username, droits_admin FROM users ORDER BY id_user';
 			$result = mysql_query($query);
 			
 			// Nombre de cellules a remplir
@@ -69,7 +84,7 @@ include "connect.php";
 		?>
 		
 		<table id="usersList" name="usersList">
-			<!-- Entête du tableau -->
+			<!-- EntÃƒÆ’Ã‚Âªte du tableau -->
 			<thead>
 				<tr>
 					<th class="check">Sélection</th>
@@ -77,6 +92,8 @@ include "connect.php";
 					<th>Prénom</th>
 					<th>Email</th>
 					<th>Login</th>
+					<!-- <th>Nombre tâches semaine courante</th>
+					<th>Nombre heures semaine courante</th> -->
 					<th>Droits</th>
 				</tr>
 			</thead>
@@ -101,11 +118,13 @@ include "connect.php";
 				
 				?>
 				
-				<td class="check"><input type="checkbox" name="<?php echo $j ?>" /></td>
+				<td class="check"><input type="checkbox" id="<?php echo $val['id_user'] ?>" class="checkbox" name="<?php echo $j ?>" /></td>
 				<td> <?php echo utf8_encode($val['nom_user']); ?> </td>
 				<td> <?php echo utf8_encode($val['prenom']); ?> </td>
 				<td> <?php echo utf8_encode($val['mail']); ?> </td>
 				<td> <?php echo utf8_encode($val['username']); ?> </td>
+				<!-- <td> <?php /*echo ""; ?> </td>
+				<td> <?php echo ""*/; ?> </td> -->
 				<td>
 					<select name="droit">
 						<option>
@@ -145,12 +164,12 @@ include "connect.php";
 		<?php
 		
 			} // fermeture du grand if
-			// si il n'y a aucune données à afficher
+			// si il n'y a aucune données ÃƒÆ’Ã‚Â  afficher
 			else {
 		
 		?>
 		
-		<strong>Pas de données à afficher !</strong>
+		pas de données ÃƒÂ  afficher
 		<?php
 		
 			} // fermeture du else
