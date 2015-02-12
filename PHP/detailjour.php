@@ -61,18 +61,79 @@ $sql = 'SELECT *
 FROM taches
 WHERE start <= ?
 AND    end >= ?';
-
+$util_inscrit = [];
+$already_display = false;
 $query = $pdo->prepare($sql);
 $query->execute(array($daterequete, $daterequete));
 foreach ($query->fetchAll() as $row) {
 
-	$membres_taches = $pdo->prepare('SELECT * 
-	FROM membres_taches WHERE id_tache = ?');
-	$membres_taches->execute(array($row['id']));
-	foreach ($membres_taches->fetchAll() as $membrepartache) {
-		# code...
-	
-	if($membrepartache['id_util'] == $_SESSION['user']){
+	//utilisateur non connecté, on affiche toutes les taches sans bouton s'inscrire ou se désinscrire
+	if(!isset($_SESSION['user'])){
+/*		$membres_taches = $pdo->prepare('SELECT DISTINCT id_tache 
+		FROM membres_taches WHERE id_tache = ?');
+		$membres_taches->execute(array($row['id']));
+		foreach ($membres_taches->fetchAll() as $membrepartache) {*/
+		echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
+		'. $row['responsable'] .'<br/>' . $row['start'] . '<br/>'
+		. $row['end'] . '</p> </div>';
+//	}
+}else{
+		$membrestaches = $pdo->prepare('SELECT id_tache, id_util
+		FROM membres_taches
+		WHERE id_tache = ?
+			AND id_util = ?');
+	$membrestaches->execute(array($row['id'], $_SESSION['user']));
+	foreach ($membrestaches->fetchAll() as $membreconnectepartache) {
+		echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
+		'. $row['responsable'] .'<br/>' . $row['start'] . '<br/>'
+		. $row['end'] . '<button id="desinscription_tache">se désinscrire</button></p> </div>';
+		array_push($util_inscrit, $membreconnectepartache['id_tache']);
+}
+		$membrestaches = $pdo->prepare('SELECT id_tache, id_util
+		FROM membres_taches
+		WHERE id_tache = ?
+			AND id_util != ?');
+	$membrestaches->execute(array($row['id'], $_SESSION['user']));
+	foreach ($membrestaches->fetchAll() as $membreconnectepartache) {
+		foreach($util_inscrit as $value){
+		if($membreconnectepartache['id_tache'] == $value){
+			$already_display = true;
+		}
+		}
+		if($already_display == false){
+		echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
+		'. $row['responsable'] .'<br/>' . $row['start'] . '<br/>'
+		. $row['end'] . '<button id="inscription_tache">s\'inscrire</button></p> </div>';
+		$already_display = true;
+		}
+
+
+}
+$already_display = false;
+}
+
+
+
+
+
+/*else{
+	$membresconnecte_taches = $pdo->prepare('SELECT id_tache, id_util 
+	FROM membres_taches WHERE id_tache = ?
+							  AND id_util = ?');
+	$membresconnecte_taches->execute(array($row['id'], $_SESSION['user']));
+	foreach ($membresconnecte_taches->fetchAll() as $membreconnectepartache) {	
+if($membreconnectepartache['id_util'] == $_SESSION['user']){
+	echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
+		'. $row['responsable'] .'<br/>' . $row['start'] . '<br/>'
+		. $row['end'] . '<button id="desinscription_tache">se désinscrire</button></p> </div>';
+	}elseif(           ){
+	echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
+		'. $row['responsable'] .'<br/>' . $row['start'] . '<br/>'
+		. $row['end'] . '<button id="inscription_tache">s\'inscrire</button></p> </div>';
+	}
+}
+}*/
+/*	elseif($membrepartache['id_util'] == $_SESSION['user']){
 	echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
 		'. $row['responsable'] .'<br/>' . $row['start'] . '<br/>'
 		. $row['end'] . '<button id="desinscription_tache">se désinscrire</button></p> </div>';
@@ -80,10 +141,12 @@ foreach ($query->fetchAll() as $row) {
 	echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
 		'. $row['responsable'] .'<br/>' . $row['start'] . '<br/>'
 		. $row['end'] . '<button id="inscription_tache">s\'inscrire</button></p> </div>';
-	}
-}
+	}*/
+
 }
 
 ?>
+
+
 </body>
 </html>
