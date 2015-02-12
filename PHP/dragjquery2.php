@@ -8,7 +8,7 @@ Probleme de z-index : les taches draggés passant par en dessous c'est moche : =
 pour les fusions de gauche à droite : le drop d'une tache doit pas engendrer le déplacement des autres sinon comparaison
 des coordonnées impossible: Fait (position absolute) !
 
-
+ceci est un test
 
 Bouger les groupes, est-ce nécessaire ?
 que l'on puisse poser les tâches n'importe ou ?
