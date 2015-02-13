@@ -95,8 +95,8 @@ switch($mois){
 }
 
 
-echo $jour . ' ' . $mois . ' ' . $annee; ?>
-<input type="text" class="datepicker" /><br/>
+echo '<div id="date">'.$jour . ' ' . $mois . ' ' . $annee .'</div>'; ?>
+<!--<input type="text" class="datepicker" /><br/>-->
 <?php 
 
 $sql = 'SELECT *
