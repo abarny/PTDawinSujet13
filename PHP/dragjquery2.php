@@ -70,7 +70,26 @@ $(function(){
      						});
 				    	 });
 
-				    $('#creationgroupe').click(function(){
+				    $('.delete_task').click(function(){
+				    	var id_tache = $(this).attr('id');
+				    //	alert(id_tache);
+				    	$.ajax({
+     						  url: 'delete_task.php',
+     						  type: 'GET',
+     						  data: "id_tache="+id_tache,
+     						  dataType: 'html',
+     						  success : function(data){
+     						  	//alert(data);
+     				//			$('#popupCreation').css('display', 'none');
+//								$('#zonetacheseule').append('<div class="tache">'+ data + '</div>');
+								//$('body').load('dragjquery2.php'); 
+								location.reload(true);     						  
+   						  	
+     						  }
+     						});
+				    	 });
+
+			/*	    $('#creationgroupe').click(function(){
 				    	var nomgroupe = $('#nomgroupe').val();
 
 				    	$.ajax({
@@ -85,7 +104,7 @@ $(function(){
 
      						  }
      						});
-				    	 });
+				    	 });*/
      				/*	{
      						nomrequete : nomrequete,
 							intitule : intitule,
@@ -281,7 +300,7 @@ WHERE id_util ='.$_SESSION['user'];
 foreach ($pdo->query($sql) as $row) {
 	echo '<div class="tache quote-container" id="'.$row['id'].'"><i class="pin"></i><p class="note yellow">'.$row['title'].'<br/>
 		' . $row['responsable'] . '<br/>' . $row['start'] . '<br/>'
-		. $row['end'] . '</p></div>';
+		. $row['end'] . '<button id="'.$row['id'].'" class="delete_task">supprimer</button></p> </div>';
 }
 ?>
 <!--	
