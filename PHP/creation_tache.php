@@ -15,7 +15,8 @@ function wd_remove_accents($str, $charset='utf-8')
 
 $intitule = isset($_GET['intitule']) ? $_GET['intitule'] : '';
 $description = isset($_GET['description']) ? $_GET['description'] : '';
-$responsable = isset($_GET['responsable']) ? $_GET['responsable'] : '';
+$responsableId = isset($_GET['responsableId']) ? $_GET['responsableId'] : '';
+$responsableText = isset($_GET['responsableText']) ? $_GET['responsableText'] : '';
 $adjoint1 = isset($_GET['adjoint1']) ? $_GET['adjoint1'] : '';
 $adjoint2 = isset($_GET['adjoint2']) ? $_GET['adjoint2'] : '';
 $adjoint3 = isset($_GET['adjoint3']) ? $_GET['adjoint3'] : '';
@@ -27,13 +28,13 @@ $intitule = wd_remove_accents($intitule, 'utf-8');
 
 $insert = $pdo->prepare('INSERT INTO taches 
     (title,start,end, description, heures_estim, responsable, id_groupe) VALUES (?,?,?,?,?,?,?)');
-$insert->execute(array($intitule,$dateDebut,$dateFin, $description, $adjoint1,$responsable, '0'));
+$insert->execute(array($intitule,$dateDebut,$dateFin, $description, $dureeEstimee,$responsableText, 0));
 
 $id = $pdo->lastInsertId();
 
 $insert = $pdo->prepare('INSERT INTO membres_taches 
     (id_util,id_tache) VALUES (?,?)');
-$insert->execute(array($responsable,$id));
+$insert->execute(array($responsableId,$id));
 
 $insert = $pdo->prepare('INSERT INTO membres_taches 
     (id_util,id_tache) VALUES (?,?)');
@@ -48,6 +49,6 @@ $insert = $pdo->prepare('INSERT INTO membres_taches
 $insert->execute(array($adjoint3,$id));
 
 
-echo $intitule;
+echo $responsableText;
 
 ?>
